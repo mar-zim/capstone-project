@@ -22,7 +22,7 @@ body {
   background-color: var(--white);
   font-family: 'Open Sans',  sans-serif;
   margin: 0;
-  max-width: 375px
+  width: 100vw
 }
 
 main {

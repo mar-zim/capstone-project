@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import shharelogo from '../../Assets/shharelogo.svg'
 
 export default function Header() {
   return (
     <StyledHeader>
-      <img src={shharelogo} alt="logo" />
+      <img src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
     </StyledHeader>
   )
 }
