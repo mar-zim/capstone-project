@@ -9,7 +9,7 @@ export default function ProductListItem({ product }) {
       <ProductDetails>
         <p>von {product.owner_firstname}</p>
         <p>aus {product.location}</p>
-        <p class="text-light">Tel: {product.phone}</p>
+        <p className="text-light">Tel: {product.phone}</p>
       </ProductDetails>
     </>
   )
