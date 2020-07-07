@@ -29,7 +29,7 @@ main {
   padding: 0 20px;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, p {
   margin: 0
 }
 
@@ -53,7 +53,7 @@ h2 {
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--grey-1);
-  margin-top: 6px
+  margin-top: 9px
 }
 
 h3 {
@@ -65,6 +65,7 @@ h3 {
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--grey-2);
+  margin-top: 6px;
 }
 
 h4 {
@@ -76,21 +77,11 @@ h4 {
   line-height: 1.6;
   letter-spacing: normal;
   color: var(--grey-2);
+  margin-top: 6px;
 }
 
-link {
-  font-family: OpenSans;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--denim);
-}
-
-.text-dark {
-  font-family: OpenSans;
+p {
+  font-family: Open Sans;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -100,27 +91,20 @@ link {
   color: var(--grey-2);
 }
 
-.text-light {
-  font-family: OpenSans;
-  font-size: 14px;
+link {
+  font-family: Open Sans;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.57;
-  letter-spacing: 0.3px;
-  color: var(--grey-4);
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--denim);
 }
 
-.button-text {
-  font-family: OpenSans;
-  font-size: 12px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: 1.2px;
-  text-align: center;
-  color: var(--white);
+
+.text-light {
+  color: var(--grey-4);
 }
 
 caption {

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../src/Components/Header/Header'
+import ProductList from './Components/ProductList/ProductList'
+import mockdata from '../src/Assets/products.json'
 
 function App() {
   return (
     <>
       <Header />
-      <h2>shhare test</h2>
+      <ProductList products={mockdata} />
     </>
   )
 }
