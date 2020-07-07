@@ -16,5 +16,5 @@ export default function ProductList({ products }) {
 }
 
 const MainGrid = styled.main`
-  padding: 0 20px;
+  padding: 20px;
 `

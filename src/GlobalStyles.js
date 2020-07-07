@@ -53,7 +53,6 @@ h2 {
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--grey-1);
-  margin-top: 9px
 }
 
 h3 {
@@ -90,6 +89,9 @@ p {
   letter-spacing: 0.3px;
   color: var(--grey-2);
 }
+.text-light {
+  color: var(--grey-4);
+}
 
 link {
   font-family: Open Sans;
@@ -100,11 +102,6 @@ link {
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--denim);
-}
-
-
-.text-light {
-  color: var(--grey-4);
 }
 
 caption {
