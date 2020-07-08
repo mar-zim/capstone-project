@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../src/Components/Header/Header'
-import ProductList from './Components/ProductList/ProductList'
-import mockdata from '../src/Assets/products.json'
+import Header from '../src/components/Header/Header'
+import ProductList from './components/ProductList/ProductList'
+import mockdata from '../src/assets/products.json'
 
 function App() {
   return (

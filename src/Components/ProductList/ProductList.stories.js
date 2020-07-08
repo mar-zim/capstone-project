@@ -2,7 +2,7 @@ import React from 'react'
 import GlobalStyles from '../../GlobalStyles'
 import { addDecorator } from '@storybook/react'
 import ProductList from './ProductList'
-import mockdata from '../../Assets/products.json'
+import mockdata from '../../assets/products.json'
 
 addDecorator((storyFn) => (
   <>

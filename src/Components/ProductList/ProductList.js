@@ -6,11 +6,9 @@ export default function ProductList({ products }) {
   return (
     <MainGrid>
       <h2>Was kann ich ausleihen?</h2>
-      <div>
-        {products.map((product) => (
-          <ProductListItem product={product} key={product._id} />
-        ))}
-      </div>
+      {products.map((product) => (
+        <ProductListItem product={product} key={product._id} />
+      ))}
     </MainGrid>
   )
 }

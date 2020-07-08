@@ -2,10 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 
-* {
-        box-sizing: border-box;
-    }
-
 :root {
   --denim: #3b6993;
   --lightblue: #9db3c6;
@@ -17,6 +13,12 @@ export default createGlobalStyle`
   --grey-4: #b0aeac;
   --grey-5: #e5e2df;
 }
+
+* {
+        box-sizing: border-box;
+    }
+
+
 
 body {
   background-color: var(--white);
