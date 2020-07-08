@@ -1,0 +1,114 @@
+[
+  {
+    "_id": "5f0365f31fb5a0f376d921a2",
+    "product_name": "Bohrmaschine",
+    "owner_firstname": "Hannes",
+    "phone": "0171 529-2745",
+    "location": "Barmbek"
+  },
+  {
+    "_id": "5f0365f3f16421cef5239047",
+    "product_name": "SUP Board",
+    "owner_firstname": "Nele",
+    "phone": "0171 585-2791",
+    "location": "Harvestehude"
+  },
+  {
+    "_id": "5f0365f31256a6f4d9e8ee04",
+    "product_name": "Waffeleisen",
+    "owner_firstname": "Johanna",
+    "phone": "0171 527-3950",
+    "location": "Barmbek"
+  },
+  {
+    "_id": "5f0365f33dadef8b0f135605",
+    "product_name": "Raclette Grill",
+    "owner_firstname": "Lisa",
+    "phone": "0171 585-2831",
+    "location": "Eimsbüttel"
+  },
+  {
+    "_id": "5f0365f39289f0b223bbe727",
+    "product_name": "Snowboard",
+    "owner_firstname": "Katrin",
+    "phone": "0171 576-3193",
+    "location": "Bramfeld"
+  },
+  {
+    "_id": "5f0365f374be33aded09a1d1",
+    "product_name": "Kinderwagen",
+    "owner_firstname": "Mara",
+    "phone": "0171 527-3662",
+    "location": "Harburg"
+  },
+  {
+    "_id": "5f0365f314e9405df003e435",
+    "product_name": "Camping-Kocher",
+    "owner_firstname": "Karen",
+    "phone": "0171 517-2799",
+    "location": "Eppendorf"
+  },
+  {
+    "_id": "5f0365f352a53be4c562d931",
+    "product_name": "Hängematte",
+    "owner_firstname": "Timo",
+    "phone": "0171 488-3650",
+    "location": "Hamm"
+  },
+  {
+    "_id": "5f0365f328833dae3437791a",
+    "product_name": "Reiserucksack",
+    "owner_firstname": "Tjark",
+    "phone": "0171 508-3387",
+    "location": "Jenfeld"
+  },
+  {
+    "_id": "5f0365f3235dbf35aa395d1c",
+    "product_name": "Tapeziertisch",
+    "owner_firstname": "Emmma",
+    "phone": "0171 437-3703",
+    "location": "Altona"
+  },
+  {
+    "_id": "5f0365f397915807b8bd4fdf",
+    "product_name": "Basketball",
+    "owner_firstname": "Leon",
+    "phone": "0171 458-3972",
+    "location": "Eppendorf"
+  },
+  {
+    "_id": "5f0365f303de4b11298516ed",
+    "product_name": "Sonnenschirm",
+    "owner_firstname": "Klara",
+    "phone": "0171 435-3095",
+    "location": "Neugraben"
+  },
+  {
+    "_id": "5f0365f355b8a7d53abaf9b1",
+    "product_name": "Hammer",
+    "owner_firstname": "Jannes",
+    "phone": "0171 448-3707",
+    "location": "Barmbek-Süd"
+  },
+  {
+    "_id": "5f0365f3198dccbc864ab2bc",
+    "product_name": "Nähmaschine",
+    "owner_firstname": "Beate",
+    "phone": "0171 572-2223",
+    "location": "Winterhude"
+  },
+  {
+    "_id": "5f0365f3f5e5a5ceb7d8bf74",
+    "product_name": "Schlitten",
+    "owner_firstname": "Tommie",
+    "phone": "0171 565-2522",
+    "location": "Eimsbüttel"
+  },
+  {
+    "_id": "5f0365f315754ca7dac1fd77",
+    "product_name": "Bollerwagen",
+    "owner_firstname": "Laura",
+    "phone": "0171 450-2565",
+    "location": "Ottensen"
+  }
+]
