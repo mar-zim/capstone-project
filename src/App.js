@@ -17,12 +17,13 @@ function App() {
 
 const AppWrapper = styled.div`
   display: grid;
+  align-items: center;
+  justify-content: center;
   grid-template-rows: 56px auto;
 `
 
 const StyledMain = styled.main`
   padding: 20px;
-  max-width: 375px;
   overflow: scroll;
 `
 

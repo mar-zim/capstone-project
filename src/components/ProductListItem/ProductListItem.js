@@ -17,7 +17,7 @@ export default function ProductListItem({ product }) {
 
 export const DividerLine = styled.div`
   height: 1px;
-  width: 335px;
+  width: 90vw;
   background-color: var(--grey-5);
   margin-top: 25px;
 `
