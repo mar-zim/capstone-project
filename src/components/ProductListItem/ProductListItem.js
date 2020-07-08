@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export default function ProductListItem({ product }) {
   return (
     <>
       <DividerLine />
       <h4>{product.product_name}</h4>
-      <ProductDetails>
+      <ProductInfo>
         <p>von {product.owner_firstname}</p>
         <p>aus {product.location}</p>
         <p className="text-light">Tel: {product.phone}</p>
-      </ProductDetails>
+        <Link to="/productdetail">mehr</Link>
+      </ProductInfo>
     </>
   )
 }
@@ -22,6 +24,6 @@ export const DividerLine = styled.div`
   margin-top: 25px;
 `
 
-export const ProductDetails = styled.div`
+export const ProductInfo = styled.div`
   margin-left: 52px;
 `

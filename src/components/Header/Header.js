@@ -12,6 +12,7 @@ export default function Header() {
 const StyledHeader = styled.header`
   background-color: var(--grey-5);
   height: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
