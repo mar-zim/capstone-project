@@ -10,9 +10,8 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-  height: 56px;
-  width: 100vw;
   background-color: var(--grey-5);
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
