@@ -11,7 +11,7 @@ export default function ProductListItem({ product }) {
         <div>von {product.owner_firstname}</div>
         <div>aus {product.location}</div>
         <div className="text-light">Tel: {product.phone}</div>
-        <Link to="/productdetail">mehr</Link>
+        <Link to={`/${product._id}`}>mehr</Link>
       </ProductInfo>
     </>
   )

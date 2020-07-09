@@ -13,7 +13,7 @@ function App() {
       <StyledMain>
         <Switch>
           <Route
-            path="/productdetail"
+            path="/:productId"
             component={() => <ProductDetail products={mockdata} />}
           />
           <Route
