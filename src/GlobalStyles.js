@@ -12,113 +12,52 @@ export default createGlobalStyle`
   --grey-3: #615f5f;
   --grey-4: #b0aeac;
   --grey-5: #e5e2df;
+  --fontheader: 'Dosis';
+  --fontbody: 'Open Sans';
+  scroll-behavior: smooth;
 }
 
 * {
-        box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
 
 body {
   background-color: var(--white);
-  font-family: 'Open Sans',  sans-serif;
+  font-family: var(--fontbody), sans-serif;
   margin: 0;
-}
-
-h1, h2, h3, h4, h5, p {
-  margin: 0
-}
-
-h1 {
-  font-family: Dosis;
-  font-size: 48px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  color: var(--grey-1);
-}
-
-h2 {
-  font-family: Dosis;
-  font-size: 32px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--grey-1);
-}
-
-h3 {
-  font-family: Dosis;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--grey-2);
-  margin-top: 6px;
-}
-
-h4 {
-  font-family: Dosis;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: normal;
-  color: var(--grey-2);
-  margin-top: 6px;
-}
-
-p {
-  font-family: Open Sans;
   font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.57;
   letter-spacing: 0.3px;
   color: var(--grey-2);
 }
+
+h1, h2, h3, h4, h5{
+  margin: 6px 0 0 0;
+  font-family: var(--fontheader);
+  font-weight: normal;
+  line-height: 1.5;
+  color: var(--grey-1);
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  color: var(--grey-2);
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--grey-2);
+}
+
 .text-light {
   color: var(--grey-4);
 }
-
-link {
-  font-family: Open Sans;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--denim);
-}
-
-caption {
-  font-family: OpenSans;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--grey-3);
-}
-
-.description {
-  font-family: OpenSans;
-  font-size: 9px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 2;
-  letter-spacing: 1.5px;
-  color: var(--grey-4);
-}
-
 `

@@ -29,14 +29,18 @@ function App() {
 
 const AppWrapper = styled.div`
   display: grid;
-  align-items: center;
-  justify-content: center;
   grid-template-rows: 56px auto;
+  height: 100vh;
 `
 
 const StyledMain = styled.main`
-  padding: 20px;
-  overflow: scroll;
+  padding: 0 20px;
+  overflow-y: scroll;
+  &::after {
+    content: '';
+    display: block;
+    height: 40px;
+  }
 `
 
 export default App

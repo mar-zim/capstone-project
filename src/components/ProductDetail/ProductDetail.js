@@ -6,7 +6,7 @@ export default function ProductDetail() {
   return (
     <>
       <h4>Produkttitel</h4>
-      <p>Dies ist nur eine Beispiel Seite.</p>
+      <div>Dies ist nur eine Beispiel Seite.</div>
       <Link to="/">zurück</Link>
     </>
   )

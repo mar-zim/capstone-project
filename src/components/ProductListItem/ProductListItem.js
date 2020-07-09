@@ -8,9 +8,9 @@ export default function ProductListItem({ product }) {
       <DividerLine />
       <h4>{product.product_name}</h4>
       <ProductInfo>
-        <p>von {product.owner_firstname}</p>
-        <p>aus {product.location}</p>
-        <p className="text-light">Tel: {product.phone}</p>
+        <div>von {product.owner_firstname}</div>
+        <div>aus {product.location}</div>
+        <div className="text-light">Tel: {product.phone}</div>
         <Link to="/productdetail">mehr</Link>
       </ProductInfo>
     </>
