@@ -6,9 +6,9 @@ export default function ProductListItem({ product }) {
   return (
     <>
       <DividerLine />
-      <h4>{product.product_name}</h4>
+      <h4>{product.productName}</h4>
       <ProductInfo>
-        <div>von {product.owner_firstname}</div>
+        <div>von {product.ownerFirstname}</div>
         <div>aus {product.location}</div>
         <div className="text-light">Tel: {product.phone}</div>
         <Link to={`/${product._id}`}>mehr</Link>

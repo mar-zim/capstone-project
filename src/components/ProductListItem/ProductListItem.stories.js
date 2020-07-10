@@ -1,14 +1,9 @@
 import React from 'react'
-import GlobalStyles from '../../GlobalStyles'
-import { addDecorator } from '@storybook/react'
 import ProductListItem from './ProductListItem'
+import { addDecorator } from '@storybook/react'
+import StoryRouter from 'storybook-react-router'
 
-addDecorator((storyFn) => (
-  <>
-    <GlobalStyles />
-    {storyFn()}
-  </>
-))
+addDecorator(StoryRouter())
 
 export default {
   component: ProductListItem,
@@ -19,8 +14,8 @@ export const withExampleData = () => (
   <ProductListItem
     product={{
       _id: '5f0365f3f16421cef5239047',
-      product_name: 'SUP Board',
-      owner_firstname: 'Nele',
+      productName: 'SUP Board',
+      ownerFirstname: 'Nele',
       phone: '0171 585-2791',
       location: 'Harvestehude',
     }}

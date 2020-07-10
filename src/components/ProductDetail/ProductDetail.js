@@ -10,7 +10,7 @@ export default function ProductDetail({ products }) {
   return (
     <>
       <div>Produkt-ID: {productId}</div>
-      <div>Name: {selectedProduct.product_name}</div>
+      <div>Name: {selectedProduct.productName}</div>
       <Link to="/">zurück</Link>
     </>
   )
