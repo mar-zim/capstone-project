@@ -7,7 +7,6 @@ export default {
   title: 'ProductDetail',
 }
 
-// export const withMockData = () => {
-//   const value = useParameter('5f0365f31fb5a0f376d921a2', '0')
-//   return <ProductDetail products={mockdata} productId={value} />
-// }
+export const withMockData = () => {
+  return <ProductDetail products={mockdata} />
+}

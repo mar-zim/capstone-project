@@ -2,12 +2,14 @@ import React from 'react'
 import ProductListItem from './ProductListItem'
 import { addDecorator } from '@storybook/react'
 import StoryRouter from 'storybook-react-router'
+import { withKnobs, object } from '@storybook/addon-knobs'
 
 addDecorator(StoryRouter())
 
 export default {
   component: ProductListItem,
   title: 'ProductListItem',
+  decorators: [withKnobs],
 }
 
 export const withExampleData = () => (
@@ -22,3 +24,7 @@ export const withExampleData = () => (
   />
 )
 export const withNoData = () => <ProductListItem product={{}} />
+
+export const withVaribaleData = () => (
+  <ProductListItem product={object('productobject', object)} />
+)
