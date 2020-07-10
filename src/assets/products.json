@@ -4,111 +4,175 @@
     "productName": "Bohrmaschine",
     "ownerFirstname": "Hannes",
     "phone": "0171 529-2745",
-    "location": "Barmbek"
+    "location": "Barmbek",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f3f16421cef5239047",
     "productName": "SUP Board",
     "ownerFirstname": "Nele",
     "phone": "0171 585-2791",
-    "location": "Harvestehude"
+    "location": "Harvestehude",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f31256a6f4d9e8ee04",
     "productName": "Waffeleisen",
     "ownerFirstname": "Johanna",
     "phone": "0171 527-3950",
-    "location": "Barmbek"
+    "location": "Barmbek",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f33dadef8b0f135605",
     "productName": "Raclette Grill",
     "ownerFirstname": "Lisa",
     "phone": "0171 585-2831",
-    "location": "Eimsbüttel"
+    "location": "Eimsbüttel",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f39289f0b223bbe727",
     "productName": "Snowboard",
     "ownerFirstname": "Katrin",
     "phone": "0171 576-3193",
-    "location": "Bramfeld"
+    "location": "Bramfeld",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f374be33aded09a1d1",
     "productName": "Kinderwagen",
     "ownerFirstname": "Mara",
     "phone": "0171 527-3662",
-    "location": "Harburg"
+    "location": "Harburg",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f314e9405df003e435",
     "productName": "Camping-Kocher",
     "ownerFirstname": "Karen",
     "phone": "0171 517-2799",
-    "location": "Eppendorf"
+    "location": "Eppendorf",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f352a53be4c562d931",
     "productName": "Hängematte",
     "ownerFirstname": "Timo",
     "phone": "0171 488-3650",
-    "location": "Hamm"
+    "location": "Hamm",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f328833dae3437791a",
     "productName": "Reiserucksack",
     "ownerFirstname": "Tjark",
     "phone": "0171 508-3387",
-    "location": "Jenfeld"
+    "location": "Jenfeld",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f3235dbf35aa395d1c",
     "productName": "Tapeziertisch",
     "ownerFirstname": "Emmma",
     "phone": "0171 437-3703",
-    "location": "Altona"
+    "location": "Altona",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f397915807b8bd4fdf",
     "productName": "Basketball",
     "ownerFirstname": "Leon",
     "phone": "0171 458-3972",
-    "location": "Eppendorf"
+    "location": "Eppendorf",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f303de4b11298516ed",
     "productName": "Sonnenschirm",
     "ownerFirstname": "Klara",
     "phone": "0171 435-3095",
-    "location": "Neugraben"
+    "location": "Neugraben",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f355b8a7d53abaf9b1",
     "productName": "Hammer",
     "ownerFirstname": "Jannes",
     "phone": "0171 448-3707",
-    "location": "Barmbek-Süd"
+    "location": "Barmbek-Süd",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f3198dccbc864ab2bc",
     "productName": "Nähmaschine",
     "ownerFirstname": "Beate",
     "phone": "0171 572-2223",
-    "location": "Winterhude"
+    "location": "Winterhude",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f3f5e5a5ceb7d8bf74",
     "productName": "Schlitten",
     "ownerFirstname": "Tommie",
     "phone": "0171 565-2522",
-    "location": "Eimsbüttel"
+    "location": "Eimsbüttel",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   },
   {
     "_id": "5f0365f315754ca7dac1fd77",
     "productName": "Bollerwagen",
     "ownerFirstname": "Laura",
     "phone": "0171 450-2565",
-    "location": "Ottensen"
+    "location": "Ottensen",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
+    "dailyRate": 5,
+    "weeklyRate": 10
   }
 ]

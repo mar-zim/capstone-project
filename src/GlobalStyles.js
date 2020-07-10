@@ -26,16 +26,15 @@ body {
   font-family: var(--fontbody), sans-serif;
   margin: 0;
   font-size: 14px;
-  line-height: 1.57;
+  line-height: 1.5;
   letter-spacing: 0.3px;
   color: var(--grey-2);
 }
 
 h1, h2, h3, h4, h5{
-  margin: 6px 0 0 0;
+  margin: 6px 0 ;
   font-family: var(--fontheader);
   font-weight: normal;
-  line-height: 1.5;
   color: var(--grey-1);
 }
 
@@ -58,6 +57,15 @@ h4 {
 }
 
 .text-light {
+  color: var(--grey-4);
+}
+
+.description {
+  font-size: 10px;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 1.5px;
   color: var(--grey-4);
 }
 `
