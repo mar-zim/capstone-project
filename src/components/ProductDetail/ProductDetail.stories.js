@@ -1,12 +1,19 @@
 import React from 'react'
 import ProductDetail from './ProductDetail'
-import mockdata from '../../assets/products.json'
 
 export default {
   component: ProductDetail,
   title: 'ProductDetail',
 }
 
-export const withMockData = () => {
-  return <ProductDetail products={mockdata} />
-}
+export const withExampleData = () => (
+  <ProductDetail
+    shownProduct={{
+      _id: '5f0365f31256a6f4d9e8ee04',
+      productName: 'Waffeleisen',
+      ownerFirstname: 'Johanna',
+      phone: '0171 527-3950',
+      location: 'Barmbek',
+    }}
+  />
+)

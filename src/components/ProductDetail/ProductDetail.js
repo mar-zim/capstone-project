@@ -1,17 +1,10 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
 
-export default function ProductDetail({ products }) {
-  const { productId } = useParams()
-  const [selectedProduct] = products.filter(
-    (product) => productId === product._id
-  )
-
+export default function ProductDetail({ shownProduct }) {
   return (
     <>
-      <div>Produkt-ID: {productId}</div>
-      <div>Name: {selectedProduct.productName}</div>
-      <Link to="/">zurück</Link>
+      <div>Produkt-ID: {shownProduct._id}</div>
+      <div>Name: {shownProduct.productName}</div>
     </>
   )
 }
