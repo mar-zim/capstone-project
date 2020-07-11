@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
-import ProductList from './components/ProductList/ProductList'
+import ProductListPage from './pages/ProductListPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import mockdata from '../src/assets/products.json'
 import { Switch, Route } from 'react-router-dom'
@@ -19,7 +19,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={() => <ProductList products={mockdata} />}
+            component={() => <ProductListPage products={mockdata} />}
           />
         </Switch>
       </StyledMain>
