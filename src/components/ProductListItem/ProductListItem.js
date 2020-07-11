@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
-import DividerLine from '../DividerLine/DividerLine'
+import styled from 'styled-components'
 import Button from '../Button/Button'
+import DividerLine from '../DividerLine/DividerLine'
 
 export default function ProductListItem({ product }) {
   const history = useHistory()
