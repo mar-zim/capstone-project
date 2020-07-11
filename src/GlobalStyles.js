@@ -32,7 +32,7 @@ body {
 }
 
 h1, h2, h3, h4, h5{
-  margin: 6px 0 ;
+  margin: 6px 0;
   font-family: var(--fontheader);
   font-weight: normal;
   color: var(--grey-1);
@@ -64,8 +64,8 @@ h4 {
   font-size: 10px;
   font-weight: 300;
   text-transform: uppercase;
-  line-height: 2;
   letter-spacing: 1.5px;
   color: var(--grey-4);
+  margin-bottom: 20px;
 }
 `

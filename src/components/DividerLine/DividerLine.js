@@ -1,0 +1,13 @@
+import React from 'react'
+import styled from 'styled-components'
+
+export default function Dividerline() {
+  return <DividerLine />
+}
+
+export const DividerLine = styled.div`
+  height: 1px;
+  width: 100%;
+  background-color: var(--grey-5);
+  margin-top: 25px;
+`

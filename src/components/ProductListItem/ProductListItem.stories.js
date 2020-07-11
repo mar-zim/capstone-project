@@ -25,6 +25,6 @@ export const withExampleData = () => (
 )
 export const withNoData = () => <ProductListItem product={{}} />
 
-export const withVaribaleData = () => (
-  <ProductListItem product={object('productobject', object)} />
+export const withVariableData = () => (
+  <ProductListItem product={object('productobject', 'paste object here')} />
 )
