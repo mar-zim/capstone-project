@@ -2,9 +2,9 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
-import back from '../assets/images/back.svg'
 import Pricing from '../components/Pricing/Pricing'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
+import back from '../assets/images/back.svg'
 
 export default function ProductDetailPage({ products }) {
   const { productId } = useParams()
@@ -15,7 +15,7 @@ export default function ProductDetailPage({ products }) {
   return (
     <>
       <Link to="/">
-        <StyledBackButton src={back} alt="back" />
+        <StyledBackIcon src={back} alt="back" />
       </Link>
       <h2>{selectedProduct.productName}</h2>
       <div className="description">{selectedProduct.location}</div>
@@ -34,7 +34,7 @@ export default function ProductDetailPage({ products }) {
   )
 }
 
-export const StyledBackButton = styled.img`
+export const StyledBackIcon = styled.img`
   width: 15px;
   margin: 10px 0 0 0;
 `

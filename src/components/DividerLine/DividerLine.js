@@ -5,7 +5,7 @@ export default function Dividerline() {
   return <DividerLine />
 }
 
-export const DividerLine = styled.div`
+const DividerLine = styled.div`
   height: 1px;
   width: 100%;
   background-color: var(--grey-5);

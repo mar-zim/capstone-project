@@ -24,25 +24,6 @@ export default function ContactDetails({
   )
 }
 
-export const DividerLine = styled.div`
-  height: 1px;
-  width: 90vw;
-  background-color: var(--grey-5);
-  margin-top: 25px;
-`
-
-export const StyledPriceBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 48px;
-  border-radius: 5px;
-  border: 1px solid var(--lightblue);
-  padding: 0 10px;
-  margin-top: 15px;
-`
-
 export const StyledContactBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
