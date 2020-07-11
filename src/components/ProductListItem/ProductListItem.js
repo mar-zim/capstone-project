@@ -1,22 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import DividerLine from '../DividerLine/DividerLine'
+import Button from '../Button/Button'
 
 export default function ProductListItem({ product }) {
+  const history = useHistory()
+
   return (
     <>
       <DividerLine />
-      <h4>{product.productName}</h4>
-      <ProductInfo>
+      <StyledHeader>
+        <h4>{product.productName}</h4>
+        <Button text="mehr" onClick={routeChange} />
+      </StyledHeader>
+      <StyledProductInfo>
         <div>von {product.ownerFirstname}</div>
         <div>aus {product.location}</div>
-        <Link to={`/${product._id}`}>mehr</Link>
-      </ProductInfo>
+      </StyledProductInfo>
     </>
   )
+
+  function routeChange() {
+    let path = `/${product._id}`
+    history.push(path)
+  }
 }
 
-export const ProductInfo = styled.div`
+const StyledProductInfo = styled.div`
   margin-left: 52px;
+`
+const StyledHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
