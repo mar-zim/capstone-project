@@ -6,9 +6,9 @@
     "phone": "0171 529-2745",
     "location": "Barmbek",
     "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "description": "Nicht mehr die neueste Bohrmaschine, aber funktioniert wunderbar. Es sind einige Aufsätze dabei für Holz und Beton. Metallaufsätze habe ich leider nicht. Schlagbohren kann sie überigens auch.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f3f16421cef5239047",
@@ -16,10 +16,10 @@
     "ownerFirstname": "Nele",
     "phone": "0171 585-2791",
     "location": "Harvestehude",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Am Wochenende bin ich meistens nicht in Hamburg.",
+    "description": "Leider benutze ich mein Sup-Board viel zu selten, deshalb möchte ich es gerne verleihen. Es ist 15 cm dick, also auch für Erwachsene mit einem Körpergewicht über 65kg gut geeignet. Pumpe und Padel sind natürlich dabei. ",
+    "dailyRate": 10,
+    "weeklyRate": 30
   },
   {
     "_id": "5f0365f31256a6f4d9e8ee04",
@@ -27,10 +27,10 @@
     "ownerFirstname": "Johanna",
     "phone": "0171 527-3950",
     "location": "Barmbek",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Ihr könnt gerne sponatan anrufen. Ich bin meistens zu Hause oder nicht weit weg.",
+    "description": "Liegt bei mir leider nur im Schrank. Ihr könnt es euch auch gerne für länger ausleihen.",
+    "dailyRate": 0,
+    "weeklyRate": 0
   },
   {
     "_id": "5f0365f33dadef8b0f135605",
@@ -38,10 +38,10 @@
     "ownerFirstname": "Lisa",
     "phone": "0171 585-2831",
     "location": "Eimsbüttel",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Ich rufe zurück, wenn ich nicht rangehe.",
+    "description": "Raclette Grill mit 8 Pfännchen und 8 Holz-Wendern. Nur einmal letztes Jahr zu Silvester gebraucht und wird außer beim nächsten Silvester bestimmt keine Verwendung mehr bei mir finden.",
+    "dailyRate": 1,
+    "weeklyRate": 2
   },
   {
     "_id": "5f0365f39289f0b223bbe727",
@@ -49,21 +49,21 @@
     "ownerFirstname": "Katrin",
     "phone": "0171 576-3193",
     "location": "Bramfeld",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Ich bin meistens am besten morgens zu erreichen. Aber probiert es einfach!",
+    "description": "Ich selbst bin 1,70 groß, dafür passt das Snowboard perfekt. Die Boots verleihe ich nicht mit, die müsstest du selber haben. Das Board hat eine ganz reguläre Softboots-Bindung in der größe M, die also für die meisten Frauen-Schuhgrößen passen sollte. ",
+    "dailyRate": 10,
+    "weeklyRate": 40
   },
   {
     "_id": "5f0365f374be33aded09a1d1",
-    "productName": "Kinderwagen",
+    "productName": "Reise-Buggy",
     "ownerFirstname": "Mara",
     "phone": "0171 527-3662",
     "location": "Harburg",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Parkplatz finden ist bei mir leider schwer, also kommt am besten mit der SBahn",
+    "description": "Unser großer läuft jetzt schon am liebsten selber und bis zum nächsten Kind steht der Buggy bei uns nur rum. Er ist für Kinder ab 6 Monaten geeignet. Ihr könnt ihn euch gerne für einen Ausflug oder auch den Urlaub ausleihen. Das beste ist, dass er so klein zusammenfaltbar ist, dass man ihn sogar mit ins Flugzeuh nehmen kann. Er wiegt nur 10kg.",
+    "dailyRate": 3,
+    "weeklyRate": 16
   },
   {
     "_id": "5f0365f314e9405df003e435",
@@ -71,21 +71,10 @@
     "ownerFirstname": "Karen",
     "phone": "0171 517-2799",
     "location": "Eppendorf",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
-  },
-  {
-    "_id": "5f0365f352a53be4c562d931",
-    "productName": "Hängematte",
-    "ownerFirstname": "Timo",
-    "phone": "0171 488-3650",
-    "location": "Hamm",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Am besten am Wochenende anrufen, unter der Woche gehe ich meistens nicht ran",
+    "description": "Ich benutze den Campingkocher leider kaum. Die Gaskartusche müsstet ihr selbst besorgen. Er ist schön leicht und klein, super geeignet auch zum Wandern",
+    "dailyRate": 1,
+    "weeklyRate": 5
   },
   {
     "_id": "5f0365f328833dae3437791a",
@@ -93,43 +82,10 @@
     "ownerFirstname": "Tjark",
     "phone": "0171 508-3387",
     "location": "Jenfeld",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
-  },
-  {
-    "_id": "5f0365f3235dbf35aa395d1c",
-    "productName": "Tapeziertisch",
-    "ownerFirstname": "Emmma",
-    "phone": "0171 437-3703",
-    "location": "Altona",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
-  },
-  {
-    "_id": "5f0365f397915807b8bd4fdf",
-    "productName": "Basketball",
-    "ownerFirstname": "Leon",
-    "phone": "0171 458-3972",
-    "location": "Eppendorf",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
-  },
-  {
-    "_id": "5f0365f303de4b11298516ed",
-    "productName": "Sonnenschirm",
-    "ownerFirstname": "Klara",
-    "phone": "0171 435-3095",
-    "location": "Neugraben",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Wenn ihr möchtet, können wir die Sachen auch bei mir am Büro in der Neustadt übergeben.",
+    "description": "60l Rucksack der Marke Tatonka. War nur einmal damit in Thailand und nun wartet er auf die nächste Reise.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f355b8a7d53abaf9b1",
@@ -137,21 +93,10 @@
     "ownerFirstname": "Jannes",
     "phone": "0171 448-3707",
     "location": "Barmbek-Süd",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
-  },
-  {
-    "_id": "5f0365f3198dccbc864ab2bc",
-    "productName": "Nähmaschine",
-    "ownerFirstname": "Beate",
-    "phone": "0171 572-2223",
-    "location": "Winterhude",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Meldet euch gerne auch spontan.",
+    "description": "Wer mal einen Hammer braucht und keinen hat, kann sich meinen gerne ausleihen. Ich möchte kein Geld, höchstens ein Bier! ",
+    "dailyRate": 0,
+    "weeklyRate": 0
   },
   {
     "_id": "5f0365f3f5e5a5ceb7d8bf74",
@@ -159,10 +104,10 @@
     "ownerFirstname": "Tommie",
     "phone": "0171 565-2522",
     "location": "Eimsbüttel",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Am besten Abends anrufen.",
+    "description": "Ein richtig schöner alter Holzschlitten. Wer mal in den Winterurlaub fährt und selbst keinen hat, kann gerne meinen mitnehmen. Ich freue mich wenn er nochmal ein paar Berge sieht.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f315754ca7dac1fd77",
@@ -170,9 +115,9 @@
     "ownerFirstname": "Laura",
     "phone": "0171 450-2565",
     "location": "Ottensen",
-    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
-    "description": "Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. ",
-    "dailyRate": 5,
-    "weeklyRate": 10
+    "ownerNotes": "Ich bin manchmal längere Zeit nicht in Hamburg, also meldet euch besser rechtzeitig.",
+    "description": "Egal ob Vatertagstour oder Ausflug mit den Kids in den Zoo, der Bollerwagen hat die perfekte Größe und sehr leicht laufende Räder. Ihr müsstet ihn lediglich zusammenstecken und schon kanns losgehen.",
+    "dailyRate": 2,
+    "weeklyRate": 6
   }
 ]
