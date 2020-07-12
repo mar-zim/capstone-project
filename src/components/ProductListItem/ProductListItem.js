@@ -1,27 +1,40 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import Button from '../Button/Button'
+import DividerLine from '../DividerLine/DividerLine'
 
-export default function ProductListItem({ product }) {
+export default function ProductListItem({
+  product: { name, ownerFirstName, location, _id },
+}) {
+  const history = useHistory()
+
   return (
     <>
       <DividerLine />
-      <h4>{product.product_name}</h4>
-      <ProductDetails>
-        <p>von {product.owner_firstname}</p>
-        <p>aus {product.location}</p>
-        <p className="text-light">Tel: {product.phone}</p>
-      </ProductDetails>
+      <StyledHeader>
+        <h4>{name}</h4>
+        <Button text="mehr" onClick={routeChange} />
+      </StyledHeader>
+      <StyledProductInfo>
+        <div>von {ownerFirstName}</div>
+        <div>aus {location}</div>
+      </StyledProductInfo>
     </>
   )
+
+  function routeChange() {
+    let path = `/${_id}`
+    history.push(path)
+  }
 }
 
-export const DividerLine = styled.div`
-  height: 1px;
-  width: 335px;
-  background-color: var(--grey-5);
-  margin-top: 25px;
-`
-
-export const ProductDetails = styled.div`
+const StyledProductInfo = styled.div`
   margin-left: 52px;
+`
+const StyledHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `

@@ -1,114 +1,123 @@
 [
   {
     "_id": "5f0365f31fb5a0f376d921a2",
-    "product_name": "Bohrmaschine",
-    "owner_firstname": "Hannes",
+    "name": "Bohrmaschine",
+    "ownerFirstName": "Hannes",
     "phone": "0171 529-2745",
-    "location": "Barmbek"
+    "location": "Barmbek",
+    "ownerNotes": "Bitte erst Abends nach 18Uhr anrufen!",
+    "description": "Nicht mehr die neueste Bohrmaschine, aber funktioniert wunderbar. Es sind einige Aufsätze dabei für Holz und Beton. Metallaufsätze habe ich leider nicht. Schlagbohren kann sie überigens auch.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f3f16421cef5239047",
-    "product_name": "SUP Board",
-    "owner_firstname": "Nele",
+    "name": "SUP Board",
+    "ownerFirstName": "Nele",
     "phone": "0171 585-2791",
-    "location": "Harvestehude"
+    "location": "Harvestehude",
+    "ownerNotes": "Am Wochenende bin ich meistens nicht in Hamburg.",
+    "description": "Leider benutze ich mein Sup-Board viel zu selten, deshalb möchte ich es gerne verleihen. Es ist 15 cm dick, also auch für Erwachsene mit einem Körpergewicht über 65kg gut geeignet. Pumpe und Padel sind natürlich dabei. ",
+    "dailyRate": 10,
+    "weeklyRate": 30
   },
   {
     "_id": "5f0365f31256a6f4d9e8ee04",
-    "product_name": "Waffeleisen",
-    "owner_firstname": "Johanna",
+    "name": "Waffeleisen",
+    "ownerFirstName": "Johanna",
     "phone": "0171 527-3950",
-    "location": "Barmbek"
+    "location": "Barmbek",
+    "ownerNotes": "Ihr könnt gerne sponatan anrufen. Ich bin meistens zu Hause oder nicht weit weg.",
+    "description": "Liegt bei mir leider nur im Schrank. Ihr könnt es euch auch gerne für länger ausleihen.",
+    "dailyRate": 0,
+    "weeklyRate": 0
   },
   {
     "_id": "5f0365f33dadef8b0f135605",
-    "product_name": "Raclette Grill",
-    "owner_firstname": "Lisa",
+    "name": "Raclette Grill",
+    "ownerFirstName": "Lisa",
     "phone": "0171 585-2831",
-    "location": "Eimsbüttel"
+    "location": "Eimsbüttel",
+    "ownerNotes": "Ich rufe zurück, wenn ich nicht rangehe.",
+    "description": "Raclette Grill mit 8 Pfännchen und 8 Holz-Wendern. Nur einmal letztes Jahr zu Silvester gebraucht und wird außer beim nächsten Silvester bestimmt keine Verwendung mehr bei mir finden.",
+    "dailyRate": 1,
+    "weeklyRate": 2
   },
   {
     "_id": "5f0365f39289f0b223bbe727",
-    "product_name": "Snowboard",
-    "owner_firstname": "Katrin",
+    "name": "Snowboard",
+    "ownerFirstName": "Katrin",
     "phone": "0171 576-3193",
-    "location": "Bramfeld"
+    "location": "Bramfeld",
+    "ownerNotes": "Ich bin meistens am besten morgens zu erreichen. Aber probiert es einfach!",
+    "description": "Ich selbst bin 1,70 groß, dafür passt das Snowboard perfekt. Die Boots verleihe ich nicht mit, die müsstest du selber haben. Das Board hat eine ganz reguläre Softboots-Bindung in der größe M, die also für die meisten Frauen-Schuhgrößen passen sollte. ",
+    "dailyRate": 10,
+    "weeklyRate": 40
   },
   {
     "_id": "5f0365f374be33aded09a1d1",
-    "product_name": "Kinderwagen",
-    "owner_firstname": "Mara",
+    "name": "Reise-Buggy",
+    "ownerFirstName": "Mara",
     "phone": "0171 527-3662",
-    "location": "Harburg"
+    "location": "Harburg",
+    "ownerNotes": "Parkplatz finden ist bei mir leider schwer, also kommt am besten mit der SBahn",
+    "description": "Unser großer läuft jetzt schon am liebsten selber und bis zum nächsten Kind steht der Buggy bei uns nur rum. Er ist für Kinder ab 6 Monaten geeignet. Ihr könnt ihn euch gerne für einen Ausflug oder auch den Urlaub ausleihen. Das beste ist, dass er so klein zusammenfaltbar ist, dass man ihn sogar mit ins Flugzeuh nehmen kann. Er wiegt nur 10kg.",
+    "dailyRate": 3,
+    "weeklyRate": 16
   },
   {
     "_id": "5f0365f314e9405df003e435",
-    "product_name": "Camping-Kocher",
-    "owner_firstname": "Karen",
+    "name": "Camping-Kocher",
+    "ownerFirstName": "Karen",
     "phone": "0171 517-2799",
-    "location": "Eppendorf"
-  },
-  {
-    "_id": "5f0365f352a53be4c562d931",
-    "product_name": "Hängematte",
-    "owner_firstname": "Timo",
-    "phone": "0171 488-3650",
-    "location": "Hamm"
+    "location": "Eppendorf",
+    "ownerNotes": "Am besten am Wochenende anrufen, unter der Woche gehe ich meistens nicht ran",
+    "description": "Ich benutze den Campingkocher leider kaum. Die Gaskartusche müsstet ihr selbst besorgen. Er ist schön leicht und klein, super geeignet auch zum Wandern",
+    "dailyRate": 1,
+    "weeklyRate": 5
   },
   {
     "_id": "5f0365f328833dae3437791a",
-    "product_name": "Reiserucksack",
-    "owner_firstname": "Tjark",
+    "name": "Reiserucksack",
+    "ownerFirstName": "Tjark",
     "phone": "0171 508-3387",
-    "location": "Jenfeld"
-  },
-  {
-    "_id": "5f0365f3235dbf35aa395d1c",
-    "product_name": "Tapeziertisch",
-    "owner_firstname": "Emmma",
-    "phone": "0171 437-3703",
-    "location": "Altona"
-  },
-  {
-    "_id": "5f0365f397915807b8bd4fdf",
-    "product_name": "Basketball",
-    "owner_firstname": "Leon",
-    "phone": "0171 458-3972",
-    "location": "Eppendorf"
-  },
-  {
-    "_id": "5f0365f303de4b11298516ed",
-    "product_name": "Sonnenschirm",
-    "owner_firstname": "Klara",
-    "phone": "0171 435-3095",
-    "location": "Neugraben"
+    "location": "Jenfeld",
+    "ownerNotes": "Wenn ihr möchtet, können wir die Sachen auch bei mir am Büro in der Neustadt übergeben.",
+    "description": "60l Rucksack der Marke Tatonka. War nur einmal damit in Thailand und nun wartet er auf die nächste Reise.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f355b8a7d53abaf9b1",
-    "product_name": "Hammer",
-    "owner_firstname": "Jannes",
+    "name": "Hammer",
+    "ownerFirstName": "Jannes",
     "phone": "0171 448-3707",
-    "location": "Barmbek-Süd"
-  },
-  {
-    "_id": "5f0365f3198dccbc864ab2bc",
-    "product_name": "Nähmaschine",
-    "owner_firstname": "Beate",
-    "phone": "0171 572-2223",
-    "location": "Winterhude"
+    "location": "Barmbek-Süd",
+    "ownerNotes": "Meldet euch gerne auch spontan.",
+    "description": "Wer mal einen Hammer braucht und keinen hat, kann sich meinen gerne ausleihen. Ich möchte kein Geld, höchstens ein Bier! ",
+    "dailyRate": 0,
+    "weeklyRate": 0
   },
   {
     "_id": "5f0365f3f5e5a5ceb7d8bf74",
-    "product_name": "Schlitten",
-    "owner_firstname": "Tommie",
+    "name": "Schlitten",
+    "ownerFirstName": "Tommie",
     "phone": "0171 565-2522",
-    "location": "Eimsbüttel"
+    "location": "Eimsbüttel",
+    "ownerNotes": "Am besten Abends anrufen.",
+    "description": "Ein richtig schöner alter Holzschlitten. Wer mal in den Winterurlaub fährt und selbst keinen hat, kann gerne meinen mitnehmen. Ich freue mich wenn er nochmal ein paar Berge sieht.",
+    "dailyRate": 1,
+    "weeklyRate": 3
   },
   {
     "_id": "5f0365f315754ca7dac1fd77",
-    "product_name": "Bollerwagen",
-    "owner_firstname": "Laura",
+    "name": "Bollerwagen",
+    "ownerFirstName": "Laura",
     "phone": "0171 450-2565",
-    "location": "Ottensen"
+    "location": "Ottensen",
+    "ownerNotes": "Ich bin manchmal längere Zeit nicht in Hamburg, also meldet euch besser rechtzeitig.",
+    "description": "Egal ob Vatertagstour oder Ausflug mit den Kids in den Zoo, der Bollerwagen hat die perfekte Größe und sehr leicht laufende Räder. Ihr müsstet ihn lediglich zusammenstecken und schon kanns losgehen.",
+    "dailyRate": 2,
+    "weeklyRate": 6
   }
 ]

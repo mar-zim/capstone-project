@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductListItem from '../ProductListItem/ProductListItem'
+import ProductListItem from '../components/ProductListItem/ProductListItem'
 
 export default function ProductList({ products }) {
   return (
