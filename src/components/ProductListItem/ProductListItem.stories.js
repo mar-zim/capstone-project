@@ -16,8 +16,8 @@ export const withExampleData = () => (
   <ProductListItem
     product={{
       _id: '5f0365f3f16421cef5239047',
-      productName: 'SUP Board',
-      ownerFirstname: 'Nele',
+      name: 'SUP Board',
+      ownerFirstName: 'Nele',
       phone: '0171 585-2791',
       location: 'Harvestehude',
     }}

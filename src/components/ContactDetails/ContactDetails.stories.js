@@ -10,7 +10,7 @@ export default {
 
 export const withExampleData = () => (
   <ContactDetails
-    firstname="Johanna"
+    firstName="Johanna"
     location=" Harburg"
     phone="097 37222937"
     details="Ich wohne im 5. Stock ohne Aufzug."
@@ -19,7 +19,7 @@ export const withExampleData = () => (
 
 export const withVariableData = () => (
   <ContactDetails
-    firstname={text('First Name', 'Name')}
+    firstName={text('First Name', 'Name')}
     location={text('Location', 'Ort')}
     phone={text('Phone Number', '0000 00000000000')}
     details={text(

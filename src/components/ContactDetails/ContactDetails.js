@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function ContactDetails({
-  firstname,
+  firstName,
   location,
   phone,
   details,
@@ -12,7 +12,7 @@ export default function ContactDetails({
       <h4>Kontakt</h4>
       <StyledContactBox>
         <span className="text-light">Name:</span>
-        <span>{firstname}</span>
+        <span>{firstName}</span>
         <span className="text-light">Ort:</span>
         <span>{location}</span>
         <span className="text-light">Kontakt:</span>

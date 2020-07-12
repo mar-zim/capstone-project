@@ -12,7 +12,7 @@ export default function ProductDetailPage({ products }) {
 
   return (
     <>
-      <h2>{selectedProduct.productName}</h2>
+      <h2>{selectedProduct.name}</h2>
       <div className="description">{selectedProduct.location}</div>
       <ProductDescription description={selectedProduct.description} />
       <Pricing

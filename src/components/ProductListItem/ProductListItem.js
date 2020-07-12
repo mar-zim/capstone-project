@@ -4,25 +4,27 @@ import styled from 'styled-components'
 import Button from '../Button/Button'
 import DividerLine from '../DividerLine/DividerLine'
 
-export default function ProductListItem({ product }) {
+export default function ProductListItem({
+  product: { name, ownerFirstName, location, _id },
+}) {
   const history = useHistory()
 
   return (
     <>
       <DividerLine />
       <StyledHeader>
-        <h4>{product.productName}</h4>
+        <h4>{name}</h4>
         <Button text="mehr" onClick={routeChange} />
       </StyledHeader>
       <StyledProductInfo>
-        <div>von {product.ownerFirstname}</div>
-        <div>aus {product.location}</div>
+        <div>von {ownerFirstName}</div>
+        <div>aus {location}</div>
       </StyledProductInfo>
     </>
   )
 
   function routeChange() {
-    let path = `/${product._id}`
+    let path = `/${_id}`
     history.push(path)
   }
 }

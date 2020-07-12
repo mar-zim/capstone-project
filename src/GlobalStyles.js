@@ -13,8 +13,7 @@ export default createGlobalStyle`
   --grey-4: #b0aeac;
   --grey-5: #e5e2df;
   --fontheader: 'Dosis';
-  --fontbody: 'Open Sans';
-  scroll-behavior: smooth;
+  --fontbody: 'Open Sans'
 }
 
 * {
