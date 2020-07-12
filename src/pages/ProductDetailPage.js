@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
-import styled from 'styled-components'
-import back from '../assets/images/back.svg'
+import { useParams } from 'react-router-dom'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
@@ -30,8 +28,3 @@ export default function ProductDetailPage({ products }) {
     </>
   )
 }
-
-const StyledBackIcon = styled.img`
-  width: 15px;
-  margin: 10px 0 0 0;
-`

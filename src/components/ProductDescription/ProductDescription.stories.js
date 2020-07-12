@@ -1,6 +1,6 @@
+import { text, withKnobs } from '@storybook/addon-knobs'
 import React from 'react'
 import ProductDescription from './ProductDescription'
-import { withKnobs, text } from '@storybook/addon-knobs'
 
 export default {
   component: ProductDescription,

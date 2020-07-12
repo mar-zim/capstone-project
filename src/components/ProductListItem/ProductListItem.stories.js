@@ -1,8 +1,8 @@
-import React from 'react'
-import ProductListItem from './ProductListItem'
+import { object, withKnobs } from '@storybook/addon-knobs'
 import { addDecorator } from '@storybook/react'
+import React from 'react'
 import StoryRouter from 'storybook-react-router'
-import { withKnobs, object } from '@storybook/addon-knobs'
+import ProductListItem from './ProductListItem'
 
 addDecorator(StoryRouter())
 

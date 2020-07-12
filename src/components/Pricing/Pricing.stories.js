@@ -1,6 +1,6 @@
+import { number, withKnobs } from '@storybook/addon-knobs'
 import React from 'react'
 import Pricing from './Pricing'
-import { withKnobs, number } from '@storybook/addon-knobs'
 
 export default {
   component: Pricing,

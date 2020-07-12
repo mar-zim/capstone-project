@@ -9,5 +9,5 @@ const DividerLine = styled.div`
   height: 1px;
   width: 100%;
   background-color: var(--grey-5);
-  margin-top: 25px;
+  margin-top: 20px;
 `
