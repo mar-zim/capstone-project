@@ -1,5 +1,5 @@
 import React from 'react'
-import DividerLine from '../DividerLine/DividerLine'
+import { DividerLine } from '../DividerLine/DividerLine'
 
 export default function Pricing({ daily, weekly }) {
   return (
