@@ -20,7 +20,7 @@ export default function ProductDetailPage({ products }) {
         weekly={selectedProduct.weeklyRate}
       />
       <ContactDetails
-        firstname={selectedProduct.ownerFirstname}
+        firstName={selectedProduct.ownerFirstName}
         location={selectedProduct.location}
         phone={selectedProduct.phone}
         details={selectedProduct.ownerNotes}
