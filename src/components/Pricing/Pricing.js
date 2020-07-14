@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { DividerLine } from '../DividerLine'
-import PropTypes from 'prop-types'
 
 Pricing.propTypes = {
   daily: PropTypes.number,

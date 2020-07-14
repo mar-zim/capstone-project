@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import back from '../../assets/images/back.svg'
+import back from '../../icons/back.svg'
 
 export default function Header() {
   let location = useLocation()
