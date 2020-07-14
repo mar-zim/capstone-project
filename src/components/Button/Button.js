@@ -28,4 +28,9 @@ const StyledButton = styled.button`
   text-align: center;
   color: var(--white);
   cursor: pointer;
+
+  :active {
+    position: relative;
+    top: 2px;
+  }
 `
