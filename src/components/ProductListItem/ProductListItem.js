@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import Button from '../Button/Button'
-import { DividerLine } from '../DividerLine/DividerLine'
+import { DividerLine } from '../DividerLine'
 
 export default function ProductListItem({
   product: { name, ownerFirstName, location, _id },
