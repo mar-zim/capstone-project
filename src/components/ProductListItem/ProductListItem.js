@@ -1,8 +1,15 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import Button from '../Button/Button'
 import { DividerLine } from '../DividerLine'
+
+ProductListItem.propTypes = {
+  product: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  ),
+}
 
 export default function ProductListItem({
   product: { name, ownerFirstName, location, _id },

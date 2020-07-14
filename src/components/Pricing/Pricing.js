@@ -1,5 +1,11 @@
 import React from 'react'
 import { DividerLine } from '../DividerLine'
+import PropTypes from 'prop-types'
+
+Pricing.propTypes = {
+  daily: PropTypes.number,
+  weekly: PropTypes.number,
+}
 
 export default function Pricing({ daily, weekly }) {
   return (

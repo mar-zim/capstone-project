@@ -1,5 +1,10 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import ProductListItem from '../components/ProductListItem/ProductListItem'
+
+ProductList.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
+}
 
 export default function ProductList({ products }) {
   return (
