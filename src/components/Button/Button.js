@@ -1,8 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
+Button.propTypes = {
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+}
 
 export default function Button({ onClick, text }) {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>
+  return (
+    <StyledButton data-testid="button" onClick={onClick}>
+      {text}
+    </StyledButton>
+  )
 }
 
 const StyledButton = styled.button`
