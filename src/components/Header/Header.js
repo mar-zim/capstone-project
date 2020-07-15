@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import back from '../../icons/back.svg'
+import arrowleft from '../../icons/arrowleft.svg'
 
 export default function Header() {
   let location = useLocation()
@@ -10,7 +10,7 @@ export default function Header() {
     <StyledHeader>
       {location.pathname !== '/' && (
         <Link to="/">
-          <StyledBackIcon src={back} alt="back" />
+          <StyledBackIcon src={arrowleft} alt="back" />
         </Link>
       )}
       <StyledLogo src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
@@ -30,8 +30,8 @@ const StyledLogo = styled.img`
 `
 
 const StyledBackIcon = styled.img`
-  height: 28px;
+  height: 36px;
   position: absolute;
-  top: 14px;
+  top: 10px;
   left: 20px;
 `
