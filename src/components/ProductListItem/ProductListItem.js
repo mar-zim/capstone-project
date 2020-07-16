@@ -17,7 +17,7 @@ export default function ProductListItem({
   const history = useHistory()
 
   return (
-    <>
+    <div onClick={routeChange}>
       <DividerLine />
       <StyledHeader>
         <h4>{name}</h4>
@@ -27,7 +27,7 @@ export default function ProductListItem({
         <div>von {ownerFirstName}</div>
         <div>aus {location}</div>
       </StyledProductInfo>
-    </>
+    </div>
   )
 
   function routeChange() {

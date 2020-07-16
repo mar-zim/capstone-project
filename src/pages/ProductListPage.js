@@ -1,18 +1,36 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import ProductListItem from '../components/ProductListItem/ProductListItem'
 import Search from '../components/Search/Search'
+import cross from '../icons/cross.svg'
+import searchIcon from '../icons/search.svg'
+import styled from 'styled-components'
+import ProductList from '../components/ProductList/ProductList'
 
-ProductList.propTypes = {
+ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default function ProductList({ products }) {
+export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
+  const [showSearch, setShowSearch] = useState(false)
 
   function handleSearch(event) {
     setSearchTerm(event.target.value)
   }
+
+  function viewSearch() {
+    setShowSearch(true)
+  }
+
+  function endSearch() {
+    setSearchTerm('')
+    setShowSearch(false)
+  }
+
+  function clearSearchField() {
+    setSearchTerm('')
+  }
+
   const results = !searchTerm
     ? products
     : products.filter((product) =>
@@ -21,10 +39,24 @@ export default function ProductList({ products }) {
 
   return (
     <>
-      <Search search={searchTerm} onSearch={handleSearch} />
-      {results.map((product) => (
-        <ProductListItem product={product} key={product._id} />
-      ))}
+      {showSearch ? (
+        <StyledIcon src={cross} alt="cross" onClick={endSearch} />
+      ) : (
+        <StyledIcon src={searchIcon} alt="searchIcon" onClick={viewSearch} />
+      )}
+      {showSearch && (
+        <Search
+          search={searchTerm}
+          onSearch={handleSearch}
+          deleteText={clearSearchField}
+        />
+      )}
+      <ProductList shownProducts={results} />
     </>
   )
 }
+
+const StyledIcon = styled.img`
+  height: 15px;
+  margin-top: 15px;
+`
