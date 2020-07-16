@@ -11,7 +11,7 @@ Search.propTypes = {
 
 export default function Search({ onSearch, search, deleteText }) {
   return (
-    <StyledSearchBar>
+    <StyledSearchForm onSubmit={(event) => event.preventDefault()}>
       <StyledTextField
         type="text"
         placeholder="Wonach suchst du?"
@@ -19,10 +19,10 @@ export default function Search({ onSearch, search, deleteText }) {
         onChange={onSearch}
       />
       <DeleteIcon onClick={deleteText} src={deleteIcon} alt="delete" />
-    </StyledSearchBar>
+    </StyledSearchForm>
   )
 }
-const StyledSearchBar = styled.form`
+const StyledSearchForm = styled.form`
   margin: 10px 0;
   position: relative;
   height: 30px;
