@@ -1,17 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import search from '../../icons/search.svg'
+import searchIcon from '../../icons/search.svg'
+import PropTypes from 'prop-types'
 
-export default function SearchField({ searchTerm, handleChange }) {
+Search.propTypes = {
+  onSearch: PropTypes.func,
+  search: PropTypes.string,
+}
+
+export default function Search({ onSearch, search }) {
   return (
     <StyledForm>
       <StyledTextField
         type="text"
         placeholder="Wonach suchst du?"
-        value={searchTerm}
-        onChange={handleChange}
+        value={search}
+        onChange={onSearch}
       />
-      <SearchIcon id="icon" src={search} alt="search"></SearchIcon>
+      <SearchIcon id="icon" src={searchIcon} alt="search"></SearchIcon>
     </StyledForm>
   )
 }

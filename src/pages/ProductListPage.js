@@ -10,6 +10,9 @@ ProductList.propTypes = {
 export default function ProductList({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
 
+  function handleSearch(event) {
+    setSearchTerm(event.target.value)
+  }
   const results = !searchTerm
     ? products
     : products.filter((product) =>
@@ -18,18 +21,10 @@ export default function ProductList({ products }) {
 
   return (
     <>
-      <Search
-        products={products}
-        handleChange={handleChange}
-        searchTerm={searchTerm}
-      />
+      <Search search={searchTerm} onSearch={handleSearch} />
       {results.map((product) => (
         <ProductListItem product={product} key={product._id} />
       ))}
     </>
   )
-
-  function handleChange(event) {
-    setSearchTerm(event.target.value)
-  }
 }
