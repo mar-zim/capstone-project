@@ -18,7 +18,6 @@ export default function ProductList({ products }) {
 
   return (
     <>
-      <h2>Was kann ich ausleihen?</h2>
       <Search
         products={products}
         handleChange={handleChange}
