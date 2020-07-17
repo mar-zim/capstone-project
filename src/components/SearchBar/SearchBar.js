@@ -6,22 +6,35 @@ import cross from '../../icons/cross.svg'
 import searchIcon from '../../icons/search.svg'
 
 SearchBar.propTypes = {
-  search: PropTypes.string,
+  searchInput: PropTypes.string,
+  setSearchTerm: PropTypes.func,
   isSearchBarVisible: PropTypes.bool,
-  viewSearch: PropTypes.func,
-  endSearch: PropTypes.func,
-  clearSearchField: PropTypes.func,
-  handleSearch: PropTypes.func,
+  setIsSearchBarVisible: PropTypes.func,
 }
 
 export default function SearchBar({
-  search,
+  searchInput,
+  setSearchTerm,
   isSearchBarVisible,
-  viewSearch,
-  endSearch,
-  clearSearchField,
-  handleSearch,
+  setIsSearchBarVisible,
 }) {
+  function handleSearch(event) {
+    setSearchTerm(event.target.value)
+  }
+
+  function viewSearch() {
+    setIsSearchBarVisible(true)
+  }
+
+  function endSearch() {
+    setSearchTerm('')
+    setIsSearchBarVisible(false)
+  }
+
+  function clearSearchField() {
+    setSearchTerm('')
+  }
+
   return (
     <>
       {isSearchBarVisible ? (
@@ -31,7 +44,7 @@ export default function SearchBar({
             <StyledTextField
               type="text"
               placeholder="Wonach suchst du?"
-              value={search}
+              value={searchInput}
               onChange={handleSearch}
               data-testid="textField"
             />

@@ -11,22 +11,6 @@ export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
 
-  function handleSearch(event) {
-    setSearchTerm(event.target.value)
-  }
-
-  function viewSearch() {
-    setIsSearchBarVisible(true)
-  }
-
-  function endSearch() {
-    setSearchTerm('')
-    setIsSearchBarVisible(false)
-  }
-
-  function clearSearchField() {
-    setSearchTerm('')
-  }
   const results = !searchTerm
     ? products
     : products.filter((product) =>
@@ -36,12 +20,10 @@ export default function ProductListPage({ products }) {
   return (
     <>
       <SearchBar
-        search={searchTerm}
-        viewSearch={viewSearch}
-        endSearch={endSearch}
-        clearSearchField={clearSearchField}
-        handleSearch={handleSearch}
+        setSearchTerm={setSearchTerm}
+        searchInput={searchTerm}
         isSearchBarVisible={isSearchBarVisible}
+        setIsSearchBarVisible={setIsSearchBarVisible}
       />
       {results.length > 0 ? (
         <ProductList shownProducts={results} />
