@@ -1,30 +1,32 @@
-import React from 'react'
-import styled from 'styled-components'
-import deleteIcon from '../../icons/delete.svg'
 import PropTypes from 'prop-types'
+import React, { useRef, useState } from 'react'
+import { animated, useSpring } from 'react-spring'
+import styled from 'styled-components'
 import cross from '../../icons/cross.svg'
+import deleteIcon from '../../icons/delete.svg'
 import searchIcon from '../../icons/search.svg'
-import { useSpring, animated } from 'react-spring'
 
 SearchBar.propTypes = {
   searchInput: PropTypes.string,
   setSearchTerm: PropTypes.func,
-  isSearchBarVisible: PropTypes.bool,
-  setIsSearchBarVisible: PropTypes.func,
 }
 
-export default function SearchBar({
-  searchInput,
-  setSearchTerm,
-  isSearchBarVisible,
-  setIsSearchBarVisible,
-}) {
+export default function SearchBar({ searchInput, setSearchTerm }) {
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
+
+  const searchField = useRef()
+
+  const animateWidth = useSpring({
+    width: isSearchBarVisible ? '300px' : '0px',
+  })
+
   function handleSearch(event) {
     setSearchTerm(event.target.value)
   }
 
   function viewSearch() {
     setIsSearchBarVisible(true)
+    searchField.current.focus()
   }
 
   function endSearch() {
@@ -34,11 +36,8 @@ export default function SearchBar({
 
   function clearSearchField() {
     setSearchTerm('')
+    searchField.current.focus()
   }
-
-  const animateWidth = useSpring({
-    width: isSearchBarVisible ? '300px' : '0px',
-  })
 
   return (
     <StyledSearchBar>
@@ -52,6 +51,7 @@ export default function SearchBar({
         onSubmit={(event) => event.preventDefault()}
       >
         <StyledTextField
+          ref={searchField}
           type="text"
           placeholder="Wonach suchst du?"
           value={searchInput}
@@ -94,7 +94,6 @@ const StyledTextField = styled.input`
   font-size: 14px;
   &:focus {
     outline: none;
-    border: 2px solid var(--lightblue);
   }
 `
 const DeleteTextIcon = styled.img`

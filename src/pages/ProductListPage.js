@@ -9,7 +9,6 @@ ProductListPage.propTypes = {
 
 export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
 
   const results = !searchTerm
     ? products
@@ -19,12 +18,7 @@ export default function ProductListPage({ products }) {
 
   return (
     <>
-      <SearchBar
-        setSearchTerm={setSearchTerm}
-        searchInput={searchTerm}
-        isSearchBarVisible={isSearchBarVisible}
-        setIsSearchBarVisible={setIsSearchBarVisible}
-      />
+      <SearchBar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
       {results.length > 0 ? (
         <ProductList shownProducts={results} />
       ) : (
