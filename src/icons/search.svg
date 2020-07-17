@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Combined Shape</title>
-    <defs>
-        <path d="M260.5,296 C265.19442,296 269,299.80558 269,304.5 C269,306.486525 268.318533,308.313884 267.17662,309.761057 L271.707107,314.292893 C272.097631,314.683418 272.097631,315.316582 271.707107,315.707107 C271.316582,316.097631 270.683418,316.097631 270.292893,315.707107 L270.292893,315.707107 L265.761057,311.17662 C264.313884,312.318533 262.486525,313 260.5,313 C255.80558,313 252,309.19442 252,304.5 C252,299.80558 255.80558,296 260.5,296 Z M260.5,298 C256.910149,298 254,300.910149 254,304.5 C254,308.089851 256.910149,311 260.5,311 C262.270413,311 263.87551,310.292198 265.047752,309.144134 L265.092893,309.092893 C265.10902,309.076766 265.125561,309.061305 265.142481,309.04651 C266.292198,307.87551 267,306.270413 267,304.5 C267,300.910149 264.089851,298 260.5,298 Z" id="path-1"></path>
-    </defs>
+<svg width="45px" height="35px" viewBox="0 0 45 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
     <g id="🎨-Setup-—-Customize-Here-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Symbols" transform="translate(-252.000000, -296.000000)">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use id="Combined-Shape" fill="#3B6993" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="Symbols" transform="translate(-342.000000, -318.000000)">
+            <g id="Group-3" transform="translate(342.000000, 318.000000)">
+                <rect id="Rectangle" fill="#9DB3C6" x="0" y="0" width="45" height="35" rx="5"></rect>
+                <g id="Group" transform="translate(9.000000, 5.000000)" stroke="#FFFCF9" stroke-width="3">
+                    <circle id="Oval" cx="8.5" cy="8.5" r="7"></circle>
+                    <line x1="14.4333333" y1="12.4545455" x2="26.5666667" y2="21.5454545" id="Line" stroke-linecap="round"></line>
+                </g>
+            </g>
         </g>
     </g>
 </svg>

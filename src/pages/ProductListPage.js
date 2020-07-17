@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import Search from '../components/Search/Search'
-import cross from '../icons/cross.svg'
-import searchIcon from '../icons/search.svg'
-import styled from 'styled-components'
 import ProductList from '../components/ProductList/ProductList'
+import SearchBar from '../components/Search/SearchBar'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -12,25 +9,24 @@ ProductListPage.propTypes = {
 
 export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [showSearch, setShowSearch] = useState(false)
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
 
   function handleSearch(event) {
     setSearchTerm(event.target.value)
   }
 
   function viewSearch() {
-    setShowSearch(true)
+    setIsSearchBarVisible(true)
   }
 
   function endSearch() {
     setSearchTerm('')
-    setShowSearch(false)
+    setIsSearchBarVisible(false)
   }
 
   function clearSearchField() {
     setSearchTerm('')
   }
-
   const results = !searchTerm
     ? products
     : products.filter((product) =>
@@ -39,18 +35,14 @@ export default function ProductListPage({ products }) {
 
   return (
     <>
-      {showSearch ? (
-        <>
-          <StyledIcon src={cross} alt="cross" onClick={endSearch} />
-          <Search
-            search={searchTerm}
-            onSearch={handleSearch}
-            deleteText={clearSearchField}
-          />
-        </>
-      ) : (
-        <StyledIcon src={searchIcon} alt="searchIcon" onClick={viewSearch} />
-      )}
+      <SearchBar
+        search={searchTerm}
+        viewSearch={viewSearch}
+        endSearch={endSearch}
+        clearSearchField={clearSearchField}
+        handleSearch={handleSearch}
+        isSearchBarVisible={isSearchBarVisible}
+      />
       {results.length > 0 ? (
         <ProductList shownProducts={results} />
       ) : (
@@ -59,8 +51,3 @@ export default function ProductListPage({ products }) {
     </>
   )
 }
-
-const StyledIcon = styled.img`
-  height: 15px;
-  margin-top: 15px;
-`
