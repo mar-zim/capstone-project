@@ -40,18 +40,22 @@ export default function ProductListPage({ products }) {
   return (
     <>
       {showSearch ? (
-        <StyledIcon src={cross} alt="cross" onClick={endSearch} />
+        <>
+          <StyledIcon src={cross} alt="cross" onClick={endSearch} />
+          <Search
+            search={searchTerm}
+            onSearch={handleSearch}
+            deleteText={clearSearchField}
+          />
+        </>
       ) : (
         <StyledIcon src={searchIcon} alt="searchIcon" onClick={viewSearch} />
       )}
-      {showSearch && (
-        <Search
-          search={searchTerm}
-          onSearch={handleSearch}
-          deleteText={clearSearchField}
-        />
+      {results.length > 0 ? (
+        <ProductList shownProducts={results} />
+      ) : (
+        <div>Leider keine Ergebnisse!</div>
       )}
-      <ProductList shownProducts={results} />
     </>
   )
 }
