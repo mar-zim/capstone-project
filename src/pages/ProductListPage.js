@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import ProductList from '../components/ProductList/ProductList'
-import SearchBar from '../components/Search/SearchBar'
+import SearchBar from '../components/SearchBar/SearchBar'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),

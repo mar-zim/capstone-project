@@ -7,6 +7,11 @@ import searchIcon from '../../icons/search.svg'
 
 SearchBar.propTypes = {
   search: PropTypes.string,
+  isSearchBarVisible: PropTypes.bool,
+  viewSearch: PropTypes.func,
+  endSearch: PropTypes.func,
+  clearSearchField: PropTypes.func,
+  handleSearch: PropTypes.func,
 }
 
 export default function SearchBar({
@@ -17,13 +22,11 @@ export default function SearchBar({
   clearSearchField,
   handleSearch,
 }) {
-  console.log(isSearchBarVisible)
-  console.log(search)
   return (
     <>
       {isSearchBarVisible ? (
         <StyledSearchBar>
-          <StyledIcon src={cross} alt="cross" onClick={endSearch} />
+          <ToggleIcon src={cross} alt="cross" onClick={endSearch} />
           <StyledSearchForm onSubmit={(event) => event.preventDefault()}>
             <StyledTextField
               type="text"
@@ -40,7 +43,7 @@ export default function SearchBar({
         </StyledSearchBar>
       ) : (
         <StyledSearchBar>
-          <StyledIcon src={searchIcon} alt="searchIcon" onClick={viewSearch} />
+          <ToggleIcon src={searchIcon} alt="searchIcon" onClick={viewSearch} />
         </StyledSearchBar>
       )}
     </>
@@ -84,7 +87,7 @@ const DeleteTextIcon = styled.img`
   cursor: pointer;
 `
 
-const StyledIcon = styled.img`
+const ToggleIcon = styled.img`
   height: 35px;
   cursor: pointer;
 `
