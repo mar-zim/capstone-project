@@ -1,5 +1,13 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+
+ContactDetails.propTypes = {
+  firstName: PropTypes.string,
+  location: PropTypes.string,
+  phone: PropTypes.string,
+  details: PropTypes.string,
+}
 
 export default function ContactDetails({
   firstName,

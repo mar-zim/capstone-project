@@ -1,13 +1,29 @@
-import React from 'react'
-import ProductListItem from '../components/ProductListItem/ProductListItem'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import ProductList from '../components/ProductList/ProductList'
+import SearchBar from '../components/SearchBar/SearchBar'
 
-export default function ProductList({ products }) {
+ProductListPage.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
+}
+
+export default function ProductListPage({ products }) {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const results = searchTerm
+    ? products.filter((product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : products
+
   return (
     <>
-      <h2>Was kann ich ausleihen?</h2>
-      {products.map((product) => (
-        <ProductListItem product={product} key={product._id} />
-      ))}
+      <SearchBar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
+      {results.length > 0 ? (
+        <ProductList shownProducts={results} />
+      ) : (
+        <div>Leider keine Ergebnisse!</div>
+      )}
     </>
   )
 }

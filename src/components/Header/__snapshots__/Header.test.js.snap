@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header-Test matches snapshot 1`] = `"<header class=\\"sc-AxjAm bFPmOx\\"><img src=\\"/logo.svg\\" alt=\\"logo\\" class=\\"sc-AxirZ ctqnPd\\"></header>"`;

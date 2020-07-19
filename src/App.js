@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
 import ProductListPage from './pages/ProductListPage'
 import ProductDetailPage from './pages/ProductDetailPage'
-import mockdata from '../src/assets/products.json'
+import mockdata from '../src/components/__mocks__/products.json'
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
