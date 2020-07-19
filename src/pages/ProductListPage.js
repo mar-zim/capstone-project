@@ -10,11 +10,11 @@ ProductListPage.propTypes = {
 export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const results = !searchTerm
-    ? products
-    : products.filter((product) =>
+  const results = searchTerm
+    ? products.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
+    : products
 
   return (
     <>

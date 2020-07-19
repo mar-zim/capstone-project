@@ -12,8 +12,8 @@ describe('Button-Test', () => {
 
   it('should call a function on click', () => {
     const onTestClick = jest.fn()
-    const { getByTestId } = render(<Button onClick={onTestClick} />)
-    fireEvent.click(getByTestId('button'))
+    const { getByRole } = render(<Button onClick={onTestClick} />)
+    fireEvent.click(getByRole('button'))
     expect(onTestClick).toHaveBeenCalled()
   })
 })

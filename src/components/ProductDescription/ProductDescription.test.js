@@ -5,7 +5,7 @@ import ProductDescription from './ProductDescription'
 
 describe('ProductDescription-Test', () => {
   it('should render the description text', () => {
-    const testDescription = 'Foo Bar Baz'
+    const testDescription = 'Test'
     render(<ProductDescription description={testDescription} />)
     expect(screen.getByText(testDescription)).toBeInTheDocument()
   })

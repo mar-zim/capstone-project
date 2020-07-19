@@ -8,11 +8,7 @@ Button.propTypes = {
 }
 
 export default function Button({ onClick, text }) {
-  return (
-    <StyledButton data-testid="button" onClick={onClick}>
-      {text}
-    </StyledButton>
-  )
+  return <StyledButton onClick={onClick}>{text}</StyledButton>
 }
 
 const StyledButton = styled.button`
