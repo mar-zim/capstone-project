@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^7.16.1",
     "pretty": "^2.0.0",
     "pretty-format": "^26.1.0",
     "prop-types": "^15.7.2",
