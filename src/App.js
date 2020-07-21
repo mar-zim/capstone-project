@@ -5,6 +5,7 @@ import ProductListPage from './pages/ProductListPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import mockdata from '../src/components/__mocks__/products.json'
 import { Switch, Route } from 'react-router-dom'
+import Register from '../src/components/auth/Register'
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Header />
       <StyledMain>
         <Switch>
+          <Route path="/register" component={Register} />
           <Route
-            path="/:productId"
+            path="/details/:productId"
             component={() => <ProductDetailPage products={mockdata} />}
           />
           <Route

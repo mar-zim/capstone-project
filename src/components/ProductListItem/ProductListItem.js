@@ -31,7 +31,7 @@ export default function ProductListItem({
   )
 
   function routeChange() {
-    let path = `/${_id}`
+    let path = `/details/${_id}`
     history.push(path)
   }
 }
