@@ -1,71 +1,58 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
-import { Link } from 'react-router-dom'
+import useForm from '../../services/useForm'
 
 export default function Register() {
   const [isRegistered, setIsRegistered] = useState(false)
+  const { handleChange, handleSubmit, values } = useForm(registerToFirebase)
 
-  const userName = useRef(null)
-  const userEmail = useRef(null)
-  const userPassword = useRef(null)
-
-  async function registerToFirebase(name, email, password) {
+  async function registerToFirebase(values) {
     const newUser = await firebaseApp.createUserWithEmailAndPassword(
-      email,
-      password
+      values.email,
+      values.password
     )
-
     await newUser.user.updateProfile({
-      displayName: name,
+      displayName: values.name,
     })
-
     return setIsRegistered(true)
   }
-  //try catch
+
   return (
     <div>
       {isRegistered ? (
-        <p>
-          Du bist angemeldet und kannst dich jetzt{' '}
-          <Link to="/login">einloggen</Link>
-        </p>
+        <p>Du bist angemeldet und kannst dich jetzt einloggen!</p>
       ) : (
-        <form
-          onSubmit={(event) => (
-            event.preventDefault(),
-            registerToFirebase(
-              userName.current.value,
-              userEmail.current.value,
-              userPassword.current.value
-            )
-          )}
-        >
+        <form onSubmit={handleSubmit}>
           <div>
-            <StyledLabel htmlFor="user-name">Username</StyledLabel>
+            <StyledLabel htmlFor="name">Username</StyledLabel>
             <StyledInput
-              htmlId="user-name"
-              name="user-name"
+              name="name"
               type="text"
-              ref={userName}
+              onChange={handleChange}
+              value={values.name || ''}
+              required
             />
           </div>
           <div>
-            <StyledLabel htmlFor="user-email">E-Mail</StyledLabel>
+            <StyledLabel htmlFor="email">E-Mail</StyledLabel>
             <StyledInput
-              htmlId="user-email"
-              name="user-email"
-              type="text"
-              ref={userEmail}
+              name="email"
+              type="email"
+              onChange={handleChange}
+              value={values.email || ''}
+              required
             />
           </div>
           <div>
-            <StyledLabel htmlFor="user-password">Password</StyledLabel>
+            <StyledLabel htmlFor="password">Password</StyledLabel>
             <StyledInput
-              htmlId="user-password"
-              name="user-password"
+              name="password"
               type="password"
-              ref={userPassword}
+              onChange={handleChange}
+              value={values.password || ''}
+              required
             />
           </div>
           <div>

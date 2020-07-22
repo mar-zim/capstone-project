@@ -1,43 +1,39 @@
-import React, { useRef } from 'react'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
-import { useHistory } from 'react-router-dom'
+import useForm from '../../services/useForm'
 
 export default function Login() {
+  const { handleChange, handleSubmit, values } = useForm(loginWithFirebase)
   const history = useHistory()
-  const userEmail = useRef(null)
-  const userPassword = useRef(null)
 
-  async function loginWithFirebase(email, password) {
-    await firebaseApp.signInWithEmailAndPassword(email, password)
+  async function loginWithFirebase(values) {
+    await firebaseApp.signInWithEmailAndPassword(values.email, values.password)
     return history.push('/home')
   }
 
-  // evt mit dem Register Formualar zusammenlegen
   return (
     <div>
-      <form
-        onSubmit={(event) => (
-          event.preventDefault(),
-          loginWithFirebase(userEmail.current.value, userPassword.current.value)
-        )}
-      >
+      <form onSubmit={handleSubmit}>
         <div>
-          <StyledLabel htmlFor="user-email">E-Mail</StyledLabel>
+          <StyledLabel htmlFor="email">E-Mail</StyledLabel>
           <StyledInput
-            htmlId="user-email"
-            name="user-email"
-            type="text"
-            ref={userEmail}
+            name="email"
+            type="email"
+            onChange={handleChange}
+            value={values.email || ''}
+            required
           />
         </div>
         <div>
-          <StyledLabel htmlFor="user-password">Password</StyledLabel>
+          <StyledLabel htmlFor="password">Password</StyledLabel>
           <StyledInput
-            htmlId="user-password"
-            name="user-password"
+            name="password"
             type="password"
-            ref={userPassword}
+            onChange={handleChange}
+            value={values.password || ''}
+            required
           />
         </div>
         <div>
