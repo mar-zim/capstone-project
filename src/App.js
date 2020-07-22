@@ -1,42 +1,39 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import Header from '../src/components/Header/Header'
-import ProductListPage from './pages/ProductListPage'
-import ProductDetailPage from './pages/ProductDetailPage'
-import mockdata from '../src/components/__mocks__/products.json'
-import { Switch, Route } from 'react-router-dom'
 import Register from '../src/components/auth/Register'
-import Login from './components/auth/Login'
-import useAuth from './services/useAuth'
-import LoginContext from './services/loginContext'
+import Header from '../src/components/Header/Header'
+import mockdata from '../src/components/__mocks__/products.json'
 import firebaseApp from './firebase'
-import UserBar from './components/auth/UserBar'
+import LoginPage from './pages/LoginPage'
+import ProductDetailPage from './pages/ProductDetailPage'
+import ProductListPage from './pages/ProductListPage'
+import loginContext from './services/loginContext'
+import useAuth from './services/useAuth'
 
 function App() {
   const user = useAuth()
   return (
-    <LoginContext.Provider value={{ user, firebaseApp }}>
+    <loginContext.Provider value={{ user, firebaseApp }}>
       <AppWrapper>
         <Header />
         <StyledMain>
-          {user ? <p>User eingeloggt: {user.displayName}</p> : null}
-          <UserBar />
+          {user ? <h4>Hallo {user.displayName}!</h4> : null}
           <Switch>
             <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
             <Route
               path="/details/:productId"
               component={() => <ProductDetailPage products={mockdata} />}
             />
             <Route
-              exact
-              path="/"
+              path="/home"
               component={() => <ProductListPage products={mockdata} />}
             />
+            <Route exact path="/" component={LoginPage} />
           </Switch>
         </StyledMain>
       </AppWrapper>
-    </LoginContext.Provider>
+    </loginContext.Provider>
   )
 }
 

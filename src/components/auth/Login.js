@@ -1,14 +1,16 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
+import { useHistory } from 'react-router-dom'
 
-export default function Login({ history }) {
+export default function Login() {
+  const history = useHistory()
   const userEmail = useRef(null)
   const userPassword = useRef(null)
 
   async function loginWithFirebase(email, password) {
     await firebaseApp.signInWithEmailAndPassword(email, password)
-    return history.push('/')
+    return history.push('/home')
   }
 
   // evt mit dem Register Formualar zusammenlegen

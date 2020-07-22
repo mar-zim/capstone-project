@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import arrowback from './../icons/arrowback.svg'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
+import styled from 'styled-components'
 
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -16,6 +18,9 @@ export default function ProductDetailPage({ products }) {
 
   return (
     <>
+      <Link to="/home">
+        <StyledIcon src={arrowback} alt="back" />
+      </Link>
       <h2>{selectedProduct.name}</h2>
       <div className="description">{selectedProduct.location}</div>
       <ProductDescription description={selectedProduct.description} />
@@ -32,3 +37,8 @@ export default function ProductDetailPage({ products }) {
     </>
   )
 }
+
+const StyledIcon = styled.img`
+  margin-top: 20px;
+  height: 20px;
+`

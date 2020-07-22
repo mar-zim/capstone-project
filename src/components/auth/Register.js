@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
+import { Link } from 'react-router-dom'
 
 export default function Register() {
   const [isRegistered, setIsRegistered] = useState(false)
@@ -25,7 +26,10 @@ export default function Register() {
   return (
     <div>
       {isRegistered ? (
-        <p>You are registered!</p>
+        <p>
+          Du bist angemeldet und kannst dich jetzt{' '}
+          <Link to="/login">einloggen</Link>
+        </p>
       ) : (
         <form
           onSubmit={(event) => (
@@ -69,6 +73,9 @@ export default function Register() {
           </div>
         </form>
       )}
+      <div>
+        Zurück zum <Link to="/">Login</Link>.
+      </div>
     </div>
   )
 }
