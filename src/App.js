@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import Register from '../src/components/auth/Register'
+import RegisterForm from './components/auth/RegisterForm'
 import Header from '../src/components/Header/Header'
 import mockdata from '../src/components/__mocks__/products.json'
 import firebaseApp from './firebase'
@@ -18,9 +18,8 @@ function App() {
       <AppWrapper>
         <Header />
         <StyledMain>
-          {user ? <h4>Hallo {user.displayName}!</h4> : null}
           <Switch>
-            <Route path="/register" component={Register} />
+            <Route path="/register" component={RegisterForm} />
             <Route
               path="/details/:productId"
               component={() => <ProductDetailPage products={mockdata} />}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import Logout from '../auth/Logout'
+import LogoutButton from '../auth/LogoutButton'
 import loginContext from '../../services/loginContext'
 
 export default function Header() {
@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledLogo src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
-      {user && <Logout />}
+      {user && <LogoutButton />}
     </StyledHeader>
   )
 }

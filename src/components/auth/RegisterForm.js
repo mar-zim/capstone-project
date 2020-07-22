@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../firebase'
 import useForm from '../../services/useForm'
+import Button from '../Button/Button'
 
 export default function Register() {
   const [isRegistered, setIsRegistered] = useState(false)
@@ -55,9 +56,7 @@ export default function Register() {
               required
             />
           </div>
-          <div>
-            <StyledButton type="submit">Create New User</StyledButton>
-          </div>
+          <Button text="registrieren" />
         </form>
       )}
       <div>
@@ -69,18 +68,13 @@ export default function Register() {
 
 const StyledInput = styled.input`
   padding: 0.5em;
-  margin: 0.5em;
-  border: 1px solid gray;
+  margin: 10px 0;
+  border: 1px solid var(--grey-4);
   border-radius: 3px;
   width: 40%;
 `
 
 const StyledLabel = styled.label`
   display: block;
-  margin: 0 0.5em;
-`
-
-const StyledButton = styled.button`
-  display: block;
-  margin: 0.5em;
+  margin: 0;
 `

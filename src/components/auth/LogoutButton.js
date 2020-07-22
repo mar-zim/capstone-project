@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import LoginContext from '../../services/loginContext'
+import loginContext from '../../services/loginContext'
 import { useHistory } from 'react-router-dom'
 import Button from '../Button/Button'
 
-export default function Logout() {
-  const { firebaseApp } = useContext(LoginContext)
+export default function LogoutButton() {
+  const { firebaseApp } = useContext(loginContext)
   const history = useHistory()
 
   async function logoutFromFirebase() {
