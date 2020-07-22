@@ -6,14 +6,19 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import mockdata from '../src/components/__mocks__/products.json'
 import { Switch, Route } from 'react-router-dom'
 import Register from '../src/components/auth/Register'
+import Login from './components/auth/Login'
+import useAuth from './services/useAuth'
 
 function App() {
+  const user = useAuth()
   return (
     <AppWrapper>
       <Header />
       <StyledMain>
+        {user ? <p>User eingeloggt: {user.displayName}</p> : null}
         <Switch>
           <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
           <Route
             path="/details/:productId"
             component={() => <ProductDetailPage products={mockdata} />}
