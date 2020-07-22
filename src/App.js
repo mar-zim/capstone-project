@@ -1,18 +1,19 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import RegisterForm from './components/auth/RegisterForm'
 import Header from '../src/components/Header/Header'
 import mockdata from '../src/components/__mocks__/products.json'
+import RegisterForm from './components/auth/RegisterForm'
 import firebaseApp from './firebase'
-import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
+import WelcomePage from './pages/WelcomePage'
 import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
 
 function App() {
   const user = useAuth()
+  console.log(user)
   return (
     <loginContext.Provider value={{ user, firebaseApp }}>
       <AppWrapper>
@@ -21,14 +22,20 @@ function App() {
           <Switch>
             <Route path="/register" component={RegisterForm} />
             <Route
-              path="/details/:productId"
-              component={() => <ProductDetailPage products={mockdata} />}
-            />
-            <Route
               path="/home"
               component={() => <ProductListPage products={mockdata} />}
             />
-            <Route exact path="/" component={LoginPage} />
+            <Route
+              path="/details/:productId"
+              component={() => <ProductDetailPage products={mockdata} />}
+            />
+            <Route exact path="/" component={WelcomePage} />
+            {/* <Route
+              exact
+              path="/"
+              component={() =>
+                user ? <Redirect to="/home" /> : <Redirect to="/login" />
+              } */}
           </Switch>
         </StyledMain>
       </AppWrapper>

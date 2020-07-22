@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import loginContext from '../services/loginContext'
 import LoginForm from '../components/auth/LoginForm'
 
-export default function LoginPage() {
+export default function WelcomePage() {
   const { user } = useContext(loginContext)
 
   return (

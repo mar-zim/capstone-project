@@ -14,7 +14,7 @@ export default function LogoutButton() {
 
   return (
     <div>
-      <div>{user.displayName}</div>
+      <div>Eingeloggt als: {user.displayName}</div>
       <Button text="Abmelden" onClick={logoutFromFirebase} />
     </div>
   )

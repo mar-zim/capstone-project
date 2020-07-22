@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import firebaseApp from '../firebase'
 
-function useAuth() {
+export default function useAuth() {
   const [authUser, setAuthUser] = useState(null)
 
   useEffect(() => {
@@ -14,5 +14,3 @@ function useAuth() {
 
   return authUser
 }
-
-export default useAuth
