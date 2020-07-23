@@ -25,7 +25,7 @@ export default function Register() {
       {isRegistered ? (
         <p>
           Du bist angemeldet und kannst jetzt loslegen!{' '}
-          <Link to="home">Home</Link>
+          <Link to="/home">Home</Link>
         </p>
       ) : (
         <div>
@@ -63,11 +63,11 @@ export default function Register() {
             </div>
             <Button text="registrieren" />
           </form>
+          <div className="caption">
+            Zurück zum <Link to="/login">Login</Link>.
+          </div>
         </div>
       )}
-      <div className="caption">
-        Zurück zum <Link to="/login">Login</Link>.
-      </div>
     </>
   )
 }
