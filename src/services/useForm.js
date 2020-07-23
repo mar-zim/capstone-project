@@ -1,4 +1,9 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
+
+useForm.propTypes = {
+  callbackFunction: PropTypes.func,
+}
 
 export default function useForm(callbackFunction) {
   const [values, setValues] = useState({})

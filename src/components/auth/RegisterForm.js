@@ -5,7 +5,7 @@ import firebaseApp from '../../firebase'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 
-export default function Register() {
+export default function RegisterForm() {
   const [isRegistered, setIsRegistered] = useState(false)
   const { values, handleChange, handleSubmit } = useForm(registerToFirebase)
 
