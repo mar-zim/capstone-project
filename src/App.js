@@ -1,13 +1,12 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
 import mockdata from '../src/components/__mocks__/products.json'
-import RegisterForm from './components/auth/RegisterForm'
 import firebaseApp from './firebase'
+import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
-import WelcomePage from './pages/WelcomePage'
 import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
 
@@ -21,8 +20,7 @@ function App() {
         <StyledMain>
           <Switch>
             <Redirect exact from="/" to="/home" />
-            <Route path="/register" component={RegisterForm} />
-            <Route path="/welcome" component={WelcomePage} />
+            <Route path="/login" component={LoginPage} />
             <Route
               path="/home"
               component={() => <ProductListPage products={mockdata} />}

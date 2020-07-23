@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom'
 import Button from '../Button/Button'
 
 export default function LogoutButton() {
-  const { firebaseApp, user } = useContext(loginContext)
+  const { firebaseApp } = useContext(loginContext)
   const history = useHistory()
 
   async function logoutFromFirebase() {
     await firebaseApp.signOut()
-    history.push('/')
+    history.push('/login')
   }
 
   return (

@@ -1,27 +1,45 @@
 import React, { useContext } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import LogoutButton from '../auth/LogoutButton'
 import loginContext from '../../services/loginContext'
+import LogoutButton from '../auth/LogoutButton'
 import Button from '../Button/Button'
 
 export default function Header() {
   const { user } = useContext(loginContext)
   const location = useLocation()
+  const history = useHistory()
+
   return (
     <StyledHeader>
-      <StyledLogo src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
+      <StyledLogo
+        src={process.env.PUBLIC_URL + '/logo.svg'}
+        alt="logo"
+        onClick={goToHome}
+      />
       {user ? (
         <LogoutButton />
       ) : (
-        location.pathname !== '/welcome' && (
-          <Link to="/welcome">
-            <Button backColor="var(--lightblue)" text="login" />
-          </Link>
+        location.pathname !== '/login' &&
+        location.pathname !== '/login/register' && (
+          <Button
+            backColor="var(--lightblue)"
+            text="login"
+            onClick={goToLoginPage}
+          />
         )
       )}
     </StyledHeader>
   )
+
+  function goToLoginPage() {
+    let path = `/login`
+    history.push(path)
+  }
+  function goToHome() {
+    let path = `/home`
+    history.push(path)
+  }
 }
 
 const StyledHeader = styled.header`
@@ -36,4 +54,5 @@ const StyledHeader = styled.header`
 const StyledLogo = styled.img`
   max-width: 80vw;
   grid-column: 2 / span 1;
+  cursor: pointer;
 `

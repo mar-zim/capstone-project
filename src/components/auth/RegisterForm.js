@@ -21,51 +21,54 @@ export default function Register() {
   }
 
   return (
-    <div>
+    <>
       {isRegistered ? (
         <p>
           Du bist angemeldet und kannst jetzt loslegen!{' '}
           <Link to="home">Home</Link>
         </p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <StyledLabel htmlFor="name">Username</StyledLabel>
-            <StyledInput
-              name="name"
-              type="text"
-              onChange={handleChange}
-              value={values.name || ''}
-              required
-            />
-          </div>
-          <div>
-            <StyledLabel htmlFor="email">E-Mail</StyledLabel>
-            <StyledInput
-              name="email"
-              type="email"
-              onChange={handleChange}
-              value={values.email || ''}
-              required
-            />
-          </div>
-          <div>
-            <StyledLabel htmlFor="password">Password</StyledLabel>
-            <StyledInput
-              name="password"
-              type="password"
-              onChange={handleChange}
-              value={values.password || ''}
-              required
-            />
-          </div>
-          <Button text="registrieren" />
-        </form>
+        <div>
+          <h2>Registrierung</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <StyledLabel htmlFor="name">Username</StyledLabel>
+              <StyledInput
+                name="name"
+                type="text"
+                onChange={handleChange}
+                value={values.name || ''}
+                required
+              />
+            </div>
+            <div>
+              <StyledLabel htmlFor="email">E-Mail</StyledLabel>
+              <StyledInput
+                name="email"
+                type="email"
+                onChange={handleChange}
+                value={values.email || ''}
+                required
+              />
+            </div>
+            <div>
+              <StyledLabel htmlFor="password">Password</StyledLabel>
+              <StyledInput
+                name="password"
+                type="password"
+                onChange={handleChange}
+                value={values.password || ''}
+                required
+              />
+            </div>
+            <Button text="registrieren" />
+          </form>
+        </div>
       )}
-      <div>
-        Zurück zum <Link to="/welcome">Login</Link>.
+      <div className="caption">
+        Zurück zum <Link to="/login">Login</Link>.
       </div>
-    </div>
+    </>
   )
 }
 
