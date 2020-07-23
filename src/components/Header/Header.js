@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import LogoutButton from '../auth/LogoutButton'
 import loginContext from '../../services/loginContext'
+import Button from '../Button/Button'
 
 export default function Header() {
   const { user } = useContext(loginContext)
@@ -9,7 +11,13 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledLogo src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
-      {user && <LogoutButton />}
+      {user ? (
+        <LogoutButton />
+      ) : (
+        <Link to="/welcome">
+          <Button text="login" />
+        </Link>
+      )}
     </StyledHeader>
   )
 }

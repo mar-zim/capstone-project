@@ -23,7 +23,10 @@ export default function Register() {
   return (
     <div>
       {isRegistered ? (
-        <p>Du bist angemeldet und kannst dich jetzt einloggen!</p>
+        <p>
+          Du bist angemeldet und kannst jetzt loslegen!{' '}
+          <Link to="home">Home</Link>
+        </p>
       ) : (
         <form onSubmit={handleSubmit}>
           <div>
@@ -60,7 +63,7 @@ export default function Register() {
         </form>
       )}
       <div>
-        Zurück zum <Link to="/">Login</Link>.
+        Zurück zum <Link to="/welcome">Login</Link>.
       </div>
     </div>
   )

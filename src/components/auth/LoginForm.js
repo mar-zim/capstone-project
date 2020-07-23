@@ -36,7 +36,7 @@ export default function LoginForm() {
           required
         />
       </div>
-      <Button text="log in" />
+      <Button text="login" />
     </form>
   )
 }
