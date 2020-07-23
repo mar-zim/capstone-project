@@ -2,13 +2,14 @@ import React, { useContext } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import loginContext from '../../services/loginContext'
-import LogoutButton from '../auth/LogoutButton'
+import useLogout from '../../services/useLogout'
 import Button from '../Button/Button'
 
 export default function Header() {
   const { user } = useContext(loginContext)
   const location = useLocation()
   const history = useHistory()
+  const logout = useLogout()
 
   return (
     <StyledHeader>
@@ -18,7 +19,7 @@ export default function Header() {
         onClick={goToHome}
       />
       {user ? (
-        <LogoutButton />
+        <Button backColor="var(--lightblue)" text="logout" onClick={logout} />
       ) : (
         location.pathname !== '/login' &&
         location.pathname !== '/login/register' && (
