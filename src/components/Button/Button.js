@@ -7,13 +7,9 @@ Button.propTypes = {
   onClick: PropTypes.func,
 }
 
-export default function Button({ onClick, text, textcolor, backColor }) {
+export default function Button({ onClick, text, backColor }) {
   return (
-    <StyledButton
-      backgroundColor={backColor}
-      color={textcolor}
-      onClick={onClick}
-    >
+    <StyledButton backgroundColor={backColor} onClick={onClick}>
       {text}
     </StyledButton>
   )
@@ -30,7 +26,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 1.2px;
   text-align: center;
-  color: ${(props) => props.color || 'var(--white)'};
+  color: var(--white);
   cursor: pointer;
 
   :active {

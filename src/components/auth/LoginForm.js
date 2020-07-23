@@ -6,7 +6,7 @@ import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 
 export default function LoginForm() {
-  const { handleChange, handleSubmit, values } = useForm(loginWithFirebase)
+  const { values, handleChange, handleSubmit } = useForm(loginWithFirebase)
   const history = useHistory()
   let { url } = useRouteMatch()
 

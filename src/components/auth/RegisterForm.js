@@ -7,7 +7,7 @@ import Button from '../Button/Button'
 
 export default function Register() {
   const [isRegistered, setIsRegistered] = useState(false)
-  const { handleChange, handleSubmit, values } = useForm(registerToFirebase)
+  const { values, handleChange, handleSubmit } = useForm(registerToFirebase)
 
   async function registerToFirebase(values) {
     const newUser = await firebaseApp.createUserWithEmailAndPassword(

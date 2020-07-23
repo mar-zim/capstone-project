@@ -18,3 +18,7 @@ export const withoutText = () => <Button text="" />
 export const withVariableText = () => (
   <Button text={text('Button text', 'enter button text here')} />
 )
+
+export const ColorLightBlue = () => (
+  <Button text="Lightblue" backColor="var(--lightblue)" />
+)
