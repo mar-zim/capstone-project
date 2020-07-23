@@ -4,7 +4,7 @@ import Pricing from './Pricing'
 
 export default {
   component: Pricing,
-  title: 'Pricing',
+  title: 'Product Detail Page/Pricing',
   decorators: [withKnobs],
 }
 

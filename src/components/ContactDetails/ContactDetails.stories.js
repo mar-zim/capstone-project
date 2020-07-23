@@ -4,7 +4,7 @@ import ContactDetails from './ContactDetails'
 
 export default {
   component: ContactDetails,
-  title: 'ContactDetails',
+  title: 'Product Detail Page/ContactDetails',
   decorators: [withKnobs],
 }
 

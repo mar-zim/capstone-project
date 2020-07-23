@@ -3,7 +3,7 @@ import LoginForm from './LoginForm'
 
 export default {
   component: LoginForm,
-  title: 'LoginForm',
+  title: 'User Authentication/Login Form',
 }
 
 export const Default = () => <LoginForm />

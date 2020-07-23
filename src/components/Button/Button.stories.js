@@ -4,7 +4,7 @@ import Button from './Button'
 
 export default {
   component: Button,
-  title: 'Button',
+  title: 'General/Button',
   decorators: [withKnobs],
 }
 

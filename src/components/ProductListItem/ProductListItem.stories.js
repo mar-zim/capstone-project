@@ -8,7 +8,7 @@ addDecorator(StoryRouter())
 
 export default {
   component: ProductListItem,
-  title: 'ProductListItem',
+  title: 'Product List/Single Listitem',
   decorators: [withKnobs],
 }
 

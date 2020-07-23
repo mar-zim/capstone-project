@@ -4,7 +4,7 @@ import ProductDescription from './ProductDescription'
 
 export default {
   component: ProductDescription,
-  title: 'ProductDescription',
+  title: 'Product Detail Page/Product Description',
   decorators: [withKnobs],
 }
 
