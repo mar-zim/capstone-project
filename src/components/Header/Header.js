@@ -37,8 +37,3 @@ const StyledLogo = styled.img`
   max-width: 80vw;
   grid-column: 2 / span 1;
 `
-
-const LoginButton = styled.img`
-  width: 40px;
-  grid-column: 3 / span 1;
-`
