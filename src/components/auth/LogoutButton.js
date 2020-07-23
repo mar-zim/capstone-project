@@ -13,9 +13,10 @@ export default function LogoutButton() {
   }
 
   return (
-    <div>
-      <div>Eingeloggt als: {user.displayName}</div>
-      <Button text="Abmelden" onClick={logoutFromFirebase} />
-    </div>
+    <Button
+      backColor="var(--lightblue)"
+      text="logout"
+      onClick={logoutFromFirebase}
+    />
   )
 }
