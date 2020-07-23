@@ -7,22 +7,30 @@ Button.propTypes = {
   onClick: PropTypes.func,
 }
 
-export default function Button({ onClick, text }) {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>
+export default function Button({ onClick, text, textcolor, backColor }) {
+  return (
+    <StyledButton
+      backgroundColor={backColor}
+      color={textcolor}
+      onClick={onClick}
+    >
+      {text}
+    </StyledButton>
+  )
 }
 
 const StyledButton = styled.button`
-  min-width: 95px;
+  min-width: 70px;
   min-height: 25px;
   border-radius: 5px;
   border: 0;
-  background-color: var(--denim);
+  background-color: ${(props) => props.backgroundColor || 'var(--denim)'};
   font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   text-align: center;
-  color: var(--white);
+  color: ${(props) => props.color || 'var(--white)'};
   cursor: pointer;
 
   :active {
