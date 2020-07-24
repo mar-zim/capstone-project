@@ -10,14 +10,20 @@ export default function RegisterForm() {
   const { values, handleChange, handleSubmit } = useForm(registerToFirebase)
 
   async function registerToFirebase(values) {
-    const newUser = await firebaseApp.createUserWithEmailAndPassword(
-      values.email,
-      values.password
-    )
-    await newUser.user.updateProfile({
-      displayName: values.name,
-    })
-    goToHome()
+    try {
+      const newUser = await firebaseApp.createUserWithEmailAndPassword(
+        values.email,
+        values.password
+      )
+      await newUser.user.updateProfile({
+        displayName: values.name,
+      })
+      goToHome()
+      alert('Herzlich Willkommen! Du bist nun registriert!')
+    } catch (error) {
+      console.log(error.message)
+      alert('Hier ist etwas schief gelaufen, bitte versuche es noch einmal!')
+    }
   }
 
   return (

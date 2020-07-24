@@ -11,8 +11,16 @@ export default function LoginForm() {
   let { url } = useRouteMatch()
 
   async function loginWithFirebase(values) {
-    await firebaseApp.signInWithEmailAndPassword(values.email, values.password)
-    return history.push('/home')
+    try {
+      await firebaseApp.signInWithEmailAndPassword(
+        values.email,
+        values.password
+      )
+      return history.push('/home')
+    } catch (error) {
+      console.log(error.message)
+      alert('Hier ist etwas schief gelaufen, bitte versuche es noch einmal!')
+    }
   }
 
   return (
