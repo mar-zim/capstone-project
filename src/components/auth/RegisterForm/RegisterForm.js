@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import firebaseApp from '../../firebase'
-import useForm from '../../services/useForm'
-import Button from '../Button/Button'
+import firebaseApp from '../../../firebase'
+import useForm from '../../../services/useForm'
+import Button from '../../Button/Button'
 
 export default function RegisterForm() {
   const [isRegistered, setIsRegistered] = useState(false)
@@ -76,7 +76,7 @@ const StyledInput = styled.input`
   padding: 0.5em;
   margin: 10px 0;
   border: 1px solid var(--grey-4);
-  border-radius: 3px;
+  border-radius: 5px;
   width: 40%;
 `
 

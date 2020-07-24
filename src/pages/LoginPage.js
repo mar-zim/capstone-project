@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
-import LoginForm from '../components/auth/LoginForm'
-import RegisterForm from '../components/auth/RegisterForm'
+import LoginForm from '../components/auth/LoginForm/LoginForm'
+import RegisterForm from '../components/auth/RegisterForm/RegisterForm'
 
 export default function LoginPage() {
   let { path } = useRouteMatch()
