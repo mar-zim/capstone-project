@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
-import styled from 'styled-components'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
+import TextInputField from '../../TextInputField/TextInputField'
 
 export default function LoginForm() {
   const { values, handleChange, handleSubmit } = useForm(loginWithFirebase)
@@ -19,31 +19,27 @@ export default function LoginForm() {
     <>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <StyledLabel htmlFor="email">E-Mail</StyledLabel>
-          <StyledInput
-            name="email"
-            type="email"
-            onChange={handleChange}
-            value={values.email || ''}
-            required
-          />
-        </div>
-        <div>
-          <StyledLabel htmlFor="password">Password</StyledLabel>
-          <StyledInput
-            name="password"
-            type="password"
-            onChange={handleChange}
-            value={values.password || ''}
-            required
-          />
-        </div>
+        <TextInputField
+          label="E-Mail"
+          name="email"
+          type="email"
+          handleChange={handleChange}
+          value={values.email || ''}
+          required={true}
+        />
+        <TextInputField
+          label="Passwort"
+          name="password"
+          type="password"
+          handleChange={handleChange}
+          value={values.password || ''}
+          required={true}
+        />
         <Button text="login" />
       </form>
       <div className="caption">
         Noch keine Zugangsdaten? Dann hier{' '}
-        <Link to={`${url}/register`}>registrieren</Link>.
+        <Link to={`${url}/register`}>Registrieren</Link>.
       </div>
       <div className="caption">
         Oder erstmal als <Link to="home">Gast</Link> umschauen.
@@ -51,16 +47,3 @@ export default function LoginForm() {
     </>
   )
 }
-
-const StyledInput = styled.input`
-  padding: 0.5em;
-  margin: 10px 0;
-  border: 1px solid var(--grey-4);
-  border-radius: 5px;
-  width: 40%;
-`
-
-const StyledLabel = styled.label`
-  display: block;
-  margin: 0;
-`
