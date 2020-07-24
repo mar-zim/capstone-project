@@ -7,9 +7,10 @@ TextInputField.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
   value: PropTypes.string,
   required: PropTypes.bool,
-  errors: PropTypes.object,
+  error: PropTypes.string,
 }
 
 export default function TextInputField({
@@ -17,6 +18,7 @@ export default function TextInputField({
   name,
   type,
   handleChange,
+  handleBlur,
   value,
   required,
   error,
@@ -28,6 +30,7 @@ export default function TextInputField({
         name={name}
         type={type}
         onChange={handleChange}
+        onBlur={handleBlur}
         value={value}
         required={required}
       />

@@ -7,7 +7,7 @@ import TextInputField from '../../TextInputField/TextInputField'
 import validateLogin from './LoginFormValidationRules'
 
 export default function LoginForm() {
-  const [values, inputErrors, handleChange, handleSubmit] = useForm(
+  const [values, inputErrors, handleChange, handleSubmit, handleBlur] = useForm(
     loginWithFirebase,
     validateLogin
   )
@@ -28,7 +28,7 @@ export default function LoginForm() {
       )
     }
   }
-
+  console.log(Object.keys(inputErrors).length === 0)
   return (
     <>
       <h2>Login</h2>
@@ -38,6 +38,7 @@ export default function LoginForm() {
           name="email"
           type="text"
           handleChange={handleChange}
+          handleBlur={handleBlur}
           value={values.email || ''}
           required={true}
           error={inputErrors.email}
@@ -47,11 +48,18 @@ export default function LoginForm() {
           name="password"
           type="password"
           handleChange={handleChange}
+          handleBlur={handleBlur}
           value={values.password || ''}
           required={true}
           error={inputErrors.password}
         />
-        <Button text="login" />
+        <Button
+          text="login"
+          disabled={
+            Object.keys(inputErrors).length !== 0 ||
+            Object.keys(values).length === 0
+          }
+        />
       </form>
       <div className="caption">
         Noch keine Zugangsdaten? Dann hier{' '}

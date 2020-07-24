@@ -5,11 +5,17 @@ import PropTypes from 'prop-types'
 Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
+  backColor: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
-export default function Button({ onClick, text, backColor }) {
+export default function Button({ onClick, text, backColor, disabled }) {
   return (
-    <StyledButton backgroundColor={backColor} onClick={onClick}>
+    <StyledButton
+      backgroundColor={backColor}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {text}
     </StyledButton>
   )
@@ -29,8 +35,13 @@ const StyledButton = styled.button`
   color: var(--white);
   cursor: pointer;
 
-  :active {
+  &:active {
     position: relative;
     top: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
   }
 `
