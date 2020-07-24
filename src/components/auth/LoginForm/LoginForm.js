@@ -28,7 +28,6 @@ export default function LoginForm() {
       )
     }
   }
-  console.log(Object.keys(inputErrors).length === 0)
   return (
     <>
       <h2>Login</h2>

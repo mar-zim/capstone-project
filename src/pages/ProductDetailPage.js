@@ -41,7 +41,7 @@ export default function ProductDetailPage({ products }) {
           />
         </div>
       ) : (
-        <div>Bitte log dich ein um Details zu sehen!</div>
+        <div>Bitte logge dich ein, um Details zu sehen!</div>
       )}
     </>
   )
