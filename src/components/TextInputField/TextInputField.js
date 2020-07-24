@@ -49,7 +49,7 @@ const StyledInput = styled.input`
   margin-top: 5px;
   border: 1px solid var(--grey-4);
   border-radius: 5px;
-  width: 50%;
+  width: 40%;
   font-family: var(--fontbody);
   &:focus {
     outline: none;
