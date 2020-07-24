@@ -6,4 +6,4 @@ export default {
   title: 'User Authentication/Login Form',
 }
 
-export const Default = () => <LoginForm />
+export const noInput = () => <LoginForm />

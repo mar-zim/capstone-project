@@ -7,7 +7,9 @@ import TextInputField from '../../TextInputField/TextInputField'
 
 export default function RegisterForm() {
   const history = useHistory()
-  const { values, handleChange, handleSubmit } = useForm(registerToFirebase)
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    registerToFirebase
+  )
 
   async function registerToFirebase(values) {
     try {

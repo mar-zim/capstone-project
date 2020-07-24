@@ -9,6 +9,7 @@ TextInputField.propTypes = {
   handleChange: PropTypes.func,
   value: PropTypes.string,
   required: PropTypes.bool,
+  errors: PropTypes.object,
 }
 
 export default function TextInputField({
@@ -18,9 +19,10 @@ export default function TextInputField({
   handleChange,
   value,
   required,
+  error,
 }) {
   return (
-    <div>
+    <StyledTextInput>
       <StyledLabel htmlFor={name}>{label}</StyledLabel>
       <StyledInput
         name={name}
@@ -29,19 +31,37 @@ export default function TextInputField({
         value={value}
         required={required}
       />
-    </div>
+      {error && <StyledError>{error}</StyledError>}
+    </StyledTextInput>
   )
 }
 
+const StyledTextInput = styled.div`
+  position: relative;
+  margin: 5px 0 25px 0;
+`
+
 const StyledInput = styled.input`
   padding: 0.5em;
-  margin: 10px 0;
+  margin-top: 5px;
   border: 1px solid var(--grey-4);
   border-radius: 5px;
-  width: 40%;
+  width: 50%;
+  font-family: var(--fontbody);
+  &:focus {
+    outline: none;
+    border: 1px solid var(--denim);
+  }
 `
 
 const StyledLabel = styled.label`
   display: block;
+  margin: 0;
+`
+
+const StyledError = styled.div`
+  position: absolute;
+  color: var(--salmon-pink);
+  font-size: 10px;
   margin: 0;
 `

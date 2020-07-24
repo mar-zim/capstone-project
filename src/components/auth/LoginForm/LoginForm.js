@@ -4,9 +4,13 @@ import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
 import TextInputField from '../../TextInputField/TextInputField'
+import validateLogin from './LoginFormValidationRules'
 
 export default function LoginForm() {
-  const { values, handleChange, handleSubmit } = useForm(loginWithFirebase)
+  const [values, inputErrors, handleChange, handleSubmit] = useForm(
+    loginWithFirebase,
+    validateLogin
+  )
   const history = useHistory()
   let { url } = useRouteMatch()
 
@@ -19,21 +23,24 @@ export default function LoginForm() {
       return history.push('/home')
     } catch (error) {
       console.log(error.message)
-      alert('Hier ist etwas schief gelaufen, bitte versuche es noch einmal!')
+      alert(
+        'Deine Login-Daten sind nicht korrekt. Bitte versuche es noch einmal!'
+      )
     }
   }
 
   return (
     <>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <TextInputField
           label="E-Mail"
           name="email"
-          type="email"
+          type="text"
           handleChange={handleChange}
           value={values.email || ''}
           required={true}
+          error={inputErrors.email}
         />
         <TextInputField
           label="Passwort"
@@ -42,6 +49,7 @@ export default function LoginForm() {
           handleChange={handleChange}
           value={values.password || ''}
           required={true}
+          error={inputErrors.password}
         />
         <Button text="login" />
       </form>
