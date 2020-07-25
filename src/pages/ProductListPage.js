@@ -33,13 +33,10 @@ export default function ProductListPage({ products }) {
           <Button text="logout" onClick={logout} />
         </UserBar>
       ) : (
-        location.pathname !== '/login' &&
-        location.pathname !== '/login/register' && (
-          <UserBar>
-            <h3>Willkommen!</h3>
-            <Button text="Einloggen" onClick={goToLoginPage} />
-          </UserBar>
-        )
+        <UserBar>
+          <h3>Willkommen!</h3>
+          <Button text="Einloggen" onClick={goToLoginPage} />
+        </UserBar>
       )}
 
       <SearchBar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
