@@ -7,10 +7,18 @@ import TextInputField from '../../TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
 
 export default function RegisterForm() {
-  const [values, inputErrors, handleChange, handleSubmit, handleBlur] = useForm(
+  const [values, inputErrors, handleChange, handleSubmit] = useForm(
     registerToFirebase,
     validateRegister
   )
+
+  const disableButton =
+    !values.email ||
+    !values.password ||
+    !values.name ||
+    !values.passwordcheck ||
+    Object.keys(inputErrors).length !== 0
+
   const history = useHistory()
 
   async function registerToFirebase(values) {
@@ -25,12 +33,10 @@ export default function RegisterForm() {
       goToHome()
       alert('Herzlich Willkommen! Du bist nun registriert!')
     } catch (error) {
-      console.log(error.message)
       alert('Hier ist etwas schief gelaufen, bitte versuche es noch einmal!')
     }
   }
-  console.log(inputErrors)
-  console.log(values)
+
   return (
     <div>
       <h2>Registrierung</h2>
@@ -40,7 +46,6 @@ export default function RegisterForm() {
           name="name"
           type="text"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.name || ''}
           required={true}
           error={inputErrors.name}
@@ -50,7 +55,6 @@ export default function RegisterForm() {
           name="email"
           type="email"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.email || ''}
           required={true}
           error={inputErrors.email}
@@ -60,7 +64,6 @@ export default function RegisterForm() {
           name="password"
           type="password"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.password || ''}
           required={true}
           error={inputErrors.password}
@@ -70,18 +73,11 @@ export default function RegisterForm() {
           name="passwordcheck"
           type="password"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.passwordcheck || ''}
           required={true}
           error={inputErrors.passwordcheck}
         />
-        <Button
-          text="registrieren"
-          disabled={
-            Object.keys(inputErrors).length !== 0 ||
-            Object.keys(values).length === 0
-          }
-        />
+        <Button text="registrieren" disabled={disableButton} />
       </form>
       <div className="caption">
         Zurück zum <Link to="/login">Login</Link>.

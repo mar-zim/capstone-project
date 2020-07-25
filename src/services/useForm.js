@@ -1,18 +1,22 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 useForm.propTypes = {
   callbackFunction: PropTypes.func,
   validate: PropTypes.object,
 }
 
-export default function useForm(callbackFunction, validate) {
+export default function useForm(submitFunction, validate) {
   const [values, setValues] = useState({})
   const [inputErrors, setInputErrors] = useState({})
 
+  useEffect(() => {
+    setInputErrors(validate(values))
+  }, [values, validate])
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    callbackFunction(values)
+    submitFunction(values)
   }
 
   const handleChange = (event) => {
@@ -23,9 +27,5 @@ export default function useForm(callbackFunction, validate) {
     }))
   }
 
-  const handleBlur = () => {
-    setInputErrors(validate(values))
-  }
-
-  return [values, inputErrors, handleChange, handleSubmit, handleBlur]
+  return [values, inputErrors, handleChange, handleSubmit]
 }

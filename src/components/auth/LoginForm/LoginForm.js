@@ -7,12 +7,15 @@ import TextInputField from '../../TextInputField/TextInputField'
 import validateLogin from './LoginFormValidationRules'
 
 export default function LoginForm() {
-  const [values, inputErrors, handleChange, handleSubmit, handleBlur] = useForm(
+  const [values, inputErrors, handleChange, handleSubmit] = useForm(
     loginWithFirebase,
     validateLogin
   )
   const history = useHistory()
   let { url } = useRouteMatch()
+
+  const disableButton =
+    !values.email || !values.password || Object.keys(inputErrors).length !== 0
 
   async function loginWithFirebase(values) {
     try {
@@ -32,6 +35,7 @@ export default function LoginForm() {
           )
     }
   }
+
   return (
     <>
       <h2>Login</h2>
@@ -41,7 +45,6 @@ export default function LoginForm() {
           name="email"
           type="text"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.email || ''}
           required={true}
           error={inputErrors.email}
@@ -51,18 +54,11 @@ export default function LoginForm() {
           name="password"
           type="password"
           handleChange={handleChange}
-          handleBlur={handleBlur}
           value={values.password || ''}
           required={true}
           error={inputErrors.password}
         />
-        <Button
-          text="login"
-          disabled={
-            Object.keys(inputErrors).length !== 0 ||
-            Object.keys(values).length === 0
-          }
-        />
+        <Button text="login" disabled={disableButton} />
       </form>
       <div className="caption">
         Noch keine Zugangsdaten? Dann hier{' '}
