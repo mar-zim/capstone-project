@@ -18,7 +18,6 @@ export default function TextInputField({
   name,
   type,
   handleChange,
-  handleBlur,
   value,
   required,
   error,
@@ -30,7 +29,6 @@ export default function TextInputField({
         name={name}
         type={type}
         onChange={handleChange}
-        onBlur={handleBlur}
         value={value}
         required={required}
       />
