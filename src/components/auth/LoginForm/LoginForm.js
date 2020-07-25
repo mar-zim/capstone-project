@@ -22,10 +22,14 @@ export default function LoginForm() {
       )
       return history.push('/home')
     } catch (error) {
-      console.log(error.message)
-      alert(
-        'Deine Login-Daten sind nicht korrekt. Bitte versuche es noch einmal!'
-      )
+      error.code === 'auth/wrong-password' ||
+      error.code === 'auth/user-not-found'
+        ? alert(
+            'Deine E-Mail oder dein Passwort ist nicht korrekt. Bitte versuche es noch einmal!'
+          )
+        : alert(
+            'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
+          )
     }
   }
   return (
