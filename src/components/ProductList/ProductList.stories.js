@@ -4,7 +4,7 @@ import ProductList from './ProductList'
 
 export default {
   component: ProductList,
-  title: 'ProductList',
+  title: 'Product List/Whole Product List',
 }
 
 export const withExampleData = () => <ProductList shownProducts={mockdata} />

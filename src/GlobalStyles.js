@@ -59,6 +59,12 @@ h4 {
   color: var(--grey-4);
 }
 
+.caption {
+  font-size: 12px;
+  color: var(--grey-4);
+  margin-top: 12px;
+}
+
 .description {
   font-size: 10px;
   font-weight: 300;

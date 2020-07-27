@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import Button from '../Button/Button'
-import { DividerLine } from '../DividerLine'
+import { DividerLine } from '../DividerLine/DividerLine'
 
 ProductListItem.propTypes = {
   product: PropTypes.objectOf(
@@ -21,7 +20,6 @@ export default function ProductListItem({
       <DividerLine />
       <StyledHeader>
         <h4>{name}</h4>
-        <Button text="mehr" onClick={routeChange} />
       </StyledHeader>
       <StyledProductInfo>
         <div>von {ownerFirstName}</div>
@@ -31,7 +29,7 @@ export default function ProductListItem({
   )
 
   function routeChange() {
-    let path = `/${_id}`
+    let path = `/details/${_id}`
     history.push(path)
   }
 }

@@ -1,29 +1,38 @@
 import React from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
-import ProductListPage from './pages/ProductListPage'
-import ProductDetailPage from './pages/ProductDetailPage'
 import mockdata from '../src/components/__mocks__/products.json'
-import { Switch, Route } from 'react-router-dom'
+import firebaseApp from './firebase'
+import LoginPage from './pages/LoginPage'
+import ProductDetailPage from './pages/ProductDetailPage'
+import ProductListPage from './pages/ProductListPage'
+import loginContext from './services/loginContext'
+import useAuth from './services/useAuth'
 
 function App() {
+  const user = useAuth()
+
   return (
-    <AppWrapper>
-      <Header />
-      <StyledMain>
-        <Switch>
-          <Route
-            path="/:productId"
-            component={() => <ProductDetailPage products={mockdata} />}
-          />
-          <Route
-            exact
-            path="/"
-            component={() => <ProductListPage products={mockdata} />}
-          />
-        </Switch>
-      </StyledMain>
-    </AppWrapper>
+    <loginContext.Provider value={{ user, firebaseApp }}>
+      <AppWrapper>
+        <Header />
+        <StyledMain>
+          <Switch>
+            <Redirect exact from="/" to="/home" />
+            <Route path="/login" component={LoginPage} />
+            <Route
+              path="/home"
+              component={() => <ProductListPage products={mockdata} />}
+            />
+            <Route
+              path="/details/:productId"
+              component={() => <ProductDetailPage products={mockdata} />}
+            />
+          </Switch>
+        </StyledMain>
+      </AppWrapper>
+    </loginContext.Provider>
   )
 }
 

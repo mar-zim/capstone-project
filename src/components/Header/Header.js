@@ -1,37 +1,34 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import arrowback from '../../icons/arrowback.svg'
 
 export default function Header() {
-  let location = useLocation()
+  const history = useHistory()
 
   return (
     <StyledHeader>
-      {location.pathname !== '/' && (
-        <Link to="/">
-          <StyledBackIcon src={arrowback} alt="back" />
-        </Link>
-      )}
-      <StyledLogo src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" />
+      <StyledLogo
+        src={process.env.PUBLIC_URL + '/logo.svg'}
+        alt="logo"
+        onClick={goToHome}
+      />
     </StyledHeader>
   )
+
+  function goToHome() {
+    let path = `/home`
+    history.push(path)
+  }
 }
 
 const StyledHeader = styled.header`
   background-color: var(--grey-5);
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
 `
 
 const StyledLogo = styled.img`
   max-width: 80vw;
-`
-
-const StyledBackIcon = styled.img`
-  height: 20px;
-  position: absolute;
-  top: 18px;
-  left: 20px;
+  cursor: pointer;
 `

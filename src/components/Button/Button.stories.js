@@ -4,7 +4,7 @@ import Button from './Button'
 
 export default {
   component: Button,
-  title: 'Button',
+  title: 'General/Text Button',
   decorators: [withKnobs],
 }
 
@@ -17,4 +17,8 @@ export const withoutText = () => <Button text="" />
 
 export const withVariableText = () => (
   <Button text={text('Button text', 'enter button text here')} />
+)
+
+export const ColorLightBlue = () => (
+  <Button text="Lightblue" backgroundColor="var(--lightblue)" />
 )

@@ -5,18 +5,28 @@ import PropTypes from 'prop-types'
 Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
+  backgroundColor: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
-export default function Button({ onClick, text }) {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>
+export default function Button({ onClick, text, backgroundColor, disabled }) {
+  return (
+    <StyledButton
+      backgroundColor={backgroundColor}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {text}
+    </StyledButton>
+  )
 }
 
 const StyledButton = styled.button`
-  min-width: 95px;
+  min-width: 70px;
   min-height: 25px;
   border-radius: 5px;
   border: 0;
-  background-color: var(--denim);
+  background-color: ${(props) => props.backgroundColor || 'var(--denim)'};
   font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
@@ -25,8 +35,13 @@ const StyledButton = styled.button`
   color: var(--white);
   cursor: pointer;
 
-  :active {
+  &:active {
     position: relative;
     top: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 15%;
   }
 `

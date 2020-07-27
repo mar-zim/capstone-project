@@ -3,7 +3,7 @@ import Header from './Header'
 
 export default {
   component: Header,
-  title: 'Header',
+  title: 'General/Header',
 }
 
-export const withLogo = () => <Header />
+export const Default = () => <Header />
