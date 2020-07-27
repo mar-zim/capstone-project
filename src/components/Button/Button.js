@@ -5,14 +5,14 @@ import PropTypes from 'prop-types'
 Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
-  backColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
 }
 
-export default function Button({ onClick, text, backColor, disabled }) {
+export default function Button({ onClick, text, backgroundColor, disabled }) {
   return (
     <StyledButton
-      backgroundColor={backColor}
+      backgroundColor={backgroundColor}
       onClick={onClick}
       disabled={disabled}
     >

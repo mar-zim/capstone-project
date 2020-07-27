@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 
 useForm.propTypes = {
-  submitunction: PropTypes.func,
+  submitFunction: PropTypes.func,
   validate: PropTypes.object,
 }
 

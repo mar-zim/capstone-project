@@ -4,7 +4,7 @@ import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
 import TextInputField from '../../TextInputField/TextInputField'
-import validateLogin from './LoginFormValidationRules'
+import validateLogin from './LoginFormValidation'
 
 export default function LoginForm() {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(

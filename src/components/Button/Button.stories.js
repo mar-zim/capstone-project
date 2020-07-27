@@ -20,5 +20,5 @@ export const withVariableText = () => (
 )
 
 export const ColorLightBlue = () => (
-  <Button text="Lightblue" backColor="var(--lightblue)" />
+  <Button text="Lightblue" backgroundColor="var(--lightblue)" />
 )
