@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
 import TextInputField from '../../TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
-import styled from 'styled-components'
 
 export default function RegisterForm() {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
