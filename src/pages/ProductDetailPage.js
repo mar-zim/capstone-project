@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import arrowback from './../icons/arrowback.svg'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
 import styled from 'styled-components'
 import loginContext from '../services/loginContext'
+import Button from '../components/Button/Button'
 
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -14,6 +15,7 @@ ProductDetailPage.propTypes = {
 export default function ProductDetailPage({ products }) {
   const { user } = useContext(loginContext)
   const { productId } = useParams()
+  const history = useHistory()
   const [selectedProduct] = products.filter(
     (product) => productId === product._id
   )
@@ -21,7 +23,7 @@ export default function ProductDetailPage({ products }) {
   return (
     <>
       <Link to="/home">
-        <StyledIcon src={arrowback} alt="back" />
+        <StyledBackIcon src={arrowback} alt="back" />
       </Link>
 
       {user ? (
@@ -41,13 +43,29 @@ export default function ProductDetailPage({ products }) {
           />
         </div>
       ) : (
-        <div>Bitte logge dich ein, um Details zu sehen!</div>
+        <StyledRequestForLogin>
+          <div>Bitte logge dich ein, um Details zu sehen!</div>
+          <Button text="Zum Login" onClick={goToLoginPage} />
+        </StyledRequestForLogin>
       )}
     </>
   )
+
+  function goToLoginPage() {
+    let path = `/login`
+    history.push(path)
+  }
 }
 
-const StyledIcon = styled.img`
+const StyledBackIcon = styled.img`
   margin-top: 20px;
   height: 20px;
+`
+
+const StyledRequestForLogin = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
 `
