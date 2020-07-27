@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 TextInputField.propTypes = {
-  label: PropTypes.string,
+  placeholder: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
   handleChange: PropTypes.func,
@@ -14,7 +14,7 @@ TextInputField.propTypes = {
 }
 
 export default function TextInputField({
-  label,
+  placeholder,
   name,
   type,
   handleChange,
@@ -23,41 +23,39 @@ export default function TextInputField({
   error,
 }) {
   return (
-    <StyledTextInput>
-      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+    <StyledTextInputField>
       <StyledInput
         name={name}
         type={type}
         onChange={handleChange}
         value={value}
         required={required}
+        placeholder={placeholder}
       />
       {error && <StyledError>{error}</StyledError>}
-    </StyledTextInput>
+    </StyledTextInputField>
   )
 }
 
-const StyledTextInput = styled.div`
+const StyledTextInputField = styled.div`
   position: relative;
   margin: 5px 0 25px 0;
 `
 
 const StyledInput = styled.input`
-  padding: 0.5em;
+  outline: none;
+  border: none;
+  background: var(--white);
+  padding: 0 5px;
   margin-top: 5px;
-  border: 1px solid var(--grey-4);
-  border-radius: 5px;
-  width: 40%;
+  border-bottom: 1px solid var(--grey-4);
+  width: 55%;
   font-family: var(--fontbody);
+  font-size: 14px;
   &:focus {
     outline: none;
-    border: 1px solid var(--denim);
+    border-bottom: 1px solid var(--denim);
   }
-`
-
-const StyledLabel = styled.label`
-  display: block;
-  margin: 0;
 `
 
 const StyledError = styled.div`

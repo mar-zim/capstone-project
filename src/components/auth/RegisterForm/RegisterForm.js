@@ -44,9 +44,9 @@ export default function RegisterForm() {
   return (
     <div>
       <h2>Registrierung</h2>
-      <form onSubmit={handleSubmit} noValidate>
+      <StyledForm onSubmit={handleSubmit} noValidate>
         <TextInputField
-          label="Dein User-Name"
+          placeholder="User-Name"
           name="name"
           type="text"
           handleChange={handleChange}
@@ -55,7 +55,7 @@ export default function RegisterForm() {
           error={inputErrors.name}
         />
         <TextInputField
-          label="E-Mail"
+          placeholder="E-Mail"
           name="email"
           type="email"
           handleChange={handleChange}
@@ -64,7 +64,7 @@ export default function RegisterForm() {
           error={inputErrors.email}
         />
         <TextInputField
-          label="Passwort"
+          placeholder="Passwort"
           name="password"
           type="password"
           handleChange={handleChange}
@@ -73,7 +73,7 @@ export default function RegisterForm() {
           error={inputErrors.password}
         />
         <TextInputField
-          label="Passwort-Wiederholung"
+          placeholder="Passwort-Wiederholung"
           name="passwordcheck"
           type="password"
           handleChange={handleChange}
@@ -82,7 +82,7 @@ export default function RegisterForm() {
           error={inputErrors.passwordcheck}
         />
         <Button text="registrieren" disabled={disableButton} />
-      </form>
+      </StyledForm>
       {registerFeedback && (
         <StyledRegisterFeedback>{registerFeedback}</StyledRegisterFeedback>
       )}{' '}
@@ -102,4 +102,8 @@ const StyledRegisterFeedback = styled.div`
   margin-top: 10px;
   font-size: 12px;
   color: var(--salmon-pink);
+`
+
+const StyledForm = styled.form`
+  margin: 30px 0;
 `

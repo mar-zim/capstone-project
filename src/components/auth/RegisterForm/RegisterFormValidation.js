@@ -15,7 +15,7 @@ export default function validateRegister(values) {
     errors.password = 'Dein Passwort sollte mindestens 6 Zeichen lang sein!'
   }
 
-  if (values.passwordcheck !== values.password) {
+  if (values.passwordcheck && values.passwordcheck !== values.password) {
     errors.passwordcheck = 'Deine Passwörter sind nicht identisch.'
   }
 

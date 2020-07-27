@@ -40,9 +40,9 @@ export default function LoginForm() {
   return (
     <>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit} noValidate>
+      <StyledForm onSubmit={handleSubmit} noValidate>
         <TextInputField
-          label="E-Mail"
+          placeholder="E-Mail"
           name="email"
           type="text"
           handleChange={handleChange}
@@ -51,7 +51,7 @@ export default function LoginForm() {
           error={inputErrors.email}
         />
         <TextInputField
-          label="Passwort"
+          placeholder="Passwort"
           name="password"
           type="password"
           handleChange={handleChange}
@@ -60,7 +60,7 @@ export default function LoginForm() {
           error={inputErrors.password}
         />
         <Button text="login" disabled={disableButton} />
-      </form>
+      </StyledForm>
       {loginFeedback && (
         <StyledLoginFeedback>{loginFeedback}</StyledLoginFeedback>
       )}
@@ -77,4 +77,7 @@ const StyledLoginFeedback = styled.div`
   margin-top: 10px;
   font-size: 12px;
   color: var(--salmon-pink);
+`
+const StyledForm = styled.form`
+  margin: 30px 0;
 `
