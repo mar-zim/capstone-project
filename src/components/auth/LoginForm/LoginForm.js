@@ -37,7 +37,6 @@ export default function LoginForm() {
           )
     }
   }
-  console.log('LoginFeedback:' + loginFeedback)
   return (
     <>
       <h2>Login</h2>
@@ -61,26 +60,21 @@ export default function LoginForm() {
           error={inputErrors.password}
         />
         <Button text="login" disabled={disableButton} />
-        {loginFeedback && (
-          <StyledLoginFeedback>{loginFeedback}</StyledLoginFeedback>
-        )}
       </form>
+      {loginFeedback && (
+        <StyledLoginFeedback>{loginFeedback}</StyledLoginFeedback>
+      )}
       <div className="caption">
         Noch keine Zugangsdaten? Dann hier{' '}
-        <Link to={`${url}/register`}>Registrieren</Link>.
-      </div>
-      <div className="caption">
-        Oder erstmal als <Link to="home">Gast</Link> umschauen.
+        <Link to={`${url}/register`}>Registrieren</Link> oder erstmal als{' '}
+        <Link to="home">Gast</Link> umschauen.
       </div>
     </>
   )
 }
 
 const StyledLoginFeedback = styled.div`
-  border: 2px solid var(--salmon-pink);
-  border-radius: 5px;
-  padding: 0.5rem;
   margin-top: 10px;
   font-size: 12px;
-  background: var(--grey-5);
+  color: var(--salmon-pink);
 `

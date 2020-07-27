@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
 import TextInputField from '../../TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
+import styled from 'styled-components'
 
 export default function RegisterForm() {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     registerToFirebase,
     validateRegister
   )
+  const [registerFeedback, setRegisterFeedback] = useState('')
 
   const disableButton =
     !values.email ||
@@ -33,7 +35,9 @@ export default function RegisterForm() {
       goToHome()
       alert('Herzlich Willkommen! Du bist nun registriert!')
     } catch (error) {
-      alert('Hier ist etwas schief gelaufen, bitte versuche es noch einmal!')
+      setRegisterFeedback(
+        'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
+      )
     }
   }
 
@@ -79,6 +83,9 @@ export default function RegisterForm() {
         />
         <Button text="registrieren" disabled={disableButton} />
       </form>
+      {registerFeedback && (
+        <StyledRegisterFeedback>{registerFeedback}</StyledRegisterFeedback>
+      )}{' '}
       <div className="caption">
         Zurück zum <Link to="/login">Login</Link>.
       </div>
@@ -90,3 +97,9 @@ export default function RegisterForm() {
     history.push(path)
   }
 }
+
+const StyledRegisterFeedback = styled.div`
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--salmon-pink);
+`
