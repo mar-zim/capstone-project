@@ -76,6 +76,7 @@ const StyledNavLink = styled(NavLink)`
   flex-direction: column;
   align-content: center;
   gap: 2px;
+  outline: none;
   cursor: pointer;
   opacity: 0.4;
 
