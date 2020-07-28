@@ -44,6 +44,6 @@ const StyledNavLink = styled(NavLink)`
 
   div {
     font-size: 12px;
-    color: var(--lightblue);
+    color: var(--denim);
   }
 `
