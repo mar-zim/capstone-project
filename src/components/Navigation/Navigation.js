@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import add from '../../icons/add.svg'
@@ -65,6 +65,8 @@ const StyledNavigation = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
+  width: 100%;
+  height: 56px;
 `
 
 const StyledNavLink = styled(NavLink)`

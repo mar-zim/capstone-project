@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import Button from '../components/Button/Button'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
 import loginContext from '../services/loginContext'
-import useLogout from '../services/useLogout'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -15,8 +12,6 @@ ProductListPage.propTypes = {
 export default function ProductListPage({ products }) {
   const [searchTerm, setSearchTerm] = useState('')
   const { user } = useContext(loginContext)
-  const history = useHistory()
-  const logout = useLogout()
 
   const results = searchTerm
     ? products.filter((product) =>
