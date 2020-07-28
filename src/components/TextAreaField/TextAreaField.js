@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import TextareaAutosize from 'react-textarea-autosize'
 
 TextAreaField.propTypes = {
   placeholder: PropTypes.string,
@@ -42,7 +43,7 @@ const StyledTextAreaInputField = styled.div`
   margin: 5px 0 25px 0;
 `
 
-const StyledTextArea = styled.textarea`
+const StyledTextArea = styled(TextareaAutosize)`
   outline: none;
   border: none;
   background: var(--white);
@@ -50,7 +51,7 @@ const StyledTextArea = styled.textarea`
   margin-top: 5px;
   border-bottom: 1px solid var(--grey-4);
   width: 70%;
-  height: 70px;
+  min-height: 1.5em;
 
   font-family: var(--fontbody);
   font-size: 14px;
