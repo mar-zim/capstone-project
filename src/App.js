@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
 import mockdata from '../src/components/__mocks__/products.json'
+import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
 import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
@@ -31,6 +32,7 @@ function App() {
             />
           </Switch>
         </StyledMain>
+        <Navigation />
       </AppWrapper>
     </loginContext.Provider>
   )
@@ -38,7 +40,7 @@ function App() {
 
 const AppWrapper = styled.div`
   display: grid;
-  grid-template-rows: 56px auto;
+  grid-template-rows: 56px auto 56px;
   height: 100vh;
 `
 
@@ -48,7 +50,7 @@ const StyledMain = styled.main`
   &::after {
     content: '';
     display: block;
-    height: 40px;
+    height: 60px;
   }
 `
 
