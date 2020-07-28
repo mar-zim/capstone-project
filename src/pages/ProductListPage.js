@@ -34,7 +34,6 @@ export default function ProductListPage({ products }) {
       ) : (
         <UserBar>
           <h3>Willkommen!</h3>
-          <Button text="Einloggen" onClick={goToLoginPage} />
         </UserBar>
       )}
 
@@ -46,11 +45,6 @@ export default function ProductListPage({ products }) {
       )}
     </>
   )
-
-  function goToLoginPage() {
-    let path = `/login`
-    history.push(path)
-  }
 }
 
 const UserBar = styled.div`
