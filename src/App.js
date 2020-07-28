@@ -10,6 +10,7 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
 import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
+import AddProductPage from './pages/AddProductPage'
 
 function App() {
   const user = useAuth()
@@ -26,6 +27,7 @@ function App() {
               path="/home"
               component={() => <ProductListPage products={mockdata} />}
             />
+            <Route path="/add" component={AddProductPage} />
             <Route
               path="/details/:productId"
               component={() => <ProductDetailPage products={mockdata} />}
