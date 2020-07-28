@@ -52,7 +52,7 @@ const StyledMain = styled.main`
   &::after {
     content: '';
     display: block;
-    height: 60px;
+    height: 20px;
   }
 `
 
