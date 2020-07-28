@@ -1,26 +1,60 @@
-import React from 'react'
-import { Redirect, Route, Switch, useHistory, NavLink } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import add from '../../icons/add.svg'
 import home from '../../icons/home.svg'
 import login from '../../icons/login.svg'
-import add from '../../icons/add.svg'
+import logout from '../../icons/logout.svg'
+import loginContext from '../../services/loginContext'
+import useLogout from '../../services/useLogout'
 
 export default function Navigation() {
-  let history = useHistory()
+  const { user } = useContext(loginContext)
+  const logoutUser = useLogout()
   return (
     <StyledNavigation>
-      <StyledNavLink to="/add">
+      <StyledNavLink
+        to="/add"
+        activeStyle={{
+          opacity: 1,
+        }}
+      >
         <img src={add} alt="add" />
         <div>Verleihen</div>
       </StyledNavLink>
-      <StyledNavLink to="/home">
+
+      <StyledNavLink
+        to="/home"
+        activeStyle={{
+          opacity: 1,
+        }}
+      >
         <img src={home} alt="home" />
         <div>Home</div>
       </StyledNavLink>
-      <StyledNavLink to="/login">
-        <img src={login} alt="login" />
-        <div>Login</div>
-      </StyledNavLink>
+
+      {user ? (
+        <StyledNavLink
+          to="/login"
+          activeStyle={{
+            opacity: 1,
+          }}
+          onClick={logoutUser}
+        >
+          <img src={logout} alt="logout" />
+          <div>Logout</div>
+        </StyledNavLink>
+      ) : (
+        <StyledNavLink
+          to="/login"
+          activeStyle={{
+            opacity: 1,
+          }}
+        >
+          <img src={login} alt="login" />
+          <div>Login</div>
+        </StyledNavLink>
+      )}
     </StyledNavigation>
   )
 }
@@ -41,6 +75,7 @@ const StyledNavLink = styled(NavLink)`
   align-content: center;
   gap: 2px;
   cursor: pointer;
+  opacity: 0.4;
 
   div {
     font-size: 12px;

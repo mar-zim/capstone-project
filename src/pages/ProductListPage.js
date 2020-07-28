@@ -29,7 +29,6 @@ export default function ProductListPage({ products }) {
       {user ? (
         <UserBar>
           <h3>Willkommen {user.displayName}!</h3>
-          <Button text="logout" onClick={logout} />
         </UserBar>
       ) : (
         <UserBar>
