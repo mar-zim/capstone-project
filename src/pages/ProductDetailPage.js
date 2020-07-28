@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom'
-import arrowback from './../icons/arrowback.svg'
+import { useHistory, useParams } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from '../components/Button/Button'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
-import styled from 'styled-components'
 import loginContext from '../services/loginContext'
-import Button from '../components/Button/Button'
+import arrowback from './../icons/arrowback.svg'
 
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -22,10 +22,7 @@ export default function ProductDetailPage({ products }) {
 
   return (
     <>
-      <Link to="/home">
-        <StyledBackIcon src={arrowback} alt="back" />
-      </Link>
-
+      <StyledBackIcon onClick={history.goBack} src={arrowback} alt="back" />
       {user ? (
         <div>
           <h2>{selectedProduct.name}</h2>
@@ -60,6 +57,7 @@ export default function ProductDetailPage({ products }) {
 const StyledBackIcon = styled.img`
   margin-top: 20px;
   height: 20px;
+  cursor: pointer;
 `
 
 const StyledRequestForLogin = styled.div`
