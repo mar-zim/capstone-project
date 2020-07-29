@@ -11,6 +11,7 @@ TextInputField.propTypes = {
   value: PropTypes.string,
   required: PropTypes.bool,
   error: PropTypes.string,
+  width: PropTypes.number,
 }
 
 export default function TextInputField({
@@ -21,6 +22,7 @@ export default function TextInputField({
   value,
   required,
   error,
+  width,
 }) {
   return (
     <StyledTextInputField>
@@ -31,6 +33,7 @@ export default function TextInputField({
         value={value}
         required={required}
         placeholder={placeholder}
+        width={width}
       />
       {error && <StyledError>{error}</StyledError>}
     </StyledTextInputField>
@@ -49,9 +52,13 @@ const StyledInput = styled.input`
   padding: 0 5px;
   margin-top: 5px;
   border-bottom: 1px solid var(--grey-4);
-  width: 55%;
+  width: ${(props) => props.width || 50}%;
   font-family: var(--fontbody);
   font-size: 14px;
+  ::placeholder {
+    color: var(--grey-3);
+    font-size: 12px;
+  }
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--denim);

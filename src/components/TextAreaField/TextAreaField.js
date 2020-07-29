@@ -12,6 +12,8 @@ TextAreaField.propTypes = {
   value: PropTypes.string,
   required: PropTypes.bool,
   error: PropTypes.string,
+  width: PropTypes.number,
+  maxLength: PropTypes.number,
 }
 
 export default function TextAreaField({
@@ -22,6 +24,7 @@ export default function TextAreaField({
   value,
   required,
   error,
+  width,
 }) {
   return (
     <StyledTextAreaInputField>
@@ -32,6 +35,7 @@ export default function TextAreaField({
         value={value}
         required={required}
         placeholder={placeholder}
+        width={width}
       />
       {error && <StyledError>{error}</StyledError>}
     </StyledTextAreaInputField>
@@ -50,11 +54,14 @@ const StyledTextArea = styled(TextareaAutosize)`
   padding: 0 5px;
   margin-top: 5px;
   border-bottom: 1px solid var(--grey-4);
-  width: 70%;
+  width: ${(props) => props.width || 70}%;
   min-height: 1.5em;
-
   font-family: var(--fontbody);
   font-size: 14px;
+  ::placeholder {
+    color: var(--grey-3);
+    font-size: 12px;
+  }
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--denim);
