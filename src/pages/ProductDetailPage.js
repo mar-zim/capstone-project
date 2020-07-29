@@ -6,7 +6,7 @@ import Button from '../components/Button/Button'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
-import loading from '../icons/loading.svg'
+import SpinningLoadIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 import loginContext from '../services/loginContext'
 import arrowback from './../icons/arrowback.svg'
 
@@ -23,9 +23,7 @@ export default function ProductDetailPage({ products, productsAreLoading }) {
   )
 
   return productsAreLoading ? (
-    <StyledLoading>
-      <img src={loading} alt="loading" />
-    </StyledLoading>
+    <SpinningLoadIcon />
   ) : (
     <>
       <StyledBackIcon onClick={history.goBack} src={arrowback} alt="back" />
@@ -72,14 +70,4 @@ const StyledRequestForLogin = styled.div`
   align-items: center;
   gap: 15px;
   margin-top: 10px;
-`
-const StyledLoading = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  img {
-    width: 40px;
-  }
 `

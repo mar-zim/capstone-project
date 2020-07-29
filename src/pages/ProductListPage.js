@@ -3,8 +3,8 @@ import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
+import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 import loginContext from '../services/loginContext'
-import loading from '../icons/loading.svg'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -22,18 +22,12 @@ export default function ProductListPage({ products, productsAreLoading }) {
     : products
 
   return productsAreLoading ? (
-    <StyledLoading>
-      <img src={loading} alt="loading" />
-    </StyledLoading>
+    <SpinningLogoIcon />
   ) : (
     <>
-      {user ? (
+      {user && (
         <UserBar>
           <h3>Willkommen {user.displayName}!</h3>
-        </UserBar>
-      ) : (
-        <UserBar>
-          <h3>Willkommen!</h3>
         </UserBar>
       )}
 
@@ -53,14 +47,4 @@ const UserBar = styled.div`
   justify-content: space-between;
   padding: 5px 0;
   margin-top: 10px;
-`
-const StyledLoading = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  img {
-    width: 40px;
-  }
 `
