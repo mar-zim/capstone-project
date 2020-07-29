@@ -1,36 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 import TextAreaField from '../TextAreaField/TextAreaField'
+import { db } from '../../firebase/index'
+import loginContext from '../../services/loginContext'
 
 export default function AddProductForm() {
+  const { user } = useContext(loginContext)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    handleValuesFunction,
+    addToDataBase,
     validateAddProduct
   )
 
   // const disableButton = Object.keys(inputErrors).length !== 0
 
-  async function handleValuesFunction(values) {
-    // try {
-    //   await firebaseApp.signInWithEmailAndPassword(
-    //     values.email,
-    //     values.password
-    //   )
-    //   return history.push('/home')
-    // } catch (error) {
-    //   error.code === 'auth/wrong-password' ||
-    //   error.code === 'auth/user-not-found'
-    //     ? setLoginFeedback(
-    //         'Deine E-Mail oder dein Passwort ist nicht korrekt. Bitte versuche es noch einmal!'
-    //       )
-    //     : setLoginFeedback(
-    //         'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
-    //       )
-    // }
+  function addToDataBase(values) {
+    db.collection('products')
+      .add({
+        name: values.name,
+        description: values.description,
+        dailyRate: values.dailyRate,
+        weeklyRate: values.weeklyRate,
+        phone: values.phone,
+        location: values.location,
+        ownerNotes: values.ownerNotes,
+        userId: user.uid,
+        ownerName: user.displayName,
+      })
+      .then(function (docRef) {
+        console.log('Document written with ID: ', docRef.id)
+      })
+      .catch(function (error) {
+        console.error('Error adding document: ', error)
+      })
     console.log(values)
   }
 
