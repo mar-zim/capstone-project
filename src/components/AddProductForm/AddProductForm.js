@@ -22,8 +22,8 @@ export default function AddProductForm() {
       .add({
         name: values.name,
         description: values.description,
-        dailyRate: values.dailyRate,
-        weeklyRate: values.weeklyRate,
+        dailyRate: parseInt(values.dailyRate),
+        weeklyRate: parseInt(values.weeklyRate),
         phone: values.phone,
         location: values.location,
         ownerNotes: values.ownerNotes,
