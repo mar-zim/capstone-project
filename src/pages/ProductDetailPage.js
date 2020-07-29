@@ -11,6 +11,7 @@ import arrowback from './../icons/arrowback.svg'
 
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
+  productsAreLoading: PropTypes.bool,
 }
 export default function ProductDetailPage({ products, productsAreLoading }) {
   const { user } = useContext(loginContext)

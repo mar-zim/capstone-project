@@ -7,6 +7,7 @@ import loginContext from '../services/loginContext'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
+  productsAreLoading: PropTypes.bool,
 }
 
 export default function ProductListPage({ products, productsAreLoading }) {

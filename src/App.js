@@ -17,6 +17,7 @@ function App() {
   const user = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
   console.log(products)
+  console.log('Loading:' + productsAreLoading)
 
   return (
     <loginContext.Provider value={{ user, firebaseApp }}>
