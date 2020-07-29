@@ -12,15 +12,17 @@ import arrowback from './../icons/arrowback.svg'
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
 }
-export default function ProductDetailPage({ products }) {
+export default function ProductDetailPage({ products, productsAreLoading }) {
   const { user } = useContext(loginContext)
   const { productId } = useParams()
   const history = useHistory()
   const [selectedProduct] = products.filter(
-    (product) => productId === product._id
+    (product) => productId === product.id
   )
 
-  return (
+  return productsAreLoading ? (
+    <div>Produkt lädt</div>
+  ) : (
     <>
       <StyledBackIcon onClick={history.goBack} src={arrowback} alt="back" />
       {user ? (
@@ -33,7 +35,7 @@ export default function ProductDetailPage({ products }) {
             weekly={selectedProduct.weeklyRate}
           />
           <ContactDetails
-            firstName={selectedProduct.ownerFirstName}
+            ownerName={selectedProduct.ownerName}
             location={selectedProduct.location}
             phone={selectedProduct.phone}
             details={selectedProduct.ownerNotes}

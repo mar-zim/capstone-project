@@ -11,7 +11,7 @@ ProductListItem.propTypes = {
 }
 
 export default function ProductListItem({
-  product: { name, ownerFirstName, location, _id },
+  product: { name, ownerName, location, id },
 }) {
   const history = useHistory()
 
@@ -22,14 +22,14 @@ export default function ProductListItem({
         <h4>{name}</h4>
       </StyledHeader>
       <StyledProductInfo>
-        <div>von {ownerFirstName}</div>
+        <div>von {ownerName}</div>
         <div>aus {location}</div>
       </StyledProductInfo>
     </div>
   )
 
   function routeChange() {
-    let path = `/details/${_id}`
+    let path = `/details/${id}`
     history.push(path)
   }
 }

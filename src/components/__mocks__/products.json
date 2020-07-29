@@ -1,6 +1,6 @@
 [
   {
-    "_id": "5f0365f31fb5a0f376d921a2",
+    "id": "5f0365f31fb5a0f376d921a2",
     "name": "Bohrmaschine",
     "ownerFirstName": "Hannes",
     "phone": "0171 529-2745",
@@ -11,7 +11,7 @@
     "weeklyRate": 3
   },
   {
-    "_id": "5f0365f3f16421cef5239047",
+    "id": "5f0365f3f16421cef5239047",
     "name": "SUP Board",
     "ownerFirstName": "Nele",
     "phone": "0171 585-2791",
@@ -22,7 +22,7 @@
     "weeklyRate": 30
   },
   {
-    "_id": "5f0365f31256a6f4d9e8ee04",
+    "id": "5f0365f31256a6f4d9e8ee04",
     "name": "Waffeleisen",
     "ownerFirstName": "Johanna",
     "phone": "0171 527-3950",
@@ -33,7 +33,7 @@
     "weeklyRate": 0
   },
   {
-    "_id": "5f0365f33dadef8b0f135605",
+    "id": "5f0365f33dadef8b0f135605",
     "name": "Raclette Grill",
     "ownerFirstName": "Lisa",
     "phone": "0171 585-2831",
@@ -44,7 +44,7 @@
     "weeklyRate": 2
   },
   {
-    "_id": "5f0365f39289f0b223bbe727",
+    "id": "5f0365f39289f0b223bbe727",
     "name": "Snowboard",
     "ownerFirstName": "Katrin",
     "phone": "0171 576-3193",
@@ -55,7 +55,7 @@
     "weeklyRate": 40
   },
   {
-    "_id": "5f0365f374be33aded09a1d1",
+    "id": "5f0365f374be33aded09a1d1",
     "name": "Reise-Buggy",
     "ownerFirstName": "Mara",
     "phone": "0171 527-3662",
@@ -66,7 +66,7 @@
     "weeklyRate": 16
   },
   {
-    "_id": "5f0365f314e9405df003e435",
+    "id": "5f0365f314e9405df003e435",
     "name": "Camping-Kocher",
     "ownerFirstName": "Karen",
     "phone": "0171 517-2799",
@@ -77,7 +77,7 @@
     "weeklyRate": 5
   },
   {
-    "_id": "5f0365f328833dae3437791a",
+    "id": "5f0365f328833dae3437791a",
     "name": "Reiserucksack",
     "ownerFirstName": "Tjark",
     "phone": "0171 508-3387",
@@ -88,7 +88,7 @@
     "weeklyRate": 3
   },
   {
-    "_id": "5f0365f355b8a7d53abaf9b1",
+    "id": "5f0365f355b8a7d53abaf9b1",
     "name": "Hammer",
     "ownerFirstName": "Jannes",
     "phone": "0171 448-3707",
@@ -99,7 +99,7 @@
     "weeklyRate": 0
   },
   {
-    "_id": "5f0365f3f5e5a5ceb7d8bf74",
+    "id": "5f0365f3f5e5a5ceb7d8bf74",
     "name": "Schlitten",
     "ownerFirstName": "Tommie",
     "phone": "0171 565-2522",
@@ -110,7 +110,7 @@
     "weeklyRate": 3
   },
   {
-    "_id": "5f0365f315754ca7dac1fd77",
+    "id": "5f0365f315754ca7dac1fd77",
     "name": "Bollerwagen",
     "ownerFirstName": "Laura",
     "phone": "0171 450-2565",

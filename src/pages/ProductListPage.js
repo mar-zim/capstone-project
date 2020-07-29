@@ -9,7 +9,7 @@ ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default function ProductListPage({ products }) {
+export default function ProductListPage({ products, productsAreLoading }) {
   const [searchTerm, setSearchTerm] = useState('')
   const { user } = useContext(loginContext)
 
@@ -19,7 +19,9 @@ export default function ProductListPage({ products }) {
       )
     : products
 
-  return (
+  return productsAreLoading ? (
+    <div>lädt</div>
+  ) : (
     <>
       {user ? (
         <UserBar>
