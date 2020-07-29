@@ -18,7 +18,6 @@ const StyledLoading = styled.div`
   height: 100%;
   img {
     width: 60px;
-    transform: rotate(0deg);
     animation: loading-spin infinite 3s linear;
     @keyframes loading-spin {
       from {
