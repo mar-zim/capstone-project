@@ -27,7 +27,7 @@ export default function validateAddProduct(values) {
     errors.phone = 'Bitte gib eine gültige Telefon-Nummer ohne Leerzeichen ein!'
   }
 
-  if (values.location && values.description.length < 2) {
+  if (values.location && values.location.length < 2) {
     errors.location = 'Etwas länger sollte es gerne sein.'
   } else if (values.location && values.location.length > 30) {
     errors.location = 'So einen langen Stadtteil gibt es doch gar nicht.'
