@@ -45,12 +45,10 @@ export default function AddProductForm() {
       alert('Dein Produkt wurde hinzugefügt!')
       return history.push('/home')
     } catch (error) {
-      console.log(error)
       setFeedback(
         'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
       )
     }
-    console.log(values)
   }
 
   return (

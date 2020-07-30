@@ -10,8 +10,6 @@ import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 export default function AddProductPage() {
   const { user, userIsLoading } = useContext(loginContext)
   const history = useHistory()
-  console.log('UserLoading:' + userIsLoading)
-  console.log('User:' + user)
 
   return userIsLoading && !user ? (
     <SpinningLogoIcon />
