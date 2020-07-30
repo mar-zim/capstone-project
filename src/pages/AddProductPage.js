@@ -19,7 +19,7 @@ export default function AddProductPage() {
       {user ? (
         <div>
           <h2>Produkt hinzufügen</h2>
-          <AddProductForm />
+          <AddProductForm user={user} />
         </div>
       ) : (
         <StyledRequestForLogin>

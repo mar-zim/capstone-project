@@ -2,15 +2,13 @@ import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { db } from '../../firebase/index'
-import loginContext from '../../services/loginContext'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 
-export default function AddProductForm() {
-  const { user } = useContext(loginContext)
+export default function AddProductForm({ user }) {
   const history = useHistory()
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     addToDataBase,
