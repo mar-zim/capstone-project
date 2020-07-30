@@ -2,7 +2,6 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
-// import products from '../src/components/__mocks__/products.json'
 import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
 import LoginPage from './pages/LoginPage'
@@ -16,8 +15,6 @@ import useProductsFromFirestore from './services/useProductsFromFirestore'
 function App() {
   const user = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
-  console.log(products)
-  console.log('Loading:' + productsAreLoading)
 
   return (
     <loginContext.Provider value={{ user, firebaseApp }}>

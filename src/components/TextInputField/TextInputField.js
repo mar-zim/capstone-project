@@ -12,6 +12,7 @@ TextInputField.propTypes = {
   required: PropTypes.bool,
   error: PropTypes.string,
   width: PropTypes.number,
+  label: PropTypes.string,
 }
 
 export default function TextInputField({
@@ -23,6 +24,7 @@ export default function TextInputField({
   required,
   error,
   width,
+  label,
 }) {
   return (
     <StyledTextInputField>
@@ -35,6 +37,10 @@ export default function TextInputField({
         placeholder={placeholder}
         width={width}
       />
+      <label htmlFor={name} className="description">
+        {' '}
+        {label}
+      </label>
       {error && <StyledError>{error}</StyledError>}
     </StyledTextInputField>
   )

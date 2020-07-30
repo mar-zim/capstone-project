@@ -1,25 +1,36 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import useForm from '../../services/useForm'
-import Button from '../Button/Button'
-import TextInputField from '../TextInputField/TextInputField'
-import validateAddProduct from './AddProductFormValidation.js'
-import TextAreaField from '../TextAreaField/TextAreaField'
 import { db } from '../../firebase/index'
 import loginContext from '../../services/loginContext'
+import useForm from '../../services/useForm'
+import Button from '../Button/Button'
+import TextAreaField from '../TextAreaField/TextAreaField'
+import TextInputField from '../TextInputField/TextInputField'
+import validateAddProduct from './AddProductFormValidation.js'
 
 export default function AddProductForm() {
   const { user } = useContext(loginContext)
+  const history = useHistory()
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     addToDataBase,
     validateAddProduct
   )
+  const [feedback, setFeedback] = useState('')
 
-  // const disableButton = Object.keys(inputErrors).length !== 0
+  const disableButton =
+    !values.name ||
+    !values.description ||
+    !values.dailyRate ||
+    !values.weeklyRate ||
+    !values.phone ||
+    !values.location ||
+    !values.ownerNotes ||
+    Object.keys(inputErrors).length !== 0
 
-  function addToDataBase(values) {
-    db.collection('products')
-      .add({
+  async function addToDataBase(values) {
+    try {
+      await db.collection('products').add({
         name: values.name,
         description: values.description,
         dailyRate: parseInt(values.dailyRate),
@@ -30,12 +41,14 @@ export default function AddProductForm() {
         userId: user.uid,
         ownerName: user.displayName,
       })
-      .then(function (docRef) {
-        console.log('Document written with ID: ', docRef.id)
-      })
-      .catch(function (error) {
-        console.error('Error adding document: ', error)
-      })
+      alert('Dein Produkt wurde hinzugefügt!')
+      return history.push('/home')
+    } catch (error) {
+      console.log(error)
+      setFeedback(
+        'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
+      )
+    }
     console.log(values)
   }
 
@@ -60,22 +73,26 @@ export default function AddProductForm() {
         error={inputErrors.description}
       />
       <TextInputField
-        placeholder="Gebühr pro Tag in €"
+        placeholder="Gebühr"
         name="dailyRate"
-        type="number"
+        type="text"
         handleChange={handleChange}
         value={values.dailyRate || ''}
         required={true}
         error={inputErrors.dailyRate}
+        width={20}
+        label="€ pro Tag"
       />
       <TextInputField
-        placeholder="Gebühr pro Woche in €"
+        placeholder="Gebühr"
         name="weeklyRate"
-        type="number"
+        type="text"
         handleChange={handleChange}
         value={values.weeklyRate || ''}
         required={true}
         error={inputErrors.weeklyRate}
+        width={20}
+        label="€ pro Woche"
       />
       <h3>Kontakt</h3>
       <TextInputField
@@ -86,6 +103,7 @@ export default function AddProductForm() {
         value={values.phone || ''}
         required={true}
         error={inputErrors.phone}
+        width={40}
       />
       <TextInputField
         placeholder="Stadtteil"
@@ -96,20 +114,28 @@ export default function AddProductForm() {
         required={true}
         error={inputErrors.location}
       />
-      <TextInputField
-        placeholder="Notizen Erreichbarkeit"
+      <TextAreaField
+        placeholder="Wann bist du erreichbar?"
         name="ownerNotes"
         type="text"
         handleChange={handleChange}
         value={values.ownerNotes || ''}
         required={true}
         error={inputErrors.ownerNotes}
+        width={55}
       />
 
-      <Button text="Hinzufügen" />
+      <Button text="Hinzufügen" disabled={disableButton} />
+      {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
     </StyledForm>
   )
 }
+
+const StyledFeedback = styled.div`
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--salmon-pink);
+`
 
 const StyledForm = styled.form`
   margin: 30px 0;
