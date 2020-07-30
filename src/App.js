@@ -13,11 +13,11 @@ import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 
 function App() {
-  const user = useAuth()
+  const [user, userIsLoading] = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
 
   return (
-    <loginContext.Provider value={{ user, firebaseApp }}>
+    <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
         <StyledMain>

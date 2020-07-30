@@ -13,7 +13,7 @@ ProductListPage.propTypes = {
 
 export default function ProductListPage({ products, productsAreLoading }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const { user } = useContext(loginContext)
+  const { user, userIsLoading } = useContext(loginContext)
 
   const results = searchTerm
     ? products.filter((product) =>
@@ -21,7 +21,7 @@ export default function ProductListPage({ products, productsAreLoading }) {
       )
     : products
 
-  return productsAreLoading ? (
+  return productsAreLoading || userIsLoading ? (
     <SpinningLogoIcon />
   ) : (
     <>

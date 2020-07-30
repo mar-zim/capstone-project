@@ -5,11 +5,17 @@ import AddProductForm from '../components/AddProductForm/AddProductForm'
 import Button from '../components/Button/Button'
 import loginContext from '../services/loginContext'
 import arrowback from './../icons/arrowback.svg'
+import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 
 export default function AddProductPage() {
-  const { user } = useContext(loginContext)
+  const { user, userIsLoading } = useContext(loginContext)
   const history = useHistory()
-  return (
+  console.log('UserLoading:' + userIsLoading)
+  console.log('User:' + user)
+
+  return userIsLoading && !user ? (
+    <SpinningLogoIcon />
+  ) : (
     <>
       <StyledBackIcon onClick={history.goBack} src={arrowback} alt="back" />
       {user ? (

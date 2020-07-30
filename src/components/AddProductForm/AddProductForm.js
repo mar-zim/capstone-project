@@ -41,6 +41,7 @@ export default function AddProductForm() {
         userId: user.uid,
         ownerName: user.displayName,
       })
+      // Hier folgt noch ein schöneres Modal
       alert('Dein Produkt wurde hinzugefügt!')
       return history.push('/home')
     } catch (error) {

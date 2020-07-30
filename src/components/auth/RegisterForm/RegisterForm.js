@@ -33,6 +33,7 @@ export default function RegisterForm() {
         displayName: values.name,
       })
       goToHome()
+      //Hier folgt noch ein schöneres Modal
       alert('Herzlich Willkommen! Du bist nun registriert!')
     } catch (error) {
       setRegisterFeedback(
