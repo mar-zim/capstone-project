@@ -32,6 +32,9 @@ export default function ProductListPage({ products, productsAreLoading }) {
       )}
 
       <SearchBar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
+      <div className="caption">
+        Klicke auf die Produkte, um Details zu sehen.
+      </div>
       {results.length > 0 ? (
         <ProductList shownProducts={results} />
       ) : (
