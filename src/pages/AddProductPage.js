@@ -11,7 +11,7 @@ export default function AddProductPage() {
   const { user, userIsLoading } = useContext(loginContext)
   const history = useHistory()
 
-  return userIsLoading && !user ? (
+  return userIsLoading ? (
     <SpinningLogoIcon />
   ) : (
     <>

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
-import { render, screen, getByText } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import fireEvent from '@testing-library/user-event'
 import React from 'react'
 import AddProductForm from './AddProductForm'
