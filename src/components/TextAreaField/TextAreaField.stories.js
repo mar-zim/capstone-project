@@ -6,4 +6,9 @@ export default {
   title: 'Form Elements/TextAreaField',
 }
 
-export const Default = () => <TextAreaField placeholder="Placeholder Text" />
+export const withPlaceholderText = () => (
+  <TextAreaField placeholder="Placeholder Text" />
+)
+export const widerWithPlaceholderText = () => (
+  <TextAreaField placeholder="Placeholder Text" width={90} />
+)
