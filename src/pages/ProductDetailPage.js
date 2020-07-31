@@ -1,31 +1,32 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom'
-import arrowback from './../icons/arrowback.svg'
+import { useHistory, useParams } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from '../components/Button/Button'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
-import styled from 'styled-components'
+import SpinningLoadIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 import loginContext from '../services/loginContext'
-import Button from '../components/Button/Button'
+import arrowback from './../icons/arrowback.svg'
 
 ProductDetailPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
+  productsAreLoading: PropTypes.bool,
 }
-export default function ProductDetailPage({ products }) {
+export default function ProductDetailPage({ products, productsAreLoading }) {
   const { user } = useContext(loginContext)
   const { productId } = useParams()
   const history = useHistory()
   const [selectedProduct] = products.filter(
-    (product) => productId === product._id
+    (product) => productId === product.id
   )
 
-  return (
+  return productsAreLoading ? (
+    <SpinningLoadIcon />
+  ) : (
     <>
-      <Link to="/home">
-        <StyledBackIcon src={arrowback} alt="back" />
-      </Link>
-
+      <StyledBackIcon onClick={history.goBack} src={arrowback} alt="back" />
       {user ? (
         <div>
           <h2>{selectedProduct.name}</h2>
@@ -36,7 +37,7 @@ export default function ProductDetailPage({ products }) {
             weekly={selectedProduct.weeklyRate}
           />
           <ContactDetails
-            firstName={selectedProduct.ownerFirstName}
+            ownerName={selectedProduct.ownerName}
             location={selectedProduct.location}
             phone={selectedProduct.phone}
             details={selectedProduct.ownerNotes}
@@ -45,21 +46,22 @@ export default function ProductDetailPage({ products }) {
       ) : (
         <StyledRequestForLogin>
           <div>Bitte logge dich ein, um Details zu sehen!</div>
-          <Button text="Zum Login" onClick={goToLoginPage} />
+          <Button
+            text="Zum Login"
+            onClick={() => {
+              history.push('/login')
+            }}
+          />
         </StyledRequestForLogin>
       )}
     </>
   )
-
-  function goToLoginPage() {
-    let path = `/login`
-    history.push(path)
-  }
 }
 
 const StyledBackIcon = styled.img`
   margin-top: 20px;
   height: 20px;
+  cursor: pointer;
 `
 
 const StyledRequestForLogin = styled.div`

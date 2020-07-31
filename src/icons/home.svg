@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <defs>
+        <path d="M154,650 C152.343146,650 151,648.656854 151,647 L151,636 C151,635.69141 151.142473,635.400104 151.386059,635.210648 L160.386059,628.210648 C160.74717,627.929784 161.25283,627.929784 161.613941,628.210648 L170.613941,635.210648 C170.857527,635.400104 171,635.69141 171,636 L171,647 C171,648.656854 169.656854,650 168,650 L154,650 Z M161,630.266862 L153,636.489084 L153,647 C153,647.552285 153.447715,648 154,648 L157,648 L157,639 C157,638.487164 157.38604,638.064493 157.883379,638.006728 L158,638 L164,638 C164.552285,638 165,638.447715 165,639 L165,639 L165,648 L168,648 C168.552285,648 169,647.552285 169,647 L169,636.489084 L161,630.266862 Z M163,640 L159,640 L159,648 L163,648 L163,640 Z" id="path-1"></path>
+    </defs>
+    <g id="🎨-Setup-—-Customize-Here-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Symbols" transform="translate(-151.000000, -628.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#3B6993" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

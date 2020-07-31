@@ -1,64 +1,58 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import TextareaAutosize from 'react-textarea-autosize'
 
-TextInputField.propTypes = {
+TextAreaField.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.string,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
   value: PropTypes.string,
   required: PropTypes.bool,
   error: PropTypes.string,
   width: PropTypes.number,
-  label: PropTypes.string,
+  maxLength: PropTypes.number,
 }
 
-export default function TextInputField({
+export default function TextAreaField({
   placeholder,
   name,
-  type,
   handleChange,
   value,
   required,
   error,
   width,
-  label,
 }) {
   return (
-    <StyledTextInputField>
-      <StyledInput
+    <StyledTextAreaInputField>
+      <StyledTextArea
         name={name}
-        type={type}
         onChange={handleChange}
         value={value}
         required={required}
         placeholder={placeholder}
         width={width}
       />
-      <label htmlFor={name} className="description">
-        {' '}
-        {label}
-      </label>
       {error && <StyledError>{error}</StyledError>}
-    </StyledTextInputField>
+    </StyledTextAreaInputField>
   )
 }
 
-const StyledTextInputField = styled.div`
+const StyledTextAreaInputField = styled.div`
   position: relative;
   margin: 5px 0 25px 0;
 `
 
-const StyledInput = styled.input`
+const StyledTextArea = styled(TextareaAutosize)`
   outline: none;
   border: none;
   background: var(--white);
   padding: 0 5px;
   margin-top: 5px;
   border-bottom: 1px solid var(--grey-4);
-  width: ${(props) => props.width || 50}%;
+  width: ${(props) => props.width || 70}%;
+  min-height: 1.5em;
   font-family: var(--fontbody);
   font-size: 14px;
   ::placeholder {

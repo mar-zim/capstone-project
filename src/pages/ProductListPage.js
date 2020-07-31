@@ -1,22 +1,19 @@
 import PropTypes from 'prop-types'
 import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import Button from '../components/Button/Button'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
+import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 import loginContext from '../services/loginContext'
-import useLogout from '../services/useLogout'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
+  productsAreLoading: PropTypes.bool,
 }
 
-export default function ProductListPage({ products }) {
+export default function ProductListPage({ products, productsAreLoading }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const { user } = useContext(loginContext)
-  const history = useHistory()
-  const logout = useLogout()
+  const { user, userIsLoading } = useContext(loginContext)
 
   const results = searchTerm
     ? products.filter((product) =>
@@ -24,21 +21,20 @@ export default function ProductListPage({ products }) {
       )
     : products
 
-  return (
+  return productsAreLoading || userIsLoading ? (
+    <SpinningLogoIcon />
+  ) : (
     <>
-      {user ? (
+      {user && (
         <UserBar>
           <h3>Willkommen {user.displayName}!</h3>
-          <Button text="logout" onClick={logout} />
-        </UserBar>
-      ) : (
-        <UserBar>
-          <h3>Willkommen!</h3>
-          <Button text="Einloggen" onClick={goToLoginPage} />
         </UserBar>
       )}
 
       <SearchBar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
+      <div className="caption">
+        Klicke auf die Produkte, um Details zu sehen.
+      </div>
       {results.length > 0 ? (
         <ProductList shownProducts={results} />
       ) : (
@@ -46,11 +42,6 @@ export default function ProductListPage({ products }) {
       )}
     </>
   )
-
-  function goToLoginPage() {
-    let path = `/login`
-    history.push(path)
-  }
 }
 
 const UserBar = styled.div`

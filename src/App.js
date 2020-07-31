@@ -2,19 +2,22 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
-import mockdata from '../src/components/__mocks__/products.json'
+import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
 import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
 import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
+import AddProductPage from './pages/AddProductPage'
+import useProductsFromFirestore from './services/useProductsFromFirestore'
 
 function App() {
-  const user = useAuth()
+  const [user, userIsLoading] = useAuth()
+  const [products, productsAreLoading] = useProductsFromFirestore()
 
   return (
-    <loginContext.Provider value={{ user, firebaseApp }}>
+    <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
         <StyledMain>
@@ -23,14 +26,26 @@ function App() {
             <Route path="/login" component={LoginPage} />
             <Route
               path="/home"
-              component={() => <ProductListPage products={mockdata} />}
+              component={() => (
+                <ProductListPage
+                  products={products}
+                  productsAreLoading={productsAreLoading}
+                />
+              )}
             />
+            <Route path="/add" component={AddProductPage} />
             <Route
               path="/details/:productId"
-              component={() => <ProductDetailPage products={mockdata} />}
+              component={() => (
+                <ProductDetailPage
+                  products={products}
+                  productsAreLoading={productsAreLoading}
+                />
+              )}
             />
           </Switch>
         </StyledMain>
+        <Navigation />
       </AppWrapper>
     </loginContext.Provider>
   )
@@ -38,7 +53,7 @@ function App() {
 
 const AppWrapper = styled.div`
   display: grid;
-  grid-template-rows: 56px auto;
+  grid-template-rows: 56px auto 56px;
   height: 100vh;
 `
 
@@ -48,7 +63,7 @@ const StyledMain = styled.main`
   &::after {
     content: '';
     display: block;
-    height: 40px;
+    height: 20px;
   }
 `
 

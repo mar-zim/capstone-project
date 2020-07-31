@@ -3,14 +3,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 ContactDetails.propTypes = {
-  firstName: PropTypes.string,
+  ownerName: PropTypes.string,
   location: PropTypes.string,
   phone: PropTypes.string,
   details: PropTypes.string,
 }
 
 export default function ContactDetails({
-  firstName,
+  ownerName,
   location,
   phone,
   details,
@@ -20,7 +20,7 @@ export default function ContactDetails({
       <h4>Kontakt</h4>
       <StyledContactBox>
         <span className="text-light">Name:</span>
-        <span>{firstName}</span>
+        <span>{ownerName}</span>
         <span className="text-light">Ort:</span>
         <span>{location}</span>
         <span className="text-light">Kontakt:</span>

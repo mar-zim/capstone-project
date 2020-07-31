@@ -11,27 +11,26 @@ ProductListItem.propTypes = {
 }
 
 export default function ProductListItem({
-  product: { name, ownerFirstName, location, _id },
+  product: { name, ownerName, location, id },
 }) {
   const history = useHistory()
 
   return (
-    <div onClick={routeChange}>
+    <div
+      onClick={() => {
+        history.push(`/details/${id}`)
+      }}
+    >
       <DividerLine />
       <StyledHeader>
         <h4>{name}</h4>
       </StyledHeader>
       <StyledProductInfo>
-        <div>von {ownerFirstName}</div>
+        <div>von {ownerName}</div>
         <div>aus {location}</div>
       </StyledProductInfo>
     </div>
   )
-
-  function routeChange() {
-    let path = `/details/${_id}`
-    history.push(path)
-  }
 }
 
 const StyledProductInfo = styled.div`
