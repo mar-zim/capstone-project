@@ -11,6 +11,7 @@ import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
 import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
+import Modal from './components/Modal/Modal'
 
 function App() {
   const [user, userIsLoading] = useAuth()
@@ -24,6 +25,7 @@ function App() {
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route path="/login" component={LoginPage} />
+            {/* <Route path="/modal" component={Modal} /> */}
             <Route
               path="/home"
               component={() => (
