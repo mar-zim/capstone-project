@@ -46,16 +46,16 @@ export default function ProductDetailPage({ products, productsAreLoading }) {
       ) : (
         <StyledRequestForLogin>
           <div>Bitte logge dich ein, um Details zu sehen!</div>
-          <Button text="Zum Login" onClick={goToLoginPage} />
+          <Button
+            text="Zum Login"
+            onClick={() => {
+              history.push('/login')
+            }}
+          />
         </StyledRequestForLogin>
       )}
     </>
   )
-
-  function goToLoginPage() {
-    let path = `/login`
-    history.push(path)
-  }
 }
 
 const StyledBackIcon = styled.img`

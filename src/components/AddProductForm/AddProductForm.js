@@ -63,7 +63,6 @@ export default function AddProductForm({ user }) {
       <TextAreaField
         placeholder="Beschreibung"
         name="description"
-        type="textarea"
         handleChange={handleChange}
         value={values.description || ''}
         required={true}

@@ -6,7 +6,6 @@ import TextareaAutosize from 'react-textarea-autosize'
 TextAreaField.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
-  type: PropTypes.string,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
   value: PropTypes.string,
@@ -19,7 +18,6 @@ TextAreaField.propTypes = {
 export default function TextAreaField({
   placeholder,
   name,
-  type,
   handleChange,
   value,
   required,
@@ -30,7 +28,6 @@ export default function TextAreaField({
     <StyledTextAreaInputField>
       <StyledTextArea
         name={name}
-        type={type}
         onChange={handleChange}
         value={value}
         required={required}

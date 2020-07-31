@@ -24,16 +24,16 @@ export default function AddProductPage() {
       ) : (
         <StyledRequestForLogin>
           <div>Bitte logge dich ein, um neue Produkte hinzuzufügen!</div>
-          <Button text="Zum Login" onClick={goToLoginPage} />
+          <Button
+            text="Zum Login"
+            onClick={() => {
+              history.push('/login')
+            }}
+          />
         </StyledRequestForLogin>
       )}
     </>
   )
-
-  function goToLoginPage() {
-    let path = `/login`
-    history.push(path)
-  }
 }
 const StyledBackIcon = styled.img`
   margin-top: 20px;

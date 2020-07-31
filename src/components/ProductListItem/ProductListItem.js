@@ -16,7 +16,11 @@ export default function ProductListItem({
   const history = useHistory()
 
   return (
-    <div onClick={routeChange}>
+    <div
+      onClick={() => {
+        history.push(`/details/${id}`)
+      }}
+    >
       <DividerLine />
       <StyledHeader>
         <h4>{name}</h4>
@@ -27,11 +31,6 @@ export default function ProductListItem({
       </StyledProductInfo>
     </div>
   )
-
-  function routeChange() {
-    let path = `/details/${id}`
-    history.push(path)
-  }
 }
 
 const StyledProductInfo = styled.div`
