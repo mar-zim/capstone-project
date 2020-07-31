@@ -12,6 +12,7 @@ import useAuth from './services/useAuth'
 import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 import Modal from './components/Modal/Modal'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   const [user, userIsLoading] = useAuth()
@@ -45,6 +46,7 @@ function App() {
                 />
               )}
             />
+            <Route component={NotFoundPage} />
           </Switch>
         </StyledMain>
         <Navigation />
