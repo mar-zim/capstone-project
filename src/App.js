@@ -2,45 +2,30 @@ import React, { useState } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
+import Modal from './components/Modal/Modal'
 import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
+import AddProductPage from './pages/AddProductPage'
 import LoginPage from './pages/LoginPage'
+import NotFoundPage from './pages/NotFoundPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
 import loginContext from './services/loginContext'
 import useAuth from './services/useAuth'
-import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
-import Modal from './components/Modal/Modal'
-import NotFoundPage from './pages/NotFoundPage'
-import { useTransition } from 'react-spring'
 
 function App() {
   const [user, userIsLoading] = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
   const [modalVisible, setModalVisible] = useState(false)
-  const transitions = useTransition(modalVisible, null, {
-    from: { opacity: 0, transform: 'translateY(-10px)' },
-    enter: { opacity: 1, transform: 'translateY(0px)' },
-    leave: { opacity: 0, transform: 'translateY(-10px)' },
-  })
 
   return (
     <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
+        <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
         <StyledMain>
           <button onClick={() => setModalVisible(true)}>Show modal</button>
-          {transitions.map(
-            ({ item, key, props: style }) =>
-              item && (
-                <Modal
-                  style={style}
-                  closeModal={() => setModalVisible(false)}
-                  key={key}
-                />
-              )
-          )}
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route path="/login" component={LoginPage} />

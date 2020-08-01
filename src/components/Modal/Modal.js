@@ -1,26 +1,46 @@
-import React from 'react'
-import { animated } from 'react-spring'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { animated, useTransition } from 'react-spring'
+import styled from 'styled-components'
 import Button from '../Button/Button'
 
 Modal.propTypes = {
-  style: PropTypes.object,
-  closeModal: PropTypes.func,
   modalText: PropTypes.string,
   modalHeader: PropTypes.string,
+  modalVisible: PropTypes.bool,
+  setModalVisible: PropTypes.func,
 }
 
-export default function Modal({ style, closeModal, modalText, modalHeader }) {
+export default function Modal({
+  modalText,
+  modalHeader,
+  modalVisible,
+  setModalVisible,
+}) {
+  const transitions = useTransition(modalVisible, null, {
+    from: { opacity: 0, transform: 'translateY(-10px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    leave: { opacity: 0, transform: 'translateY(-10px)' },
+  })
   return (
-    <ModalOverlay style={style}>
-      <StyledModal style={style}>
-        <h3>{modalHeader}</h3>
-        <div>{modalText}</div>
-        <Button onClick={closeModal} text="OK"></Button>
-      </StyledModal>
-    </ModalOverlay>
+    <>
+      {transitions.map(
+        ({ item, key, props: style }) =>
+          item && (
+            <ModalOverlay key={key} style={style}>
+              <StyledModal style={style}>
+                <h3>{modalHeader}</h3>
+                <div>{modalText}</div>
+                <Button onClick={closeModal} text="OK"></Button>
+              </StyledModal>
+            </ModalOverlay>
+          )
+      )}
+    </>
   )
+  function closeModal() {
+    setModalVisible(false)
+  }
 }
 
 const StyledModal = styled(animated.div)`
