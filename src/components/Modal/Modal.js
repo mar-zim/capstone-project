@@ -1,51 +1,54 @@
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import Button from '../Button/Button'
 
-export default function Modal({ style, closeModal }) {
+Modal.propTypes = {
+  style: PropTypes.object,
+  closeModal: PropTypes.func,
+  modalText: PropTypes.string,
+  modalHeader: PropTypes.string,
+}
+
+export default function Modal({ style, closeModal, modalText, modalHeader }) {
   return (
-    <StyledModal style={style}>
-      <h3>Modal title</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dolores
-        molestias praesentium impedit. Facere, perferendis voluptate at, amet
-        excepturi ratione mollitia nemo ipsum odit impedit doloremque rerum.
-        Quisquam, dolorum at?
-      </p>
-      <button onClick={closeModal}>Close</button>
-    </StyledModal>
+    <ModalBackground style={style}>
+      <StyledModal style={style}>
+        <h3>{modalHeader}</h3>
+        <div>{modalText}</div>
+        <Button onClick={closeModal} text="OK"></Button>
+      </StyledModal>
+    </ModalBackground>
   )
 }
 
 const StyledModal = styled(animated.div)`
-  width: 400px;
-  height: 250px;
-  color: #fff;
-  background: #6929c4;
-  padding: 40px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 80vw;
+  min-height: 20vh;
+  border: 2px solid var(--salmon-pink);
+  border-radius: 5px;
+  background: var(--salmon-pink);
+  opacity: 0.3;
+  color: var(--white);
+  padding: 20px;
   position: absolute;
   z-index: 90;
-  top: calc(50% - 145px);
-  left: calc(50% - 220px);
+  top: 30vh;
+  left: 10vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
+`
 
-  button {
-    padding: 16px;
-    background-color: #fff;
-    color: #6929c4;
-    font-size: 1em;
-    border: none;
-    margin-top: 16px;
-    width: 90%;
-    align-self: center;
-    cursor: pointer;
-    transition: background-color 0.1s linear;
-    :hover,
-    :focus {
-      background-color: #e8daff;
-    }
-  }
+const ModalBackground = styled(animated.div)`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

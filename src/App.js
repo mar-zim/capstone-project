@@ -13,7 +13,7 @@ import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 import Modal from './components/Modal/Modal'
 import NotFoundPage from './pages/NotFoundPage'
-import { animated, useTransition } from 'react-spring'
+import { useTransition } from 'react-spring'
 
 function App() {
   const [user, userIsLoading] = useAuth()
