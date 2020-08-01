@@ -20,9 +20,9 @@ function App() {
   const [products, productsAreLoading] = useProductsFromFirestore()
   const [modalVisible, setModalVisible] = useState(false)
   const transitions = useTransition(modalVisible, null, {
-    from: { opacity: 0, transform: 'translateY(-40px)' },
+    from: { opacity: 0, transform: 'translateY(-10px)' },
     enter: { opacity: 1, transform: 'translateY(0px)' },
-    leave: { opacity: 0, transform: 'translateY(-40px)' },
+    leave: { opacity: 0, transform: 'translateY(-10px)' },
   })
 
   return (

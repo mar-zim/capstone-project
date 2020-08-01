@@ -107,5 +107,5 @@ const DeleteTextIcon = styled.img`
 const ToggleIcon = styled.img`
   height: 35px;
   cursor: pointer;
-  z-index: 100;
+  z-index: 10;
 `

@@ -13,42 +13,38 @@ Modal.propTypes = {
 
 export default function Modal({ style, closeModal, modalText, modalHeader }) {
   return (
-    <ModalBackground style={style}>
+    <ModalOverlay style={style}>
       <StyledModal style={style}>
         <h3>{modalHeader}</h3>
         <div>{modalText}</div>
         <Button onClick={closeModal} text="OK"></Button>
       </StyledModal>
-    </ModalBackground>
+    </ModalOverlay>
   )
 }
 
 const StyledModal = styled(animated.div)`
   width: 80vw;
   min-height: 20vh;
-  border: 2px solid var(--salmon-pink);
   border-radius: 5px;
-  background: var(--salmon-pink);
-  opacity: 0.3;
+  box-shadow: 1px 2px 9px 0 var(--grey-2);
+  background-color: var(--white);
   color: var(--white);
   padding: 20px;
-  position: absolute;
-  z-index: 90;
-  top: 30vh;
-  left: 10vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
-const ModalBackground = styled(animated.div)`
+const ModalOverlay = styled(animated.div)`
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(176, 174, 172, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 20;
 `
