@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
-import Modal from './components/Modal/Modal'
 import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
 import AddProductPage from './pages/AddProductPage'
@@ -17,19 +16,15 @@ import useProductsFromFirestore from './services/useProductsFromFirestore'
 function App() {
   const [user, userIsLoading] = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
-  const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
-        <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
         <StyledMain>
-          <button onClick={() => setModalVisible(true)}>Show modal</button>
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route path="/login" component={LoginPage} />
-            {/* <Route path="/modal" component={Modal} /> */}
             <Route
               path="/home"
               component={() => (
@@ -39,7 +34,7 @@ function App() {
                 />
               )}
             />
-            {user && <Route path="/add" component={AddProductPage} />}
+            <Route path="/add" component={AddProductPage} />
             <Route
               path="/details/:productId"
               component={() => (
