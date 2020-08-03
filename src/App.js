@@ -9,7 +9,7 @@ import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
-import loginContext from './services/loginContext'
+import LoginContext from './services/LoginContext'
 import useAuth from './services/useAuth'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 
@@ -18,7 +18,7 @@ function App() {
   const [products, productsAreLoading] = useProductsFromFirestore()
 
   return (
-    <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
+    <LoginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
         <StyledMain>
@@ -49,7 +49,7 @@ function App() {
         </StyledMain>
         <Navigation />
       </AppWrapper>
-    </loginContext.Provider>
+    </LoginContext.Provider>
   )
 }
 

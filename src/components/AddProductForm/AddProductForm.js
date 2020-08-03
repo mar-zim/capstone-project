@@ -10,7 +10,7 @@ import Modal from '../Modal/Modal'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    addToDataBase,
+    addToDatabase,
     validateAddProduct
   )
   const [feedback, setFeedback] = useState('')
@@ -26,7 +26,7 @@ export default function AddProductForm({ user }) {
     !values.ownerNotes ||
     Object.keys(inputErrors).length !== 0
 
-  async function addToDataBase(values) {
+  async function addToDatabase(values) {
     try {
       await db.collection('products').add({
         name: values.name,

@@ -5,11 +5,11 @@ import add from '../../icons/add.svg'
 import home from '../../icons/home.svg'
 import login from '../../icons/login.svg'
 import logout from '../../icons/logout.svg'
-import loginContext from '../../services/loginContext'
+import LoginContext from '../../services/LoginContext'
 import useLogout from '../../services/useLogout'
 
 export default function Navigation() {
-  const { user } = useContext(loginContext)
+  const { user } = useContext(LoginContext)
   const logoutUser = useLogout()
   return (
     <StyledNavigation>

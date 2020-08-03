@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import loginContext from './loginContext'
+import LoginContext from './LoginContext'
 
 export default function useLogout() {
-  const { firebaseApp } = useContext(loginContext)
+  const { firebaseApp } = useContext(LoginContext)
   const history = useHistory()
 
   const logoutFromFirebase = async () => {
