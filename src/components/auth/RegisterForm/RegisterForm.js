@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
 import Button from '../../Button/Button'
+import Modal from '../../Modal/Modal'
 import TextInputField from '../../TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
 
 export default function RegisterForm() {
+  const [modalVisible, setModalVisible] = useState(false)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     registerToFirebase,
     validateRegister
@@ -21,8 +23,6 @@ export default function RegisterForm() {
     !values.passwordcheck ||
     Object.keys(inputErrors).length !== 0
 
-  const history = useHistory()
-
   async function registerToFirebase(values) {
     try {
       const newUser = await firebaseApp.createUserWithEmailAndPassword(
@@ -32,9 +32,7 @@ export default function RegisterForm() {
       await newUser.user.updateProfile({
         displayName: values.name,
       })
-      goToHome()
-      //Hier folgt noch ein schöneres Modal
-      alert('Herzlich Willkommen! Du bist nun registriert!')
+      setModalVisible(true)
     } catch (error) {
       setRegisterFeedback(
         'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
@@ -43,7 +41,14 @@ export default function RegisterForm() {
   }
 
   return (
-    <div>
+    <>
+      <Modal
+        header="Herzlich Willkommen!"
+        text="Du bist jetzt registriert und kannst nun auch selbst deine Gegenstände zum Verleih anbieten."
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        onCloseModalGoToPath="/home"
+      />
       <h2>Registrierung</h2>
       <StyledForm onSubmit={handleSubmit} noValidate>
         <TextInputField
@@ -90,13 +95,8 @@ export default function RegisterForm() {
       <div className="caption">
         Zurück zum <Link to="/login">Login</Link>.
       </div>
-    </div>
+    </>
   )
-
-  function goToHome() {
-    let path = `/home`
-    history.push(path)
-  }
 }
 
 const StyledRegisterFeedback = styled.div`

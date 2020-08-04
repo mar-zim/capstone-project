@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import Header from '../src/components/Header/Header'
 import Navigation from './components/Navigation/Navigation'
 import firebaseApp from './firebase'
+import AddProductPage from './pages/AddProductPage'
 import LoginPage from './pages/LoginPage'
+import NotFoundPage from './pages/NotFoundPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
-import loginContext from './services/loginContext'
+import LoginContext from './services/LoginContext'
 import useAuth from './services/useAuth'
-import AddProductPage from './pages/AddProductPage'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const [products, productsAreLoading] = useProductsFromFirestore()
 
   return (
-    <loginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
+    <LoginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
         <Header />
         <StyledMain>
@@ -43,11 +44,12 @@ function App() {
                 />
               )}
             />
+            <Route component={NotFoundPage} />
           </Switch>
         </StyledMain>
         <Navigation />
       </AppWrapper>
-    </loginContext.Provider>
+    </LoginContext.Provider>
   )
 }
 

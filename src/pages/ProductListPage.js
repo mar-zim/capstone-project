@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
 import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
-import loginContext from '../services/loginContext'
+import LoginContext from '../services/LoginContext'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
@@ -13,7 +13,7 @@ ProductListPage.propTypes = {
 
 export default function ProductListPage({ products, productsAreLoading }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const { user, userIsLoading } = useContext(loginContext)
+  const { user, userIsLoading } = useContext(LoginContext)
 
   const results = searchTerm
     ? products.filter((product) =>

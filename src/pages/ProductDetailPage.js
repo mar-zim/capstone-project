@@ -7,7 +7,7 @@ import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
 import SpinningLoadIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
-import loginContext from '../services/loginContext'
+import LoginContext from '../services/LoginContext'
 import arrowback from './../icons/arrowback.svg'
 
 ProductDetailPage.propTypes = {
@@ -15,7 +15,7 @@ ProductDetailPage.propTypes = {
   productsAreLoading: PropTypes.bool,
 }
 export default function ProductDetailPage({ products, productsAreLoading }) {
-  const { user } = useContext(loginContext)
+  const { user } = useContext(LoginContext)
   const { productId } = useParams()
   const history = useHistory()
   const [selectedProduct] = products.filter(
