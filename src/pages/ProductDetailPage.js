@@ -30,6 +30,7 @@ export default function ProductDetailPage({ products, productsAreLoading }) {
       {user ? (
         <div>
           <h2>{selectedProduct.name}</h2>
+          <StyledProductImage src={selectedProduct.imgURL} alt="Produktbild" />
           <div className="description">{selectedProduct.location}</div>
           <ProductDescription description={selectedProduct.description} />
           <Pricing
@@ -70,4 +71,9 @@ const StyledRequestForLogin = styled.div`
   align-items: center;
   gap: 15px;
   margin-top: 10px;
+`
+const StyledProductImage = styled.img`
+  max-width: 100%;
+  max-height: 100px;
+  border-radius: 5px;
 `
