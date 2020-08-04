@@ -7,6 +7,7 @@ import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 import Modal from '../Modal/Modal'
+import { storage } from '../../firebase/index'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
@@ -15,6 +16,9 @@ export default function AddProductForm({ user }) {
   )
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
+  const allInputs = { imgUrl: '' }
+  const [imageAsFile, setImageAsFile] = useState('')
+  const [imageAsUrl, setImageAsUrl] = useState(allInputs)
 
   const disableButton =
     !values.name ||
@@ -45,6 +49,49 @@ export default function AddProductForm({ user }) {
         'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
       )
     }
+  }
+
+  function handleFireBaseUpload(event) {
+    event.preventDefault()
+    console.log('start of upload')
+    if (imageAsFile === '') {
+      console.error(`not an image, the image file is a ${typeof imageAsFile}`)
+    }
+    const uploadTask = storage
+      .ref(`/images/${imageAsFile.name}`)
+      .put(imageAsFile)
+    //initiates the firebase side uploading
+    uploadTask.on(
+      'state_changed',
+      (snapShot) => {
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot)
+      },
+      (err) => {
+        //catches the errors
+        console.log(err)
+      },
+      () => {
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        storage
+          .ref('images')
+          .child(imageAsFile.name)
+          .getDownloadURL()
+          .then((fireBaseUrl) => {
+            setImageAsUrl((prevObject) => ({
+              ...prevObject,
+              imgUrl: fireBaseUrl,
+            }))
+          })
+      }
+    )
+  }
+
+  console.log(imageAsFile)
+  function handleImageAsFile(event) {
+    const image = event.target.files[0]
+    setImageAsFile(image)
   }
 
   return (
@@ -130,6 +177,10 @@ export default function AddProductForm({ user }) {
         <Button text="Hinzufügen" disabled={disableButton} />
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
       </StyledForm>
+      <form onSubmit={handleFireBaseUpload}>
+        <input type="file" onChange={handleImageAsFile} />
+        <Button text="Bild hochladen" />
+      </form>
     </>
   )
 }
