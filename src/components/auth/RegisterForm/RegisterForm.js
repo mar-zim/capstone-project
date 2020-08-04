@@ -43,8 +43,8 @@ export default function RegisterForm() {
   return (
     <>
       <Modal
-        modalHeader="Herzlich Wilkommen!"
-        modalText="Du bist jetzt registriert und kannst nun auch selbst deine Gegenstände zum Verleih anbieten."
+        header="Herzlich Willkommen!"
+        text="Du bist jetzt registriert und kannst nun auch selbst deine Gegenstände zum Verleih anbieten."
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         onCloseModalGoToPath="/home"

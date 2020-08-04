@@ -97,8 +97,8 @@ export default function AddProductForm({ user }) {
   return (
     <>
       <Modal
-        modalHeader="Danke!"
-        modalText="Dein Produkt wurde hinzugefügt."
+        header="Danke!"
+        text="Dein Produkt wurde hinzugefügt."
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         onCloseModalGoToPath="/home"

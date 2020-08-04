@@ -6,16 +6,16 @@ import styled from 'styled-components'
 import Button from '../Button/Button'
 
 Modal.propTypes = {
-  modalText: PropTypes.string,
-  modalHeader: PropTypes.string,
+  text: PropTypes.string,
+  header: PropTypes.string,
   modalVisible: PropTypes.bool,
   setModalVisible: PropTypes.func,
   onCloseModalGoToPath: PropTypes.string,
 }
 
 export default function Modal({
-  modalText,
-  modalHeader,
+  text,
+  header,
   modalVisible,
   setModalVisible,
   onCloseModalGoToPath,
@@ -33,8 +33,8 @@ export default function Modal({
           item && (
             <ModalOverlay key={key} style={style}>
               <StyledModal style={style}>
-                <h3>{modalHeader}</h3>
-                <div>{modalText}</div>
+                <h3>{header}</h3>
+                <div>{text}</div>
                 <Button onClick={closeModal} text="OK"></Button>
               </StyledModal>
             </ModalOverlay>
