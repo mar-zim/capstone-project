@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { db } from '../../firebase/index'
+import { UploadProductsToFirebase } from '../../services/UploadProductsToFirebase'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
+import Modal from '../Modal/Modal'
 import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
-import Modal from '../Modal/Modal'
-import { storage } from '../../firebase/index'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    addToDatabase,
+    submitFunction,
     validateAddProduct
   )
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
   const [imageAsFile, setImageAsFile] = useState({})
-  const imageId = uuidv4()
 
   const disableButton =
     !values.name ||
@@ -30,35 +27,16 @@ export default function AddProductForm({ user }) {
     !values.ownerNotes ||
     Object.keys(inputErrors).length !== 0
 
-  async function addToDatabase(values) {
-    try {
-      await storage
-        .ref(`/images/${imageId}_${imageAsFile.name}`)
-        .put(imageAsFile)
-      const firebaseUrl = await storage
-        .ref('images')
-        .child(imageId + '_' + imageAsFile.name)
-        .getDownloadURL()
+  console.log(imageAsFile)
 
-      await db.collection('products').add({
-        name: values.name,
-        description: values.description,
-        dailyRate: parseInt(values.dailyRate),
-        weeklyRate: parseInt(values.weeklyRate),
-        phone: values.phone,
-        location: values.location,
-        ownerNotes: values.ownerNotes,
-        userId: user.uid,
-        ownerName: user.displayName,
-        imgURL: firebaseUrl,
-      })
-      setModalVisible(true)
-    } catch (error) {
-      setFeedback(
-        'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
-      )
-      console.log(error)
-    }
+  function submitFunction() {
+    UploadProductsToFirebase(
+      values,
+      user,
+      imageAsFile,
+      setFeedback,
+      setModalVisible
+    )
   }
 
   function handleImageAsFile(event) {
@@ -152,8 +130,8 @@ export default function AddProductForm({ user }) {
         {imageAsFile.name && (
           <div className="description">{imageAsFile.name}</div>
         )}
-        <Button text="Hinzufügen" disabled={disableButton} />
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
+        <Button text="Hinzufügen" disabled={disableButton} />
       </StyledForm>
     </>
   )
