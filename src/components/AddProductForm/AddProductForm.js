@@ -19,6 +19,7 @@ export default function AddProductForm({ user }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [imageAsFile, setImageAsFile] = useState({})
   const imageId = uuidv4()
+
   const disableButton =
     !values.name ||
     !values.description ||
@@ -144,7 +145,13 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-        <input type="file" onChange={handleImageAsFile} />
+        <StyledImageUpload>
+          <input type="file" onChange={handleImageAsFile} />
+          {imageAsFile.name ? 'Bild ändern' : 'Bild auswählen'}
+        </StyledImageUpload>
+        {imageAsFile.name && (
+          <div className="description">{imageAsFile.name}</div>
+        )}
         <Button text="Hinzufügen" disabled={disableButton} />
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
       </StyledForm>
@@ -160,4 +167,22 @@ const StyledFeedback = styled.div`
 
 const StyledForm = styled.form`
   margin: 30px 0;
+`
+
+const StyledImageUpload = styled.label`
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: var(--denim);
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: center;
+  color: var(--white);
+  padding: 6px 12px;
+  display: block;
+  cursor: pointer;
+  input {
+    display: none;
+  }
 `
