@@ -16,10 +16,11 @@ export default function AddProductForm({ user }) {
   )
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
-  const allInputs = { imgUrl: '' }
-  const [imageAsFile, setImageAsFile] = useState('')
-  const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+  // const allInputs = { imgUrl: '' }
+  const [imageAsFile, setImageAsFile] = useState({})
+  // const [imageAsUrl, setImageAsUrl] = useState(allInputs)
 
+  console.log(imageAsFile)
   const disableButton =
     !values.name ||
     !values.description ||
@@ -32,20 +33,23 @@ export default function AddProductForm({ user }) {
 
   async function addToDatabase(values) {
     try {
+      console.log('image upload started')
       await storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
-
+      console.log('get Url')
       const firebaseUrl = await storage
         .ref('images')
         .child(imageAsFile.name)
         .getDownloadURL()
 
-      setImageAsUrl((prevObject) => ({
-        ...prevObject,
-        imgUrl: firebaseUrl,
-      }))
+      console.log('url fetched')
+      // setImageAsUrl((prevObject) => ({
+      //   ...prevObject,
+      //   imgUrl: firebaseUrl,
+      // }))
 
       console.log(firebaseUrl)
 
+      console.log('start writing in db')
       await db.collection('products').add({
         name: values.name,
         description: values.description,
@@ -58,6 +62,7 @@ export default function AddProductForm({ user }) {
         ownerName: user.displayName,
         imgURL: firebaseUrl,
       })
+      console.log('end writing in db, set modal visible')
       setModalVisible(true)
     } catch (error) {
       setFeedback(
@@ -151,10 +156,9 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-
+        <input type="file" onChange={handleImageAsFile} />
         <Button text="Hinzufügen" disabled={disableButton} />
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
-        <input type="file" onChange={handleImageAsFile} />
       </StyledForm>
     </>
   )
