@@ -8,6 +8,7 @@ import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 import Modal from '../Modal/Modal'
 import { storage } from '../../firebase/index'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
@@ -16,11 +17,8 @@ export default function AddProductForm({ user }) {
   )
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
-  // const allInputs = { imgUrl: '' }
   const [imageAsFile, setImageAsFile] = useState({})
-  // const [imageAsUrl, setImageAsUrl] = useState(allInputs)
-
-  console.log(imageAsFile)
+  const imageId = uuidv4()
   const disableButton =
     !values.name ||
     !values.description ||
@@ -33,23 +31,14 @@ export default function AddProductForm({ user }) {
 
   async function addToDatabase(values) {
     try {
-      console.log('image upload started')
-      await storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
-      console.log('get Url')
+      await storage
+        .ref(`/images/${imageId}_${imageAsFile.name}`)
+        .put(imageAsFile)
       const firebaseUrl = await storage
         .ref('images')
-        .child(imageAsFile.name)
+        .child(imageId + '_' + imageAsFile.name)
         .getDownloadURL()
 
-      console.log('url fetched')
-      // setImageAsUrl((prevObject) => ({
-      //   ...prevObject,
-      //   imgUrl: firebaseUrl,
-      // }))
-
-      console.log(firebaseUrl)
-
-      console.log('start writing in db')
       await db.collection('products').add({
         name: values.name,
         description: values.description,
@@ -62,7 +51,6 @@ export default function AddProductForm({ user }) {
         ownerName: user.displayName,
         imgURL: firebaseUrl,
       })
-      console.log('end writing in db, set modal visible')
       setModalVisible(true)
     } catch (error) {
       setFeedback(
