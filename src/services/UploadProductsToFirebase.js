@@ -27,7 +27,7 @@ export async function UploadProductsToFirebase(
       ownerNotes: values.ownerNotes,
       userId: user.uid,
       ownerName: user.displayName,
-      imgURL: imageAsFile ? firebaseUrl : 'Kein Foto vorhanden',
+      imgURL: firebaseUrl,
     })
     setModalVisible(true)
   } catch (error) {

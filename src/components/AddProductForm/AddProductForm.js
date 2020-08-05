@@ -25,9 +25,8 @@ export default function AddProductForm({ user }) {
     !values.phone ||
     !values.location ||
     !values.ownerNotes ||
+    !imageAsFile.name ||
     Object.keys(inputErrors).length !== 0
-
-  console.log(imageAsFile)
 
   function submitFunction() {
     UploadProductsToFirebase(
