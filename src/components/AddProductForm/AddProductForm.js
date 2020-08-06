@@ -9,6 +9,7 @@ import Modal from '../Modal/Modal'
 import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
+import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
@@ -147,9 +148,13 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-        {imagePreviewIsLoading
-          ? 'Bildvorschau lädt'
-          : imageUrl && <StyledImagePreview src={imageUrl} alt="Preview" />}
+        {imagePreviewIsLoading ? (
+          <div>
+            <SpinningLogoIcon />
+          </div>
+        ) : (
+          imageUrl && <StyledImagePreview src={imageUrl} alt="Preview" />
+        )}
         {imageAsFile.name && (
           <div className="description">{imageAsFile.name}</div>
         )}
