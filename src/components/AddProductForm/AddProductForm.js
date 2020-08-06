@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
+import { storage } from '../../firebase/index'
 import { UploadProductsToFirebase } from '../../services/UploadProductsToFirebase'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
@@ -16,6 +18,7 @@ export default function AddProductForm({ user }) {
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
   const [imageAsFile, setImageAsFile] = useState({})
+  const [imageUrl, setImageUrl] = useState('')
 
   const disableButton =
     !values.name ||
@@ -28,19 +31,38 @@ export default function AddProductForm({ user }) {
     !imageAsFile.name ||
     Object.keys(inputErrors).length !== 0
 
+  async function uploadImageForPreview(event) {
+    setFeedback('')
+    const imageId = uuidv4()
+    try {
+      const image = await event.target.files[0]
+      if (!image.type.includes('image')) {
+        setFeedback(
+          'Bitte wähle ein Bild in einem gültigen Format (zum Beispiel JPEG oder PNG).'
+        )
+      }
+      setImageAsFile(image)
+      await storage.ref(`/images/${imageId}_${image.name}`).put(image)
+      const firebaseUrl = await storage
+        .ref('images')
+        .child(imageId + '_' + image.name)
+        .getDownloadURL()
+      setImageUrl(firebaseUrl)
+    } catch (error) {
+      setFeedback(
+        'Dein Bild konnte leider nicht hochgeladen werden! Bitte versuche es noch einmal!'
+      )
+    }
+  }
+
   function addNewProduct() {
     UploadProductsToFirebase(
       values,
       user,
-      imageAsFile,
       setFeedback,
-      setModalVisible
+      setModalVisible,
+      imageUrl
     )
-  }
-
-  function handleImageAsFile(event) {
-    const image = event.target.files[0]
-    setImageAsFile(image)
   }
 
   return (
@@ -122,14 +144,16 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-        <StyledImageUpload>
-          <input type="file" onChange={handleImageAsFile} />
-          {imageAsFile.name ? 'Bild ändern' : 'Bild auswählen'}
-        </StyledImageUpload>
+        {imageUrl && <StyledImagePreview src={imageUrl} alt="Vorschau lädt" />}
         {imageAsFile.name && (
           <div className="description">{imageAsFile.name}</div>
         )}
+        <StyledImageUpload>
+          <input type="file" onChange={uploadImageForPreview} required />
+          {imageAsFile.name ? 'Bild ändern' : 'Bild auswählen'}
+        </StyledImageUpload>
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
+
         <Button text="Hinzufügen" disabled={disableButton} />
       </StyledForm>
     </>
@@ -144,6 +168,15 @@ const StyledFeedback = styled.div`
 
 const StyledForm = styled.form`
   margin: 30px 0;
+`
+
+const StyledImagePreview = styled.img`
+  height: 112px;
+  width: 140px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 5px;
 `
 
 const StyledImageUpload = styled.label`
