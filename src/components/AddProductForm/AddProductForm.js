@@ -171,8 +171,8 @@ const StyledForm = styled.form`
 `
 
 const StyledImagePreview = styled.img`
-  height: 112px;
-  width: 140px;
+  height: 120px;
+  width: 120px;
   border-radius: 5px;
   object-fit: cover;
   display: block;

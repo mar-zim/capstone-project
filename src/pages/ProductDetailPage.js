@@ -74,7 +74,7 @@ const StyledRequestForLogin = styled.div`
 `
 const StyledProductImage = styled.img`
   margin-bottom: 20px;
-  max-height: 40vh;
+  max-height: 50vh;
   width: 100%;
   border-radius: 5px;
   object-fit: cover;

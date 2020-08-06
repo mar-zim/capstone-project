@@ -41,7 +41,7 @@ const StyledProductListItem = styled.div`
   justify-content: space-between;
   img {
     height: 80px;
-    width: 100px;
+    width: 80px;
     border-radius: 5px;
     object-fit: cover;
     margin-top: 10px;
