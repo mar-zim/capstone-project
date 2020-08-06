@@ -10,7 +10,7 @@ import validateAddProduct from './AddProductFormValidation.js'
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    submitFunction,
+    addNewProduct,
     validateAddProduct
   )
   const [feedback, setFeedback] = useState('')
@@ -28,7 +28,7 @@ export default function AddProductForm({ user }) {
     !imageAsFile.name ||
     Object.keys(inputErrors).length !== 0
 
-  function submitFunction() {
+  function addNewProduct() {
     UploadProductsToFirebase(
       values,
       user,

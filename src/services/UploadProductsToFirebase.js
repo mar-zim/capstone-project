@@ -34,6 +34,5 @@ export async function UploadProductsToFirebase(
     setFeedback(
       'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
     )
-    console.log(error)
   }
 }
