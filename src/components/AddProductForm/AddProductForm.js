@@ -19,6 +19,7 @@ export default function AddProductForm({ user }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [imageAsFile, setImageAsFile] = useState({})
   const [imageUrl, setImageUrl] = useState('')
+  const [imagePreviewIsLoading, setimagePreviewIsLoading] = useState(false)
 
   const disableButton =
     !values.name ||
@@ -32,13 +33,14 @@ export default function AddProductForm({ user }) {
     Object.keys(inputErrors).length !== 0
 
   async function uploadImageForPreview(event) {
+    setimagePreviewIsLoading(true)
     setFeedback('')
     const imageId = uuidv4()
     try {
       const image = await event.target.files[0]
       if (!image.type.includes('image')) {
         setFeedback(
-          'Bitte wähle ein Bild in einem gültigen Format (zum Beispiel JPEG oder PNG).'
+          'Bitte wähle ein Bild in einem gültigen Bild-Format (zum Beispiel JPEG oder PNG).'
         )
       }
       setImageAsFile(image)
@@ -48,6 +50,7 @@ export default function AddProductForm({ user }) {
         .child(imageId + '_' + image.name)
         .getDownloadURL()
       setImageUrl(firebaseUrl)
+      firebaseUrl && setimagePreviewIsLoading(false)
     } catch (error) {
       setFeedback(
         'Dein Bild konnte leider nicht hochgeladen werden! Bitte versuche es noch einmal!'
@@ -144,7 +147,9 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-        {imageUrl && <StyledImagePreview src={imageUrl} alt="Vorschau lädt" />}
+        {imagePreviewIsLoading
+          ? 'Bildvorschau lädt'
+          : imageUrl && <StyledImagePreview src={imageUrl} alt="Preview" />}
         {imageAsFile.name && (
           <div className="description">{imageAsFile.name}</div>
         )}
