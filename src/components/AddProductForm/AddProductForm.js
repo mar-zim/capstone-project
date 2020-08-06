@@ -164,7 +164,7 @@ export default function AddProductForm({ user }) {
         </StyledImageUpload>
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
 
-        <Button text="Hinzufügen" disabled={disableButton} />
+        <Button text="Produkt Hinzufügen" disabled={disableButton} />
       </StyledForm>
     </>
   )
@@ -192,13 +192,14 @@ const StyledImagePreview = styled.img`
 const StyledImageUpload = styled.label`
   margin-bottom: 15px;
   border-radius: 5px;
-  background-color: var(--denim);
+  color: var(--denim);
   font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   text-align: center;
-  color: var(--white);
+  background-color: var(--white);
+  border: 1px solid var(--denim);
   padding: 6px 12px;
   display: block;
   cursor: pointer;
