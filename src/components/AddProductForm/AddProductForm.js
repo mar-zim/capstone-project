@@ -28,7 +28,7 @@ export default function AddProductForm({ user }) {
     !values.phone ||
     !values.location ||
     !values.ownerNotes ||
-    !imageAsFile.name ||
+    !imageUrl ||
     Object.keys(inputErrors).length !== 0
 
   async function uploadImageForPreview(event) {
@@ -150,7 +150,7 @@ export default function AddProductForm({ user }) {
         )}
         <StyledImageUpload>
           <input type="file" onChange={uploadImageForPreview} required />
-          {imageAsFile.name ? 'Bild ändern' : 'Bild auswählen'}
+          {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
         </StyledImageUpload>
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
 
