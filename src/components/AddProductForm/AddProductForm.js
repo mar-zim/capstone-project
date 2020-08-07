@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
 import { storage } from '../../firebase/index'
-import { UploadProductsToFirebase } from '../../services/UploadProductsToFirebase'
+import { UploadProductsToFirestore } from '../../services/UploadProductsToFirestore'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
@@ -79,7 +79,7 @@ export default function AddProductForm({ user }) {
   }
 
   function addNewProduct() {
-    UploadProductsToFirebase(
+    UploadProductsToFirestore(
       values,
       user,
       setFeedback,

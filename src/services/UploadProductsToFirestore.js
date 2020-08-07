@@ -1,6 +1,6 @@
 import { db } from '../firebase/index'
 
-export async function UploadProductsToFirebase(
+export async function UploadProductsToFirestore(
   values,
   user,
   setFeedback,
