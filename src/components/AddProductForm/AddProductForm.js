@@ -10,9 +10,10 @@ import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
+import redcross from '../../icons/redcross.svg'
 
 export default function AddProductForm({ user }) {
-  const [values, inputErrors, handleChange, handleSubmit] = useForm(
+  const [values, setValues, inputErrors, handleChange, handleSubmit] = useForm(
     addNewProduct,
     validateAddProduct
   )
@@ -34,6 +35,8 @@ export default function AddProductForm({ user }) {
     Object.keys(inputErrors).length !== 0
 
   async function uploadImageForPreview(event) {
+    event.persist()
+    imageUrl && (await deleteImageFromPreview())
     setimagePreviewIsLoading(true)
     setFeedback('')
     const imageId = uuidv4()
@@ -57,6 +60,22 @@ export default function AddProductForm({ user }) {
         'Dein Bild konnte leider nicht hochgeladen werden! Bitte versuche es noch einmal!'
       )
     }
+  }
+
+  async function deleteImageFromPreview() {
+    try {
+      const previewRef = storage.refFromURL(imageUrl)
+      await previewRef.delete()
+      setImageUrl('')
+      setImageAsFile({})
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  function cancelForm() {
+    setValues({})
+    deleteImageFromPreview()
   }
 
   function addNewProduct() {
@@ -156,15 +175,19 @@ export default function AddProductForm({ user }) {
           imageUrl && <StyledImagePreview src={imageUrl} alt="Preview" />
         )}
         {imageAsFile.name && (
-          <div className="description">{imageAsFile.name}</div>
+          <div className="description">
+            <img src={redcross} alt="cancel" onClick={deleteImageFromPreview} />
+            {'  '}
+            {imageAsFile.name}
+          </div>
         )}
         <StyledImageUpload>
           <input type="file" onChange={uploadImageForPreview} required />
           {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
         </StyledImageUpload>
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
-
         <Button text="Produkt Hinzufügen" disabled={disableButton} />
+        <Button text="Cancel" onClick={cancelForm} type="button" />
       </StyledForm>
     </>
   )
