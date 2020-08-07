@@ -3,7 +3,7 @@ import { storage } from '../firebase/index'
 import DeleteImageFromStorage from './DeleteImageFromStorage'
 
 export default async function UploadImageToStorage(
-  setimagePreviewIsLoading,
+  setImagePreviewIsLoading,
   image,
   setFeedback,
   setImageUrl,
@@ -11,16 +11,16 @@ export default async function UploadImageToStorage(
   imageUrl
 ) {
   const imageId = uuidv4()
-  setimagePreviewIsLoading(true)
+  setImagePreviewIsLoading(true)
   setFeedback('')
   imageUrl &&
     (await DeleteImageFromStorage(imageUrl, setImageUrl, setImageAsFile))
   try {
     if (!image.type.includes('image')) {
       setFeedback(
-        'Bitte wähle ein Bild in einem gültigen Bild-Format (zum Beispiel JPEG oder PNG).'
+        'Bitte wähle ein Bild in einem gültigen Bild-Format (zum Beispiel JPG oder PNG).'
       )
-      setimagePreviewIsLoading(false)
+      setImagePreviewIsLoading(false)
       return
     }
     setImageAsFile(image)
@@ -30,7 +30,7 @@ export default async function UploadImageToStorage(
       .child(imageId + '_' + image.name)
       .getDownloadURL()
     setImageUrl(firebaseUrl)
-    firebaseUrl && setimagePreviewIsLoading(false)
+    firebaseUrl && setImagePreviewIsLoading(false)
   } catch (error) {
     setFeedback(
       'Dein Bild konnte leider nicht hochgeladen werden! Bitte versuche es noch einmal!'

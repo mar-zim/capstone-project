@@ -21,7 +21,7 @@ export default function AddProductForm({ user }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [imageAsFile, setImageAsFile] = useState({})
   const [imageUrl, setImageUrl] = useState('')
-  const [imagePreviewIsLoading, setimagePreviewIsLoading] = useState(false)
+  const [imagePreviewIsLoading, setImagePreviewIsLoading] = useState(false)
 
   const disableButton =
     !values.name ||
@@ -38,7 +38,7 @@ export default function AddProductForm({ user }) {
     event.persist()
     const image = await event.target.files[0]
     UploadImageToStorage(
-      setimagePreviewIsLoading,
+      setImagePreviewIsLoading,
       image,
       setFeedback,
       setImageUrl,
