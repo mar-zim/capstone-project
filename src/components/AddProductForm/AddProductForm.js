@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { v4 as uuidv4 } from 'uuid'
 import { storage } from '../../firebase/index'
-import { UploadProductsToFirestore } from '../../services/UploadProductsToFirestore'
+import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
@@ -11,6 +10,7 @@ import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
 import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
 import redcross from '../../icons/redcross.svg'
+import UploadImageToStorage from '../../services/UploadImageToStorage'
 
 export default function AddProductForm({ user }) {
   const [values, setValues, inputErrors, handleChange, handleSubmit] = useForm(
@@ -37,29 +37,15 @@ export default function AddProductForm({ user }) {
   async function uploadImageForPreview(event) {
     event.persist()
     imageUrl && (await deleteImageFromPreview())
-    setimagePreviewIsLoading(true)
     setFeedback('')
-    const imageId = uuidv4()
-    try {
-      const image = await event.target.files[0]
-      if (!image.type.includes('image')) {
-        setFeedback(
-          'Bitte wähle ein Bild in einem gültigen Bild-Format (zum Beispiel JPEG oder PNG).'
-        )
-      }
-      setImageAsFile(image)
-      await storage.ref(`/images/${imageId}_${image.name}`).put(image)
-      const firebaseUrl = await storage
-        .ref('images')
-        .child(imageId + '_' + image.name)
-        .getDownloadURL()
-      setImageUrl(firebaseUrl)
-      firebaseUrl && setimagePreviewIsLoading(false)
-    } catch (error) {
-      setFeedback(
-        'Dein Bild konnte leider nicht hochgeladen werden! Bitte versuche es noch einmal!'
-      )
-    }
+    const image = await event.target.files[0]
+    UploadImageToStorage(
+      setimagePreviewIsLoading,
+      image,
+      setFeedback,
+      setImageUrl,
+      setImageAsFile
+    )
   }
 
   async function deleteImageFromPreview() {
