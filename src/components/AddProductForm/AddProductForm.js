@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { storage } from '../../firebase/index'
 import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
@@ -11,6 +10,7 @@ import validateAddProduct from './AddProductFormValidation.js'
 import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
 import redcross from '../../icons/redcross.svg'
 import UploadImageToStorage from '../../services/UploadImageToStorage'
+import DeleteImageFromStorage from '../../services/DeleteImageFromStorage'
 
 export default function AddProductForm({ user }) {
   const [values, setValues, inputErrors, handleChange, handleSubmit] = useForm(
@@ -36,32 +36,25 @@ export default function AddProductForm({ user }) {
 
   async function uploadImageForPreview(event) {
     event.persist()
-    imageUrl && (await deleteImageFromPreview())
-    setFeedback('')
     const image = await event.target.files[0]
     UploadImageToStorage(
       setimagePreviewIsLoading,
       image,
       setFeedback,
       setImageUrl,
-      setImageAsFile
+      setImageAsFile,
+      imageUrl
     )
   }
 
-  async function deleteImageFromPreview() {
-    try {
-      const previewRef = storage.refFromURL(imageUrl)
-      await previewRef.delete()
-      setImageUrl('')
-      setImageAsFile({})
-    } catch (error) {
-      console.log(error.message)
-    }
+  function deleteImagePreview() {
+    DeleteImageFromStorage(imageUrl, setImageUrl, setImageAsFile)
   }
 
   function cancelForm() {
     setValues({})
-    deleteImageFromPreview()
+    setFeedback('')
+    deleteImagePreview()
   }
 
   function addNewProduct() {
@@ -162,7 +155,7 @@ export default function AddProductForm({ user }) {
         )}
         {imageAsFile.name && (
           <div className="description">
-            <img src={redcross} alt="cancel" onClick={deleteImageFromPreview} />
+            <img src={redcross} alt="cancel" onClick={deleteImagePreview} />
             {'  '}
             {imageAsFile.name}
           </div>
@@ -196,6 +189,7 @@ const StyledImagePreview = styled.img`
   object-fit: cover;
   display: block;
   margin-bottom: 5px;
+  cursor: pointer;
 `
 
 const StyledImageUpload = styled.label`
