@@ -13,7 +13,7 @@ import UploadImageToStorage from '../../services/UploadImageToStorage'
 import DeleteImageFromStorage from '../../services/DeleteImageFromStorage'
 
 export default function AddProductForm({ user }) {
-  const [values, setValues, inputErrors, handleChange, handleSubmit] = useForm(
+  const [values, inputErrors, handleChange, handleSubmit, setValues] = useForm(
     addNewProduct,
     validateAddProduct
   )

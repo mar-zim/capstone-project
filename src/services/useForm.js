@@ -27,5 +27,5 @@ export default function useForm(submitFunction, validate) {
     }))
   }
 
-  return [values, setValues, inputErrors, handleChange, handleSubmit]
+  return [values, inputErrors, handleChange, handleSubmit, setValues]
 }
