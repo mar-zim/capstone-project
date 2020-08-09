@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-import firebaseApp from '../../firebase'
+
 import useForm from '../../services/lib/useForm'
 import Button from '../ui/Button/Button'
 import TextInputField from '../ui/TextInputField/TextInputField'
 import validateLogin from './LoginFormValidation'
+import loginWithFirebase from '../../services/auth/LoginWithFirebase'
 
 export default function LoginForm() {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    loginWithFirebase,
+    loginUser,
     validateLogin
   )
   const [loginFeedback, setLoginFeedback] = useState('')
@@ -19,24 +20,10 @@ export default function LoginForm() {
   const disableButton =
     !values.email || !values.password || Object.keys(inputErrors).length !== 0
 
-  async function loginWithFirebase(values) {
-    try {
-      await firebaseApp.signInWithEmailAndPassword(
-        values.email,
-        values.password
-      )
-      return history.push('/home')
-    } catch (error) {
-      error.code === 'auth/wrong-password' ||
-      error.code === 'auth/user-not-found'
-        ? setLoginFeedback(
-            'Deine E-Mail oder dein Passwort ist nicht korrekt. Bitte versuche es noch einmal!'
-          )
-        : setLoginFeedback(
-            'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
-          )
-    }
+  function loginUser() {
+    loginWithFirebase(values, setLoginFeedback, history)
   }
+
   return (
     <>
       <h2>Login</h2>
