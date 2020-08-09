@@ -3,8 +3,8 @@ import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
-import Button from '../../Button/Button'
-import TextInputField from '../../TextInputField/TextInputField'
+import Button from '../../ui/Button/Button'
+import TextInputField from '../../ui/TextInputField/TextInputField'
 import validateLogin from './LoginFormValidation'
 
 export default function LoginForm() {

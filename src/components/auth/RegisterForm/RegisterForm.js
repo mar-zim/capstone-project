@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import firebaseApp from '../../../firebase'
 import useForm from '../../../services/useForm'
-import Button from '../../Button/Button'
-import Modal from '../../Modal/Modal'
-import TextInputField from '../../TextInputField/TextInputField'
+import Button from '../../ui/Button/Button'
+import Modal from '../../ui/Modal/Modal'
+import TextInputField from '../../ui/TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
 
 export default function RegisterForm() {

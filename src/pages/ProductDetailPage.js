@@ -6,7 +6,7 @@ import Button from '../components/Button/Button'
 import ContactDetails from '../components/ContactDetails/ContactDetails'
 import Pricing from '../components/Pricing/Pricing'
 import ProductDescription from '../components/ProductDescription/ProductDescription'
-import SpinningLoadIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
+import SpinningLoadIcon from '../components/ui/SpinningLoadIcon/SpinningLoadIcon'
 import LoginContext from '../services/LoginContext'
 import arrowback from './../icons/arrowback.svg'
 
