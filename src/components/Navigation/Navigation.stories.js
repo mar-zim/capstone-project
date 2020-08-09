@@ -9,7 +9,7 @@ addDecorator((storyFn) => {
     email: 'testuser',
   }
 
-  return <LoginContext.Provider value={user}>{storyFn()}</auth/LoginContext.Provider>
+  return <LoginContext.Provider value={user}>{storyFn()}</LoginContext.Provider>
 })
 
 export default {
