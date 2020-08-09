@@ -6,6 +6,6 @@ export default {
   title: 'General/SearchBar',
 }
 
-export const Visible = () => <SearchBar isSearchBarVisible={true} />
+export const ClickToOpen = () => <SearchBar />
 
-export const Hidden = () => <SearchBar isSearchBarVisible={false} />
+export const WithInput = () => <SearchBar searchInput="text" />

@@ -26,6 +26,8 @@ const StyledHeader = styled.header`
   display: grid;
   align-items: center;
   justify-items: center;
+  width: 100%;
+  height: 56px;
 `
 
 const StyledLogo = styled.img`

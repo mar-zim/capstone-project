@@ -16,7 +16,6 @@ import useProductsFromFirestore from './services/useProductsFromFirestore'
 function App() {
   const [user, userIsLoading] = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
-
   return (
     <LoginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
@@ -47,7 +46,7 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </StyledMain>
-        <Navigation />
+        <Navigation user={user} />
       </AppWrapper>
     </LoginContext.Provider>
   )
