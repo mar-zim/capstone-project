@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import firebaseApp from '../../../firebase'
-import useForm from '../../../services/useForm'
-import Button from '../../ui/Button/Button'
-import Modal from '../../ui/Modal/Modal'
-import TextInputField from '../../ui/TextInputField/TextInputField'
+import firebaseApp from '../../firebase'
+import useForm from '../../services/lib/useForm'
+import Button from '../ui/Button/Button'
+import Modal from '../ui/Modal/Modal'
+import TextInputField from '../ui/TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
 
 export default function RegisterForm() {

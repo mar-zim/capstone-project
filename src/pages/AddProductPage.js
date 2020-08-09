@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import AddProductForm from '../components/AddProductForm/AddProductForm'
 import Button from '../components/Button/Button'
-import LoginContext from '../services/LoginContext'
+import LoginContext from '../services/auth/LoginContext'
 import arrowback from './../icons/arrowback.svg'
 import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 

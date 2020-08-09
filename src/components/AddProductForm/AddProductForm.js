@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
-import useForm from '../../services/useForm'
+import useForm from '../../services/lib/useForm'
 import Button from '../ui/Button/Button'
 import Modal from '../ui/Modal/Modal'
 import TextAreaField from '../ui/TextAreaField/TextAreaField'

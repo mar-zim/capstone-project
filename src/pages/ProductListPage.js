@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
 import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
-import LoginContext from '../services/LoginContext'
+import LoginContext from '../services/auth/LoginContext'
 
 ProductListPage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),

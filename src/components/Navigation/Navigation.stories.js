@@ -1,6 +1,6 @@
 import { addDecorator } from '@storybook/react'
 import React from 'react'
-import LoginContext from '../../services/LoginContext'
+import LoginContext from '../../services/auth/LoginContext'
 import Navigation from './Navigation'
 
 addDecorator((storyFn) => {
@@ -9,7 +9,7 @@ addDecorator((storyFn) => {
     email: 'testuser',
   }
 
-  return <LoginContext.Provider value={user}>{storyFn()}</LoginContext.Provider>
+  return <LoginContext.Provider value={user}>{storyFn()}</auth/LoginContext.Provider>
 })
 
 export default {

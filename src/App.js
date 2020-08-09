@@ -9,8 +9,8 @@ import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
-import LoginContext from './services/LoginContext'
-import useAuth from './services/useAuth'
+import LoginContext from './services/auth/LoginContext'
+import useAuth from './services/auth/useAuth'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 
 function App() {

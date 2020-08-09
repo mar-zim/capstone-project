@@ -5,8 +5,8 @@ import add from '../../icons/add.svg'
 import home from '../../icons/home.svg'
 import login from '../../icons/login.svg'
 import logout from '../../icons/logout.svg'
-import LoginContext from '../../services/LoginContext'
-import useLogout from '../../services/useLogout'
+import LoginContext from '../../services/auth/LoginContext'
+import useLogout from '../../services/auth/useLogout'
 
 export default function Navigation() {
   const { user } = useContext(LoginContext)

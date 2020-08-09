@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-import firebaseApp from '../../../firebase'
-import useForm from '../../../services/useForm'
-import Button from '../../ui/Button/Button'
-import TextInputField from '../../ui/TextInputField/TextInputField'
+import firebaseApp from '../../firebase'
+import useForm from '../../services/lib/useForm'
+import Button from '../ui/Button/Button'
+import TextInputField from '../ui/TextInputField/TextInputField'
 import validateLogin from './LoginFormValidation'
 
 export default function LoginForm() {
