@@ -7,14 +7,22 @@ Button.propTypes = {
   onClick: PropTypes.func,
   backgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
+  type: PropTypes.string,
 }
 
-export default function Button({ onClick, text, backgroundColor, disabled }) {
+export default function Button({
+  onClick,
+  text,
+  backgroundColor,
+  disabled,
+  type,
+}) {
   return (
     <StyledButton
       backgroundColor={backgroundColor}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {text}
     </StyledButton>
@@ -22,6 +30,7 @@ export default function Button({ onClick, text, backgroundColor, disabled }) {
 }
 
 const StyledButton = styled.button`
+  margin-right: 10px;
   min-width: 70px;
   min-height: 25px;
   border-radius: 5px;

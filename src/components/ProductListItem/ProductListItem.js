@@ -11,34 +11,43 @@ ProductListItem.propTypes = {
 }
 
 export default function ProductListItem({
-  product: { name, ownerName, location, id },
+  product: { name, ownerName, location, id, imgURL },
 }) {
   const history = useHistory()
 
   return (
-    <div
-      onClick={() => {
-        history.push(`/details/${id}`)
-      }}
-    >
+    <>
       <DividerLine />
-      <StyledHeader>
-        <h4>{name}</h4>
-      </StyledHeader>
-      <StyledProductInfo>
-        <div>von {ownerName}</div>
-        <div>aus {location}</div>
-      </StyledProductInfo>
-    </div>
+      <StyledProductListItem
+        onClick={() => {
+          history.push(`/details/${id}`)
+        }}
+      >
+        <div>
+          <h4>{name}</h4>
+          <StyledProductInfo>
+            <div>von {ownerName}</div>
+            <div>aus {location}</div>
+          </StyledProductInfo>
+        </div>
+        {imgURL && <img src={imgURL} alt="Vorschau" />}
+      </StyledProductListItem>
+    </>
   )
 }
 
-const StyledProductInfo = styled.div`
-  margin-left: 52px;
-`
-const StyledHeader = styled.div`
-  width: 100%;
+const StyledProductListItem = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  img {
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+`
+
+const StyledProductInfo = styled.div`
+  margin-left: 52px;
 `

@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { db } from '../../firebase/index'
+import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
 import useForm from '../../services/useForm'
 import Button from '../Button/Button'
+import Modal from '../Modal/Modal'
 import TextAreaField from '../TextAreaField/TextAreaField'
 import TextInputField from '../TextInputField/TextInputField'
 import validateAddProduct from './AddProductFormValidation.js'
-import Modal from '../Modal/Modal'
+import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
+import redcross from '../../icons/redcross.svg'
+import UploadImageToStorage from '../../services/UploadImageToStorage'
+import DeleteImageFromStorage from '../../services/DeleteImageFromStorage'
 
 export default function AddProductForm({ user }) {
-  const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    addToDatabase,
+  const [values, inputErrors, handleChange, handleSubmit, setValues] = useForm(
+    addNewProduct,
     validateAddProduct
   )
   const [feedback, setFeedback] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
+  const [imageAsFile, setImageAsFile] = useState({})
+  const [imageUrl, setImageUrl] = useState('')
+  const [imagePreviewIsLoading, setImagePreviewIsLoading] = useState(false)
 
   const disableButton =
     !values.name ||
@@ -24,27 +31,40 @@ export default function AddProductForm({ user }) {
     !values.phone ||
     !values.location ||
     !values.ownerNotes ||
+    !imageUrl ||
     Object.keys(inputErrors).length !== 0
 
-  async function addToDatabase(values) {
-    try {
-      await db.collection('products').add({
-        name: values.name,
-        description: values.description,
-        dailyRate: parseInt(values.dailyRate),
-        weeklyRate: parseInt(values.weeklyRate),
-        phone: values.phone,
-        location: values.location,
-        ownerNotes: values.ownerNotes,
-        userId: user.uid,
-        ownerName: user.displayName,
-      })
-      setModalVisible(true)
-    } catch (error) {
-      setFeedback(
-        'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
-      )
-    }
+  async function uploadImageForPreview(event) {
+    event.persist()
+    const image = await event.target.files[0]
+    UploadImageToStorage(
+      setImagePreviewIsLoading,
+      image,
+      setFeedback,
+      setImageUrl,
+      setImageAsFile,
+      imageUrl
+    )
+  }
+
+  function deleteImagePreview() {
+    DeleteImageFromStorage(imageUrl, setImageUrl, setImageAsFile)
+  }
+
+  function cancelForm() {
+    setValues({})
+    setFeedback('')
+    deleteImagePreview()
+  }
+
+  function addNewProduct() {
+    UploadProductsToFirestore(
+      values,
+      user,
+      setFeedback,
+      setModalVisible,
+      imageUrl
+    )
   }
 
   return (
@@ -126,9 +146,27 @@ export default function AddProductForm({ user }) {
           error={inputErrors.ownerNotes}
           width={55}
         />
-
-        <Button text="Hinzufügen" disabled={disableButton} />
+        {imagePreviewIsLoading ? (
+          <div>
+            <SpinningLogoIcon />
+          </div>
+        ) : (
+          imageUrl && <StyledImagePreview src={imageUrl} alt="Preview" />
+        )}
+        {imageAsFile.name && (
+          <div className="description">
+            <img src={redcross} alt="cancel" onClick={deleteImagePreview} />
+            {'  '}
+            {imageAsFile.name}
+          </div>
+        )}
+        <StyledImageUpload>
+          <input type="file" onChange={uploadImageForPreview} required />
+          {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
+        </StyledImageUpload>
         {feedback && <StyledFeedback>{feedback}</StyledFeedback>}
+        <Button text="Produkt Hinzufügen" disabled={disableButton} />
+        <Button text="Cancel" onClick={cancelForm} type="button" />
       </StyledForm>
     </>
   )
@@ -142,4 +180,32 @@ const StyledFeedback = styled.div`
 
 const StyledForm = styled.form`
   margin: 30px 0;
+`
+
+const StyledImagePreview = styled.img`
+  height: 120px;
+  width: 120px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 5px;
+`
+
+const StyledImageUpload = styled.label`
+  margin-bottom: 15px;
+  border-radius: 5px;
+  color: var(--denim);
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: center;
+  background-color: var(--white);
+  border: 1px solid var(--denim);
+  padding: 6px 12px;
+  display: block;
+  cursor: pointer;
+  input {
+    display: none;
+  }
 `
