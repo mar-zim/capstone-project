@@ -189,7 +189,6 @@ const StyledImagePreview = styled.img`
   object-fit: cover;
   display: block;
   margin-bottom: 5px;
-  cursor: pointer;
 `
 
 const StyledImageUpload = styled.label`

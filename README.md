@@ -7,7 +7,7 @@
 
 ## Hamburg citizens love to share!
 
-shhare gives all Hamburg cititzens the possibility to share their sports-equipments, tools and kitchen appliances - and everything else that is not used for the majority of its lifetime - with their neighbors and fellow citizens.
+shhare gives all Hamburg citizens the possibility to share their sports-equipments, tools and kitchen appliances - and everything else that is not used for the majority of its lifetime - with their neighbors and fellow citizens.
 It was made with Create React App and a Firebase backend.
 
 This app was developed as my capstone project during the final four weeks of the neuefische Web Development Bootcamp in July, 2020 in Hamburg, Germany.
