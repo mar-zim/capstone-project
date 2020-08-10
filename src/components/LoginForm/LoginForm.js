@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-
+import loginWithFirebase from '../../services/auth/LoginWithFirebase'
 import useForm from '../../services/lib/useForm'
 import Button from '../ui/Button/Button'
 import TextInputField from '../ui/TextInputField/TextInputField'
 import validateLogin from './LoginFormValidation'
-import loginWithFirebase from '../../services/auth/LoginWithFirebase'
 
 export default function LoginForm() {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(

@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import AddProductForm from '../components/AddProductForm/AddProductForm'
 import Button from '../components/Button/Button'
+import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 import LoginContext from '../services/auth/LoginContext'
 import arrowback from './../icons/arrowback.svg'
-import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
 
 export default function AddProductPage() {
   const { user, userIsLoading } = useContext(LoginContext)
