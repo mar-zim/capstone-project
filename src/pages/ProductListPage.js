@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import ProductList from '../components/ProductList/ProductList'
 import SearchBar from '../components/SearchBar/SearchBar'
-import SpinningLogoIcon from '../components/SpinningLoadIcon/SpinningLoadIcon'
+import SpinningLogoIcon from '../components/ui/SpinningLoadIcon/SpinningLoadIcon'
 import LoginContext from '../services/auth/LoginContext'
 
 ProductListPage.propTypes = {
