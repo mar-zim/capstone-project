@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import GlobalStyles from './GlobalStyles'
-import App from './App'
-import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
-import ScrollToTop from './services/ScrollToTop'
+import App from './App'
+import GlobalStyles from './GlobalStyles'
+import ScrollToTop from './services/lib/ScrollToTop'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,16 +1,21 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
-import useForm from '../../services/useForm'
-import Button from '../Button/Button'
-import Modal from '../Modal/Modal'
-import TextAreaField from '../TextAreaField/TextAreaField'
-import TextInputField from '../TextInputField/TextInputField'
-import validateAddProduct from './AddProductFormValidation.js'
-import SpinningLogoIcon from '../SpinningLoadIcon/SpinningLoadIcon'
 import redcross from '../../icons/redcross.svg'
-import UploadImageToStorage from '../../services/UploadImageToStorage'
 import DeleteImageFromStorage from '../../services/DeleteImageFromStorage'
+import useForm from '../../services/lib/useForm'
+import UploadImageToStorage from '../../services/UploadImageToStorage'
+import UploadProductsToFirestore from '../../services/UploadProductsToFirestore'
+import Button from '../ui/Button/Button'
+import Modal from '../ui/Modal/Modal'
+import SpinningLogoIcon from '../ui/SpinningLoadIcon/SpinningLoadIcon'
+import TextAreaField from '../ui/TextAreaField/TextAreaField'
+import TextInputField from '../ui/TextInputField/TextInputField'
+import validateAddProduct from './AddProductFormValidation.js'
+
+AddProductForm.propTypes = {
+  user: PropTypes.object,
+}
 
 export default function AddProductForm({ user }) {
   const [values, inputErrors, handleChange, handleSubmit, setValues] = useForm(

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { DividerLine } from '../DividerLine/DividerLine'
+import { DividerLine } from '../ui/DividerLine/DividerLine'
 
 ProductListItem.propTypes = {
   product: PropTypes.objectOf(

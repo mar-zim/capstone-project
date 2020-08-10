@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import firebaseApp from '../../../firebase'
-import useForm from '../../../services/useForm'
-import Button from '../../Button/Button'
-import Modal from '../../Modal/Modal'
-import TextInputField from '../../TextInputField/TextInputField'
+import registerToFirebase from '../../services/auth/RegisterToFirebase'
+import useForm from '../../services/lib/useForm'
+import Button from '../ui/Button/Button'
+import Modal from '../ui/Modal/Modal'
+import TextInputField from '../ui/TextInputField/TextInputField'
 import validateRegister from './RegisterFormValidation'
 
 export default function RegisterForm() {
   const [modalVisible, setModalVisible] = useState(false)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
-    registerToFirebase,
+    registerUser,
     validateRegister
   )
   const [registerFeedback, setRegisterFeedback] = useState('')
@@ -23,21 +23,8 @@ export default function RegisterForm() {
     !values.passwordcheck ||
     Object.keys(inputErrors).length !== 0
 
-  async function registerToFirebase(values) {
-    try {
-      const newUser = await firebaseApp.createUserWithEmailAndPassword(
-        values.email,
-        values.password
-      )
-      await newUser.user.updateProfile({
-        displayName: values.name,
-      })
-      setModalVisible(true)
-    } catch (error) {
-      setRegisterFeedback(
-        'Hier ist etwas schief gelaufen, bitte versuche es noch einmal!'
-      )
-    }
+  function registerUser() {
+    registerToFirebase(values, setModalVisible, setRegisterFeedback)
   }
 
   return (

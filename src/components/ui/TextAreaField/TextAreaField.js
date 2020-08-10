@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
 import TextareaAutosize from 'react-textarea-autosize'
+import styled from 'styled-components'
 
 TextAreaField.propTypes = {
   placeholder: PropTypes.string,

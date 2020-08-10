@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DividerLine } from '../DividerLine/DividerLine'
+import { DividerLine } from '../ui/DividerLine/DividerLine'
 
 ProductDetail.propTypes = {
   description: PropTypes.string,

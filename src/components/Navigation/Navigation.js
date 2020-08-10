@@ -1,15 +1,18 @@
-import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import add from '../../icons/add.svg'
 import home from '../../icons/home.svg'
 import login from '../../icons/login.svg'
 import logout from '../../icons/logout.svg'
-import LoginContext from '../../services/LoginContext'
-import useLogout from '../../services/useLogout'
+import useLogout from '../../services/auth/useLogout'
 
-export default function Navigation() {
-  const { user } = useContext(LoginContext)
+Navigation.propTypes = {
+  user: PropTypes.object,
+}
+
+export default function Navigation({ user }) {
   const logoutUser = useLogout()
   return (
     <StyledNavigation>

@@ -9,14 +9,13 @@ import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import ProductListPage from './pages/ProductListPage'
-import LoginContext from './services/LoginContext'
-import useAuth from './services/useAuth'
+import LoginContext from './services/auth/LoginContext'
+import useAuth from './services/auth/useAuth'
 import useProductsFromFirestore from './services/useProductsFromFirestore'
 
 function App() {
   const [user, userIsLoading] = useAuth()
   const [products, productsAreLoading] = useProductsFromFirestore()
-
   return (
     <LoginContext.Provider value={{ user, userIsLoading, firebaseApp }}>
       <AppWrapper>
@@ -47,7 +46,7 @@ function App() {
             <Route component={NotFoundPage} />
           </Switch>
         </StyledMain>
-        <Navigation />
+        <Navigation user={user} />
       </AppWrapper>
     </LoginContext.Provider>
   )

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 useForm.propTypes = {
   submitFunction: PropTypes.func,

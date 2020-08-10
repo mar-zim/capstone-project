@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import loading from '../../icons/loading.svg'
+import loading from '../../../icons/loading.svg'
 
 export default function SpinningLogoIcon() {
   return (
