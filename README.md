@@ -20,7 +20,7 @@ Take a look at the app here [here](https://shhare.web.app/) or watch the preview
 
 ## App impressions
 
-<div align="center">
+<div align="center" border="1px solid #3A3839">
   <img src="./public/img/mariuccia_zimmermann_shhare.gif"
      height="410px"/>
      
@@ -45,7 +45,7 @@ Take a look at the app here [here](https://shhare.web.app/) or watch the preview
 - Storybook
 - Jest
 - React Testing Library
-<!-- - Cypress -->
+- Cypress
 
 ---
 
