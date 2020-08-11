@@ -8,6 +8,7 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
   type: PropTypes.string,
+  testid: PropTypes.string,
 }
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   backgroundColor,
   disabled,
   type,
+  testid,
 }) {
   return (
     <StyledButton
@@ -23,6 +25,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       type={type}
+      data-testid={testid}
     >
       {text}
     </StyledButton>
