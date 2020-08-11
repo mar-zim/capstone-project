@@ -16,12 +16,20 @@ export default function Navigation({ user }) {
   const logoutUser = useLogout()
   return (
     <StyledNavigation>
-      <StyledNavLink to="/add" activeClassName="active">
+      <StyledNavLink
+        to="/add"
+        activeClassName="active"
+        data-testid="add-products-link"
+      >
         <img src={add} alt="add" />
         <div>Verleihen</div>
       </StyledNavLink>
 
-      <StyledNavLink to="/home" activeClassName="active">
+      <StyledNavLink
+        to="/home"
+        activeClassName="active"
+        data-testid="home-link"
+      >
         <img src={home} alt="home" />
         <div>Home</div>
       </StyledNavLink>
@@ -31,12 +39,17 @@ export default function Navigation({ user }) {
           to="/login"
           activeClassName="active"
           onClick={logoutUser}
+          data-testid="logout-link"
         >
           <img src={logout} alt="logout" />
           <div>Logout</div>
         </StyledNavLink>
       ) : (
-        <StyledNavLink to="/login" activeClassName="active">
+        <StyledNavLink
+          to="/login"
+          activeClassName="active"
+          data-testid="login-link"
+        >
           <img src={login} alt="login" />
           <div>Login</div>
         </StyledNavLink>
