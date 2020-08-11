@@ -56,7 +56,7 @@ export default function SearchBar({ searchInput, setSearchTerm }) {
           placeholder="Wonach suchst du?"
           value={searchInput}
           onChange={handleSearch}
-          data-testid="textField"
+          data-testid="search-input"
         />
         <DeleteTextIcon
           onClick={clearSearchField}
