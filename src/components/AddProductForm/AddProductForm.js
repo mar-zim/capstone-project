@@ -80,7 +80,7 @@ export default function AddProductForm({ user }) {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         onCloseModalGoToPath="/home"
-        testid="addProductModal"
+        testid="add-product-modal"
       />
       <StyledForm onSubmit={handleSubmit} noValidate>
         <TextInputField
@@ -170,7 +170,7 @@ export default function AddProductForm({ user }) {
           <input
             type="file"
             onChange={uploadImageForPreview}
-            data-testid="imageUpload"
+            data-testid="image-upload"
             required
           />
           {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
@@ -179,7 +179,7 @@ export default function AddProductForm({ user }) {
         <Button
           text="Produkt Hinzufügen"
           disabled={disableButton}
-          testid="addProductButton"
+          testid="add-product-button"
         />
         <Button text="Cancel" onClick={cancelForm} type="button" />
       </StyledForm>

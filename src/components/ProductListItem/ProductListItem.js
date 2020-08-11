@@ -24,7 +24,7 @@ export default function ProductListItem({
         }}
       >
         <div>
-          <h4 data-testid="productHeader">{name}</h4>
+          <h4 data-testid="product-header">{name}</h4>
           <StyledProductInfo>
             <div>von {ownerName}</div>
             <div>aus {location}</div>

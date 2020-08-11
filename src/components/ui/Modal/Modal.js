@@ -40,7 +40,7 @@ export default function Modal({
                 <Button
                   onClick={closeModal}
                   text="OK"
-                  testid="modalButton"
+                  testid="modal-button"
                 ></Button>
               </StyledModal>
             </ModalOverlay>
