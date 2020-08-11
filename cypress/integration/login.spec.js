@@ -1,4 +1,4 @@
-describe('register a new user', () => {
+describe('login user', () => {
   it('should successfully login a registered user', () => {
     cy.visit('/login')
     cy.get('[data-testid=loginButton]').should('be.disabled')
