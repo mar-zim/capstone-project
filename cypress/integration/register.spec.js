@@ -1,6 +1,9 @@
 describe('register a new user', () => {
-  it('should successfully create a new user when all fields are filled in', () => {
+  beforeEach(() => {
     cy.visit('/login/register')
+  })
+
+  it('should successfully create a new user when all fields are filled in', () => {
     cy.get('[data-testid=registerButton]').should('be.disabled')
     cy.get('[name=name]').type('Cypress User')
     cy.get('[data-testid=registerButton]').should('be.disabled')
@@ -16,7 +19,6 @@ describe('register a new user', () => {
   })
 
   it('should show error message if email adress is already taken', () => {
-    cy.visit('/login/register')
     cy.get('[name=name]').type('Cypress User')
     cy.get('[name=email]').type('cypress@shhare.de')
     cy.get('[name=password]').type('password123')

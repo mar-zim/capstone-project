@@ -1,6 +1,9 @@
 describe('login user', () => {
-  it('should successfully login a registered user', () => {
+  beforeEach(() => {
     cy.visit('/login')
+  })
+
+  it('should successfully login a registered user', () => {
     cy.get('[data-testid=loginButton]').should('be.disabled')
     cy.get('[name=email]').type('cypresstester@testmail.de')
     cy.get('[name=password]').type('1234567')
@@ -9,7 +12,6 @@ describe('login user', () => {
   })
 
   it('should show error message if password is not correct', () => {
-    cy.visit('/login')
     cy.get('[name=email]').type('cypresstester@testmail.de')
     cy.get('[name=password]').type('81234567')
     cy.get('[data-testid=loginButton]').click()
