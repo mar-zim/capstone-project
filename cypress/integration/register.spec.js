@@ -24,8 +24,8 @@ describe('register a new user', () => {
     cy.get('[name=password]').type('password123')
     cy.get('[name=passwordcheck]').type('password123')
     cy.get('[data-testid=registerButton]').click()
-    cy.get('[data-testid=errorMessage]').contains(
-      'Email Adresse ist leider schon vergeben'
-    )
+    cy.get('[data-testid=errorMessage]')
+      .contains('Email Adresse ist leider schon vergeben')
+      .should('be.visible')
   })
 })

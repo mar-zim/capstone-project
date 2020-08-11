@@ -17,5 +17,8 @@ describe('add new product', () => {
     cy.get('[data-testid=addProductModal]').contains('Danke')
     cy.get('[data-testid=modalButton]').click()
     cy.location('pathname').should('include', 'home')
+    cy.get('[data-testid=productHeader]')
+      .contains('Test Produkt')
+      .should('be.visible')
   })
 })

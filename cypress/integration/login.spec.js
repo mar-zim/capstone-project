@@ -15,8 +15,8 @@ describe('login user', () => {
     cy.get('[name=email]').type('cypresstester@testmail.de')
     cy.get('[name=password]').type('81234567')
     cy.get('[data-testid=loginButton]').click()
-    cy.get('[data-testid=errorMessage]').contains(
-      'Deine E-Mail oder dein Passwort ist nicht korrekt'
-    )
+    cy.get('[data-testid=errorMessage]')
+      .contains('Deine E-Mail oder dein Passwort ist nicht korrekt')
+      .should('be.visible')
   })
 })
