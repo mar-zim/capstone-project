@@ -14,7 +14,9 @@ describe('add new product', () => {
     const testImage = 'flamingo.jpg'
     cy.get('[data-testid=image-upload]').attachFile(testImage)
     cy.get('[data-testid=add-product-button]').click()
-    cy.get('[data-testid=add-product-modal]').contains('Danke')
+    cy.get('[data-testid=add-product-modal]')
+      .contains('Danke')
+      .should('be.visible')
     cy.get('[data-testid=modal-button]').click()
     cy.location('pathname').should('include', 'home')
     cy.get('[data-testid=product-header]')
