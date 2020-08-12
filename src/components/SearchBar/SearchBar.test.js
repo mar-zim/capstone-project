@@ -11,6 +11,6 @@ describe('SearchBar-Test', () => {
 
   it('should show the text input field when visible', () => {
     render(<SearchBar isSearchBarVisible={true} />)
-    expect(screen.getByTestId('textField')).toBeInTheDocument()
+    expect(screen.getByTestId('search-input')).toBeInTheDocument()
   })
 })

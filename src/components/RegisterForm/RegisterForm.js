@@ -35,6 +35,7 @@ export default function RegisterForm() {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         onCloseModalGoToPath="/home"
+        testid="register-modal"
       />
       <h2>Registrierung</h2>
       <StyledForm onSubmit={handleSubmit} noValidate>
@@ -74,10 +75,16 @@ export default function RegisterForm() {
           required={true}
           error={inputErrors.passwordcheck}
         />
-        <Button text="registrieren" disabled={disableButton} />
+        <Button
+          text="registrieren"
+          disabled={disableButton}
+          testid="register-button"
+        />
       </StyledForm>
       {registerFeedback && (
-        <StyledRegisterFeedback>{registerFeedback}</StyledRegisterFeedback>
+        <StyledRegisterFeedback data-testid="error-message">
+          {registerFeedback}
+        </StyledRegisterFeedback>
       )}{' '}
       <div className="caption">
         Zurück zum <Link to="/login">Login</Link>.

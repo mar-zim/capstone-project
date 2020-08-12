@@ -45,10 +45,12 @@ export default function LoginForm() {
           required={true}
           error={inputErrors.password}
         />
-        <Button text="login" disabled={disableButton} />
+        <Button text="login" disabled={disableButton} testid="login-button" />
       </StyledForm>
       {loginFeedback && (
-        <StyledLoginFeedback>{loginFeedback}</StyledLoginFeedback>
+        <StyledLoginFeedback data-testid="error-message">
+          {loginFeedback}
+        </StyledLoginFeedback>
       )}
       <div className="caption">
         Noch keine Zugangsdaten? Dann hier{' '}

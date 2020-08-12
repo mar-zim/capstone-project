@@ -11,6 +11,7 @@ Modal.propTypes = {
   modalVisible: PropTypes.bool,
   setModalVisible: PropTypes.func,
   onCloseModalGoToPath: PropTypes.string,
+  testid: PropTypes.string,
 }
 
 export default function Modal({
@@ -19,6 +20,7 @@ export default function Modal({
   modalVisible,
   setModalVisible,
   onCloseModalGoToPath,
+  testid,
 }) {
   const history = useHistory()
   const transitions = useTransition(modalVisible, null, {
@@ -32,10 +34,14 @@ export default function Modal({
         ({ item, key, props: style }) =>
           item && (
             <ModalOverlay key={key} style={style}>
-              <StyledModal style={style}>
+              <StyledModal style={style} data-testid={testid}>
                 <h3>{header}</h3>
                 <div>{text}</div>
-                <Button onClick={closeModal} text="OK"></Button>
+                <Button
+                  onClick={closeModal}
+                  text="OK"
+                  testid="modal-button"
+                ></Button>
               </StyledModal>
             </ModalOverlay>
           )
