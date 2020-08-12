@@ -25,6 +25,20 @@ Take a look at the app here [here](https://shhare.web.app/) or watch the preview
      height="410px"/>
 </div>
 
+<div align="center">
+  <img src="./public/img/startscreen_iphone.jpg"
+     height="450px"/>
+  <img src="./public/img/productdetail_iphone.jpg"
+     height="450px"/>
+</div>
+
+<div align="center">
+  <img src="./public/img/addproduct_iphone.jpg"
+     height="450px"/>
+  <img src="./public/img/register_iphone.jpg"
+     height="450px"/>
+</div>
+
 ---
 
 ## Tech stack
